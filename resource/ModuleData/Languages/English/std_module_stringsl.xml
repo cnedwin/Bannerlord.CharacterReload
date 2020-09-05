@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<base xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" type="string">
+	<tags>
+		<tag language="english" />
+	</tags>
+
+	<strings>
+		<string id="misc_cr_loaderro" text="CharacterReload encountered an error and could not be loaded" />
+		<string id="misc_cr_onmapload" text="CharacterReload has been successfully loaded" />
+		<string id="bottom_ReAttHero" text="ResetAttributes" />
+		<string id="bottom_RefocusHero" text="ResetFocuspoint" />
+		<string id="bottom_RePerksHero" text="ResetPerk" />
+		<string id="misc_cr_DoRefleshAPoint" text="The hero's Attribute points have been reset" />
+		<string id="misc_cr_DoRefleshFPoint" text="The hero's Focus points have been reset" />
+		<string id="misc_cr_DoRefleshPerk" text="The hero's skill tree has been reset" />
+	</strings>
+</base>

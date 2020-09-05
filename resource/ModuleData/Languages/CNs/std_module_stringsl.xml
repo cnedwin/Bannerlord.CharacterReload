@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<base xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" type="string">
+  <tags>
+    <tag language="简体中文" />
+  </tags>
+  
+  <strings>
+    <string id="misc_cr_loaderro" text="角色重建遇到错误无法加载" />
+    <string id="misc_cr_onmapload" text="角色重建已成功加载" />    
+    <string id="bottom_ReAttHero" text="重置属性" />
+    <string id="bottom_RefocusHero" text="重置专精" />
+    <string id="bottom_RePerksHero" text="重选技能" />  
+	<string id="misc_cr_DoRefleshAPoint" text="英雄的属性点已经重置" />
+    <string id="misc_cr_DoRefleshFPoint" text="英雄的专精点已经重置" />  
+	<string id="misc_cr_DoRefleshPerk" text="英雄的技能树已经重置" />
+  </strings>
+</base>
