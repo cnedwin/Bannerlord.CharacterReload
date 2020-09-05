@@ -125,6 +125,11 @@
                                         <TextWidget WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent" Brush="Popup.Button.Text" Text="@ResetPerkText" />
                                       </Children>
                                     </ButtonWidget>
+							        <ButtonWidget DoNotPassEventsToChildren="true" WidthSizePolicy="Fixed" SuggestedWidth="200" HeightSizePolicy="Fixed" SuggestedHeight="64" Brush="Popup.Cancel.Button" Command.Click="DoRefleshTraits" >
+								     <Children>
+									  <TextWidget WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent" Brush="Popup.Button.Text" Text="@ResetTraitsText" />
+								      </Children>
+							      </ButtonWidget>
 
 						</Children>
                         </ListPanel>

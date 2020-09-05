@@ -6,12 +6,16 @@
   
   <strings>
     <string id="misc_cr_loaderro" text="角色重建遇到错误无法加载" />
-    <string id="misc_cr_onmapload" text="角色重建已成功加载" />    
+    <string id="misc_cr_onmapload" text="角色重建已成功加载" />
+	<string id="misc_cr_DoRefleshAPoint" text="英雄的属性点已经重置" />
+	<string id="misc_cr_DoRefleshFPoint" text="英雄的专精点已经重置" />
+	<string id="misc_cr_DoRefleshPerk" text="英雄的技能树已经重置" />
+	<string id="misc_cr_DoRefleshTraits" text="英雄的特质已提升到最高值" />
     <string id="bottom_ReAttHero" text="重置属性" />
     <string id="bottom_RefocusHero" text="重置专精" />
-    <string id="bottom_RePerksHero" text="重选技能" />  
-	<string id="misc_cr_DoRefleshAPoint" text="英雄的属性点已经重置" />
-    <string id="misc_cr_DoRefleshFPoint" text="英雄的专精点已经重置" />  
-	<string id="misc_cr_DoRefleshPerk" text="英雄的技能树已经重置" />
+    <string id="bottom_RePerksHero" text="重选技能" />
+	<string id="bottom_ReTraitsHero" text="提升特质" />
+    <string id="tips_cr_DoRefleshPerks" text="重置英雄的技能后，您必须保存并重新加载存档才能生效！" />
+	<string id="tips_cr_DoRefleshTrait" text="升级英雄的特质后，您需要关闭氏族屏幕并重新打开以生效！" />
   </strings>
 </base>

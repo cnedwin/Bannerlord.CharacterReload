@@ -68,9 +68,19 @@ namespace CharacterReload.View
         public void DoRefleshPerks()
         {
             TextObject textObject = new TextObject("{=misc_cr_DoRefleshPerk}The hero's skill tree has been reset", null);
-            //  InformationManager.DisplayMessage(new InformationMessage(textObject.ToString()));
             this.ShowComfirDialog(textObject, () => RePerksHero(GetHero()));
-           
+            InformationManager.DisplayMessage(new InformationMessage(new TextObject("{=tips_cr_DoRefleshPerks}After reset the hero’s skill perk, you must save and reload the saves to take effect!", null).ToString()));
+
+
+        }
+
+        public void DoRefleshTraits()
+        {
+            TextObject textObject = new TextObject("{=misc_cr_DoRefleshTraits}The hero's traits have been improved", null);
+            this.ShowComfirDialog(textObject, () => ReTraits(GetHero()));
+            InformationManager.DisplayMessage(new InformationMessage(new TextObject("{=tips_cr_DoRefleshTrait}After upgrading the hero’s traits, you need to close the clan screen and reopen it to take effect!", null).ToString()));
+
+
         }
 
         private void ShowComfirDialog(TextObject tip, Action action)
@@ -106,8 +116,17 @@ namespace CharacterReload.View
             }
         }
 
+        [DataSourceProperty]
+        public string ResetTraitsText
+        {
+            get
+            {
+                return new TextObject("{=bottom_ReTraitsHero}ImproveTraits", null).ToString();
+            }
+        }
 
-        private  void RePerksHero(Hero hero)
+
+        private void RePerksHero(Hero hero)
         {
             foreach (SkillObject skill in DefaultSkills.GetAllSkills())
             {
@@ -116,7 +135,7 @@ namespace CharacterReload.View
             hero.ClearPerks();
         }
 
-        public  void RefocusHero(Hero hero)
+        public void RefocusHero(Hero hero)
         {
             int num = 0;
             int num2 = 0;
@@ -134,7 +153,7 @@ namespace CharacterReload.View
         }
 
 
-        public  void ReAttHero(Hero hero)
+        public void ReAttHero(Hero hero)
         {
             int num = 0;
             for (CharacterAttributesEnum characterAttributesEnum = CharacterAttributesEnum.Vigor; characterAttributesEnum < CharacterAttributesEnum.NumCharacterAttributes; characterAttributesEnum++)
@@ -144,6 +163,18 @@ namespace CharacterReload.View
                 hero.SetAttributeValue(characterAttributesEnum, 0);
             }
             hero.HeroDeveloper.UnspentAttributePoints += MBMath.ClampInt(num, 0, 999);
+        }
+
+        public void ReTraits(Hero hero)
+        {
+            int num = 2;
+            hero.ClearTraits();
+            hero.SetTraitLevel(DefaultTraits.Honor, num);
+            hero.SetTraitLevel(DefaultTraits.Valor, num);
+            hero.SetTraitLevel(DefaultTraits.Mercy, num);
+            hero.SetTraitLevel(DefaultTraits.Generosity, num);
+            hero.SetTraitLevel(DefaultTraits.Calculating, num);
+    
         }
 
     }
