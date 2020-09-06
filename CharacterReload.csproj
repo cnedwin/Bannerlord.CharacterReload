@@ -72,6 +72,7 @@
   <ItemGroup>
     <Compile Include="MBBindingLordItemListInterceptor.cs" />
     <Compile Include="path\ClanMemberPath.cs" />
+    <Compile Include="path\BowAndCross.cs" />
     <Compile Include="path\LocationPath.cs" />
     <Compile Include="SubModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
