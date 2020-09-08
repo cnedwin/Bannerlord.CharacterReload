@@ -110,26 +110,31 @@
 						<ListPanel WidthSizePolicy="CoverChildren" HeightSizePolicy="CoverChildren" HorizontalAlignment="Center" VerticalAlignment="Bottom" MarginBottom="150">
                           <Children>
                         
-						           <ButtonWidget DoNotPassEventsToChildren="true" WidthSizePolicy="Fixed" SuggestedWidth="200"  HeightSizePolicy="Fixed" SuggestedHeight="64"  Brush="Popup.Cancel.Button" Command.Click="DoRefleshAPoint">
+						           <ButtonWidget DoNotPassEventsToChildren="true" WidthSizePolicy="Fixed" SuggestedWidth="180"  HeightSizePolicy="Fixed" SuggestedHeight="64"  Brush="Popup.Cancel.Button" Command.Click="DoRefleshAPoint">
                                       <Children>
                                         <TextWidget WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent" Brush="Popup.Button.Text" Text="@ResetAttributeText" />
                                       </Children>
 									</ButtonWidget>
-                                    <ButtonWidget DoNotPassEventsToChildren="true" WidthSizePolicy="Fixed" SuggestedWidth="200" HeightSizePolicy="Fixed" SuggestedHeight="64"  Brush="Popup.Cancel.Button" Command.Click="DoRefleshFPoint" >
+                                    <ButtonWidget DoNotPassEventsToChildren="true" WidthSizePolicy="Fixed" SuggestedWidth="180" HeightSizePolicy="Fixed" SuggestedHeight="64"  Brush="Popup.Cancel.Button" Command.Click="DoRefleshFPoint" >
                                       <Children>
                                         <TextWidget WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent" Brush="Popup.Button.Text" Text="@ResetFocusText" />
                                       </Children>
                                     </ButtonWidget>
-									<ButtonWidget DoNotPassEventsToChildren="true" WidthSizePolicy="Fixed" SuggestedWidth="200" HeightSizePolicy="Fixed" SuggestedHeight="64" Brush="Popup.Cancel.Button" Command.Click="DoRefleshPerks" >
+									<ButtonWidget DoNotPassEventsToChildren="true" WidthSizePolicy="Fixed" SuggestedWidth="180" HeightSizePolicy="Fixed" SuggestedHeight="64" Brush="Popup.Cancel.Button" Command.Click="DoRefleshPerks" >
                                       <Children>
                                         <TextWidget WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent" Brush="Popup.Button.Text" Text="@ResetPerkText" />
                                       </Children>
                                     </ButtonWidget>
-							        <ButtonWidget DoNotPassEventsToChildren="true" WidthSizePolicy="Fixed" SuggestedWidth="200" HeightSizePolicy="Fixed" SuggestedHeight="64" Brush="Popup.Cancel.Button" Command.Click="DoRefleshTraits" >
+							        <ButtonWidget DoNotPassEventsToChildren="true" WidthSizePolicy="Fixed" SuggestedWidth="180" HeightSizePolicy="Fixed" SuggestedHeight="64" Brush="Popup.Cancel.Button" Command.Click="DoRefleshTraits" >
 								     <Children>
 									  <TextWidget WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent" Brush="Popup.Button.Text" Text="@ResetTraitsText" />
 								      </Children>
 							      </ButtonWidget>
+							      <ButtonWidget DoNotPassEventsToChildren="true" WidthSizePolicy="Fixed" SuggestedWidth="180" HeightSizePolicy="Fixed" SuggestedHeight="64" Brush="Popup.Cancel.Button" Command.Click="DoRefleshLevel" >
+								      <Children>
+									  <TextWidget WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent" Brush="Popup.Button.Text" Text="@ResetLevelText" />
+							    	  </Children>
+						    	  </ButtonWidget>
 
 						</Children>
                         </ListPanel>

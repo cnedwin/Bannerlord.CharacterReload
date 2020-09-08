@@ -83,6 +83,15 @@ namespace CharacterReload.View
 
         }
 
+        public void DoRefleshLevel()
+        {
+            TextObject textObject = new TextObject("{=misc_cr_DoRefleshLevel}The hero's level have been reset", null);
+            this.ShowComfirDialog(textObject, () => ReLevel(GetHero()));
+            InformationManager.DisplayMessage(new InformationMessage(new TextObject("{=tips_cr_DoRefleshLevel}After reset the hero’s Level, you need to close the clan screen and reopen it to take effect!", null).ToString()));
+
+
+        }
+
         private void ShowComfirDialog(TextObject tip, Action action)
         {
             InformationManager.ShowInquiry(new InquiryData(tip.ToString(), string.Empty, true, true, GameTexts.FindText("str_done", null).ToString(), GameTexts.FindText("str_cancel", null).ToString(), action, () => { }), false);
@@ -122,6 +131,15 @@ namespace CharacterReload.View
             get
             {
                 return new TextObject("{=bottom_ReTraitsHero}ImproveTraits", null).ToString();
+            }
+        }
+
+        [DataSourceProperty]
+        public string ResetLevelText
+        {
+            get
+            {
+                return new TextObject("{=bottom_ReLevelHero}ResetLevel", null).ToString();
             }
         }
 
@@ -174,7 +192,15 @@ namespace CharacterReload.View
             hero.SetTraitLevel(DefaultTraits.Mercy, num);
             hero.SetTraitLevel(DefaultTraits.Generosity, num);
             hero.SetTraitLevel(DefaultTraits.Calculating, num);
-    
+            }
+
+        public void ReLevel(Hero hero)
+        {
+            int num = 1;
+            hero.HeroDeveloper.ClearDeveloper();
+            hero.ClearSkills();
+            hero.HeroDeveloper.SetInitialLevel(num + 1) ;
+            hero.Initialize();
         }
 
     }

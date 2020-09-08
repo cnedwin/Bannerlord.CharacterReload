@@ -77,7 +77,6 @@
     <Compile Include="SubModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="vm\MyClanLordItemVM.cs" />
-    <Content Include="Readme.txt" />
     <Content Include="resource\GUI\Prefabs\Clan\ClanMembers.xml" />
     <Content Include="resource\ModuleData\Languages\CNs\std_module_stringsl.xml" />
     <Content Include="resource\ModuleData\Languages\English\std_module_stringsl.xml" />

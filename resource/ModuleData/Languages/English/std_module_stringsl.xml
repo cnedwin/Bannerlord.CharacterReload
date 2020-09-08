@@ -11,11 +11,14 @@
 		<string id="misc_cr_DoRefleshFPoint" text="The hero's Focus points have been reset" />
 		<string id="misc_cr_DoRefleshPerk" text="The hero's skill tree has been reset" />
 		<string id="misc_cr_DoRefleshTraits" text="The hero's traits have been upgrade" />
+		<string id="misc_cr_DoRefleshLevel" text="The hero's level have been reset" />
 		<string id="bottom_ReAttHero" text="ResetAttributes" />
 		<string id="bottom_RefocusHero" text="ResetFocuspoint" />
 		<string id="bottom_RePerksHero" text="ResetPerk" />
 		<string id="bottom_ReTraitsHero" text="Improve traits" />
+		<string id="bottom_ReLevelHero" text="ResetLevel" />
 		<string id="tips_cr_DoRefleshPerks" text="After reset the hero’s skill perk, you must save and reload the saves to take effect!" />
 		<string id="tips_cr_DoRefleshTrait" text="After upgrading the hero’s traits, you need to close the clan screen and reopen it to take effect!" />
+		<string id="tips_cr_DoRefleshTrait" text="After reset the hero’s Level, you need to close the clan screen and reopen it to take effect!" />
 	</strings>
 </base>

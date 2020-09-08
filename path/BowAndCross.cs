@@ -15,64 +15,60 @@ namespace BowAndCross.patch
     {
         public static void Postfix(ref SPInventoryVM __instance)
         {
-            bool flag = Tips.PlayerPartyHasPerk(DefaultPerks.Roguery.ConcealedBlade);
-            if (flag)
+            if (Tips.PlayerPartyHasPerk(DefaultPerks.Roguery.ConcealedBlade))
             {
                 for (int i = 0; i < __instance.LeftItemListVM.Count; i++)
                 {
-                    bool flag2 = __instance.LeftItemListVM.ElementAt(i).ItemRosterElement.EquipmentElement.Item.ItemType == 2;
-                    if (flag2)
+                    if (__instance.LeftItemListVM.ElementAt(i).ItemRosterElement.EquipmentElement.Item.ItemType == ItemObject.ItemTypeEnum.OneHandedWeapon)
                     {
                         __instance.LeftItemListVM.ElementAt(i).IsCivilianItem = true;
                     }
                 }
                 for (int j = 0; j < __instance.RightItemListVM.Count; j++)
                 {
-                    bool flag3 = __instance.RightItemListVM.ElementAt(j).ItemRosterElement.EquipmentElement.Item.ItemType == 2;
-                    if (flag3)
+                    if (__instance.RightItemListVM.ElementAt(j).ItemRosterElement.EquipmentElement.Item.ItemType == ItemObject.ItemTypeEnum.OneHandedWeapon)
                     {
                         __instance.RightItemListVM.ElementAt(j).IsCivilianItem = true;
                     }
                 }
             }
         }
-
         public InitializeInventoryCorrection()
         {
         }
     }
 
+
+
     [HarmonyPatch(typeof(SPInventoryVM), "AfterTransfer")]
     internal class InitializeInventoryTransferCorrection
     {
-        public static void Postfix(ref SPInventoryVM __instance, InventoryLogic inventoryLogic, List<TransferCommandResult> results)
+    public static void Postfix(ref SPInventoryVM __instance, InventoryLogic inventoryLogic, List<TransferCommandResult> results)
+    {
+        if (Tips.PlayerPartyHasPerk(DefaultPerks.Roguery.ConcealedBlade))
         {
-            bool flag = Tips.PlayerPartyHasPerk(DefaultPerks.Roguery.ConcealedBlade);
-            if (flag)
+            for (int i = 0; i < __instance.LeftItemListVM.Count; i++)
             {
-                for (int i = 0; i < __instance.LeftItemListVM.Count; i++)
+                if (__instance.LeftItemListVM.ElementAt(i).ItemRosterElement.EquipmentElement.Item.ItemType == ItemObject.ItemTypeEnum.OneHandedWeapon)
                 {
-                    bool flag2 = __instance.LeftItemListVM.ElementAt(i).ItemRosterElement.EquipmentElement.Item.ItemType == 2;
-                    if (flag2)
-                    {
-                        __instance.LeftItemListVM.ElementAt(i).IsCivilianItem = true;
-                    }
+                    __instance.LeftItemListVM.ElementAt(i).IsCivilianItem = true;
                 }
-                for (int j = 0; j < __instance.RightItemListVM.Count; j++)
+            }
+            for (int j = 0; j < __instance.RightItemListVM.Count; j++)
+            {
+                if (__instance.RightItemListVM.ElementAt(j).ItemRosterElement.EquipmentElement.Item.ItemType == ItemObject.ItemTypeEnum.OneHandedWeapon)
                 {
-                    bool flag3 = __instance.RightItemListVM.ElementAt(j).ItemRosterElement.EquipmentElement.Item.ItemType == 2;
-                    if (flag3)
-                    {
-                        __instance.RightItemListVM.ElementAt(j).IsCivilianItem = true;
-                    }
+                    __instance.RightItemListVM.ElementAt(j).IsCivilianItem = true;
                 }
             }
         }
-
-        public InitializeInventoryTransferCorrection()
-        {
-        }
     }
+    public InitializeInventoryTransferCorrection()
+    {
+    }
+    }
+
+
 
     [HarmonyPatch(typeof(Agent), "WeaponEquipped")]
     internal class PerkCorrections
