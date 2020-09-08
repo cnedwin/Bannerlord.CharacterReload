@@ -5,7 +5,7 @@ using System.Reflection;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.Core;
 
-namespace SueMoreSpouses.patch
+namespace MyLocation.patch
 {
     [HarmonyPatch(typeof(Location), "DeserializeDelegate")]
     class LocatonDeserializeDelegatePath
