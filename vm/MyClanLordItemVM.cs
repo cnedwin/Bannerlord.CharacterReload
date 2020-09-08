@@ -199,10 +199,24 @@ namespace CharacterReload.View
             int num = 1;
             hero.HeroDeveloper.ClearDeveloper();
             hero.ClearSkills();
-            hero.HeroDeveloper.SetInitialLevel(num + 1) ;
+            this.AddSkillLevel(hero, DefaultSkills.Bow, (int)60);
+            this.AddSkillLevel(hero, DefaultSkills.Riding, (int)60);
+            this.AddSkillLevel(hero, DefaultSkills.Trade, (int)60);
+            this.AddSkillLevel(hero, DefaultSkills.Steward, (int)60);
             hero.Initialize();
         }
 
+        private void AddSkillLevel(Hero hero, SkillObject defaultSkills, int value)
+        {
+            hero.HeroDeveloper.SetInitialSkillLevel(defaultSkills, value);
+            hero.HeroDeveloper.InitializeSkillXp(defaultSkills);
+            bool flag = hero.HeroDeveloper.GetSkillXpProgress(defaultSkills) < 0;
+            bool flag2 = flag;
+            if (flag2)
+            {
+                hero.HeroDeveloper.AddSkillXp(defaultSkills, (float)(hero.HeroDeveloper.GetSkillXpProgress(defaultSkills) * -1 + 1), false, false);
+            }
+        }
     }
 
  
