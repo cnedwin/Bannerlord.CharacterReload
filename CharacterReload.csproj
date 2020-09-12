@@ -67,23 +67,38 @@
       <Private>False</Private>
     </Reference>
     <Reference Include="System.Runtime.InteropServices.RuntimeInformation" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.XmlDocument, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Xml.XmlDocument.4.3.0\lib\net46\System.Xml.XmlDocument.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
   </ItemGroup>
   <!-- Files & Classes -->
   <ItemGroup>
+    <Compile Include="EncyclopediaPageChangedHandle.cs" />
     <Compile Include="MBBindingLordItemListInterceptor.cs" />
+    <Compile Include="path\CharacterObjectPath.cs" />
     <Compile Include="path\ClanMemberPath.cs" />
     <Compile Include="path\BowAndCross.cs" />
     <Compile Include="path\LocationPath.cs" />
+    <Compile Include="path\ModuleProcessSkinsXmlPatch.cs" />
     <Compile Include="SubModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="utils\ReflectUtils.cs" />
+    <Compile Include="vm\HeroBuilderVM.cs" />
     <Compile Include="vm\MyClanLordItemVM.cs" />
     <Content Include="resource\GUI\Prefabs\Clan\ClanMembers.xml" />
+    <Content Include="resource\GUI\Prefabs\HeroEditor.xml" />
     <Content Include="resource\ModuleData\Languages\CNs\std_module_stringsl.xml" />
     <Content Include="resource\ModuleData\Languages\English\std_module_stringsl.xml" />
+    <Content Include="resource\ModuleData\skins.xml" />
+    <Content Include="resource\ModuleData\xml_attributes_to_be_identified.txt" />
     <Content Include="resource\SubModule.xml" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="resource\ModuleData\project.mbproj" />
   </ItemGroup>
   <ItemGroup />
   <!-- Post-Build -->
