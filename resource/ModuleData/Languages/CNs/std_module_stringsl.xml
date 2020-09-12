@@ -21,29 +21,29 @@
 	<string id="tips_cr_DoRefleshTrait" text="升级英雄的特质后，您需要关闭氏族屏幕并重新打开以生效！" />
 	<string id="tips_cr_DoRefleshLevel" text="重置英雄的等级后，您需要关闭氏族屏幕并重新打开以生效！" />
 
-	<string id="str_facegen_skin.TorsoBelly" text="腹部" />
-	<string id="str_facegen_skin.TorsoHips" text="臀部" />
-	<string id="str_facegen_skin.TorsoButt" text="髋关节" />
-	<string id="str_facegen_skin.Thigh" text="大腿" />
-	<string id="str_facegen_skin.Calf" text="小腿" />
-	<string id="str_facegen_skin.Foot" text="脚掌" />
-	<string id="str_facegen_skin.TorsoX" text="前锯肌宽度" />
-	<string id="str_facegen_skin.TorsoY" text="腹直肌深度" />
-	<string id="str_facegen_skin.TorsoZ" text="前锯肌高度" />
-	<string id="str_facegen_skin.ThoraxX" text="胸大肌宽度" />
-	<string id="str_facegen_skin.ThoraxY" text="胸大肌深度" />
-	<string id="str_facegen_skin.ThoraxZ" text="胸大肌高度" />
-	<string id="str_facegen_skin.Neck" text="颈部" />
-	<string id="str_facegen_skin.HeadDepth" text="头部深度" />
-	<string id="str_facegen_skin.HeadWidth" text="头部宽度" />
-	<string id="str_facegen_skin.HeadHeight" text="头部高度" />
-	<string id="str_facegen_skin.Shoulders" text="肩部" />
-	<string id="str_facegen_skin.UpperarmSize" text="二头肌" />
-	<string id="str_facegen_skin.ForearmSize" text="前臂" />
-	<string id="str_facegen_skin.HandSize" text="手掌" />
-	<string id="str_facegen_skin.weight" text="肌肉张力" />
-	<string id="str_facegen_skin.build" text="忽略" />
-	<string id="str_facegen_skin.Weight2" text="体重" />
-	<string id="str_facegen_skin.Build2" text="躯干肌肉" />
+	<string id="str_facegen_skin_TorsoBelly" text="腹部" />
+	<string id="str_facegen_skin_TorsoHips" text="臀部" />
+	<string id="str_facegen_skin_TorsoButt" text="髋关节" />
+	<string id="str_facegen_skin_Thigh" text="大腿" />
+	<string id="str_facegen_skin_Calf" text="小腿" />
+	<string id="str_facegen_skin_Foot" text="脚掌" />
+	<string id="str_facegen_skin_TorsoX" text="前锯肌宽度" />
+	<string id="str_facegen_skin_TorsoY" text="腹直肌深度" />
+	<string id="str_facegen_skin_TorsoZ" text="前锯肌高度" />
+	<string id="str_facegen_skin_ThoraxX" text="胸大肌宽度" />
+	<string id="str_facegen_skin_ThoraxY" text="胸大肌深度" />
+	<string id="str_facegen_skin_ThoraxZ" text="胸大肌高度" />
+	<string id="str_facegen_skin_Neck" text="颈部" />
+	<string id="str_facegen_skin_HeadDepth" text="头部深度" />
+	<string id="str_facegen_skin_HeadWidth" text="头部宽度" />
+	<string id="str_facegen_skin_HeadHeight" text="头部高度" />
+	<string id="str_facegen_skin_Shoulders" text="肩部" />
+	<string id="str_facegen_skin_UpperarmSize" text="二头肌" />
+	<string id="str_facegen_skin_ForearmSize" text="前臂" />
+	<string id="str_facegen_skin_HandSize" text="手掌" />
+	<string id="str_facegen_skin_weight" text="肌肉张力" />
+	<string id="str_facegen_skin_build" text="忽略" />
+	<string id="str_facegen_skin_Weight2" text="体重" />
+	<string id="str_facegen_skin_Build2" text="躯干肌肉" />
   </strings>
 </base>

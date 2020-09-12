@@ -2,30 +2,30 @@
 <base xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" type="string">
   <strings>
       <!-- Begin FaceGen Entries -->
-    <string id="str_facegen_skin.TorsoBelly" text="{str_facegen_skin.TorsoBelly}Belly Girth" />
-    <string id="str_facegen_skin.TorsoHips" text="{str_facegen_skin.TorsoHips}Hip Size" />
-    <string id="str_facegen_skin.TorsoButt" text="{str_facegen_skin.TorsoButt}Butt Size" />
-    <string id="str_facegen_skin.Thigh" text="{str_facegen_skin.Thigh}Thigh Size" />
-    <string id="str_facegen_skin.Calf" text="{str_facegen_skin.Calf}Calf Size" />
-    <string id="str_facegen_skin.Foot" text="{str_facegen_skin.Foot}Foot Size" />
-    <string id="str_facegen_skin.TorsoX" text="{str_facegen_skin.TorsoX}Torso Width" />
-    <string id="str_facegen_skin.TorsoY" text="{str_facegen_skin.TorsoY}Torso Depth" />
-    <string id="str_facegen_skin.TorsoZ" text="{str_facegen_skin.TorsoZ}Torso Height" />
-    <string id="str_facegen_skin.ThoraxX" text="{str_facegen_skin.ThoraxX}Chest Width" />
-    <string id="str_facegen_skin.ThoraxY" text="{str_facegen_skin.ThoraxY}Chest Depth" />
-    <string id="str_facegen_skin.ThoraxZ" text="{str_facegen_skin.ThoraxZ}Chest Height" />
-    <string id="str_facegen_skin.Neck" text="{str_facegen_skin.Neck}Neck Size" />
-    <string id="str_facegen_skin.HeadDepth" text="{str_facegen_skin.HeadDepth}Head Depth" />
-    <string id="str_facegen_skin.HeadWidth" text="{str_facegen_skin.HeadWidth}Head Width" />
-    <string id="str_facegen_skin.HeadHeight" text="{str_facegen_skin.HeadHeight}Head Height" />
-    <string id="str_facegen_skin.Shoulders" text="{str_facegen_skin.Shoulders}Shoulder Size" />
-    <string id="str_facegen_skin.UpperarmSize" text="{str_facegen_skin.UpperarmSize}Bicep Size" />
-    <string id="str_facegen_skin.ForearmSize" text="{str_facegen_skin.ForearmSize}Forearm Size" />
-    <string id="str_facegen_skin.HandSize" text="{str_facegen_skin.HandSize}Hand Size" />
-    <string id="str_facegen_skin.weight" text="{str_facegen_skin.weight}Muscle Tone" />
-    <string id="str_facegen_skin.build" text="{str_facegen_skin.build}Ignore this" />
-    <string id="str_facegen_skin.Weight2" text="{str_facegen_skin.Weight2}Body Weight" />
-    <string id="str_facegen_skin.Build2" text="{str_facegen_skin.Build2}Body Muscle" />
+    <string id="str_facegen_skin.TorsoBelly" text="{=str_facegen_skin_TorsoBelly}Belly Girth" />
+    <string id="str_facegen_skin.TorsoHips" text="{=str_facegen_skin_TorsoHips}Hip Size" />
+    <string id="str_facegen_skin.TorsoButt" text="{=str_facegen_skin_TorsoButt}Butt Size" />
+    <string id="str_facegen_skin.Thigh" text="{=str_facegen_skin_Thigh}Thigh Size" />
+    <string id="str_facegen_skin.Calf" text="{=str_facegen_skin_Calf}Calf Size" />
+    <string id="str_facegen_skin.Foot" text="{=str_facegen_skin_Foot}Foot Size" />
+    <string id="str_facegen_skin.TorsoX" text="{=str_facegen_skin_TorsoX}Torso Width" />
+    <string id="str_facegen_skin.TorsoY" text="{=str_facegen_skin_TorsoY}Torso Depth" />
+    <string id="str_facegen_skin.TorsoZ" text="{=str_facegen_skin_TorsoZ}Torso Height" />
+    <string id="str_facegen_skin.ThoraxX" text="{=str_facegen_skin_ThoraxX}Chest Width" />
+    <string id="str_facegen_skin.ThoraxY" text="{=str_facegen_skin_ThoraxY}Chest Depth" />
+    <string id="str_facegen_skin.ThoraxZ" text="{=str_facegen_skin_ThoraxZ}Chest Height" />
+    <string id="str_facegen_skin.Neck" text="{=str_facegen_skin_Neck}Neck Size" />
+    <string id="str_facegen_skin.HeadDepth" text="{=str_facegen_skin_HeadDepth}Head Depth" />
+    <string id="str_facegen_skin.HeadWidth" text="{=str_facegen_skin_HeadWidth}Head Width" />
+    <string id="str_facegen_skin.HeadHeight" text="{=str_facegen_skin_HeadHeight}Head Height" />
+    <string id="str_facegen_skin.Shoulders" text="{=str_facegen_skin_Shoulders}Shoulder Size" />
+    <string id="str_facegen_skin.UpperarmSize" text="{=str_facegen_skin_UpperarmSize}Bicep Size" />
+    <string id="str_facegen_skin.ForearmSize" text="{=str_facegen_skin_ForearmSize}Forearm Size" />
+    <string id="str_facegen_skin.HandSize" text="{=str_facegen_skin_HandSize}Hand Size" />
+    <string id="str_facegen_skin.weight" text="{=str_facegen_skin_weight}Muscle Tone" />
+    <string id="str_facegen_skin.build" text="{=str_facegen_skin_build}Ignore this" />
+    <string id="str_facegen_skin.Weight2" text="{=str_facegen_skin_Weight2}Body Weight" />
+    <string id="str_facegen_skin.Build2" text="{=str_facegen_skin_Build2}Body Muscle" />
     <!-- End FaceGen Entries -->
   </strings>
 </base>
