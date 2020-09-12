@@ -93,6 +93,7 @@
     <Content Include="resource\ModuleData\Languages\CNs\std_module_stringsl.xml" />
     <Content Include="resource\ModuleData\Languages\English\std_module_stringsl.xml" />
     <Content Include="resource\ModuleData\skins.xml" />
+    <Content Include="resource\ModuleData\strings.xml" />
     <Content Include="resource\ModuleData\xml_attributes_to_be_identified.txt" />
     <Content Include="resource\SubModule.xml" />
   </ItemGroup>
