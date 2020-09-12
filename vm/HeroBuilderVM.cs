@@ -123,7 +123,25 @@ namespace CharacterCreation.Models
             TaleWorlds.Core.FaceGen.ShowDebugValues = true;
             ScreenManager.PushScreen(ViewCreator.CreateMBFaceGeneratorScreen(hero.CharacterObject, false));
         }
-        
+
+        [DataSourceProperty]
+        public string EditAppearanceText
+        {
+            get
+            {
+                return new TextObject("{=cr_edit_appearance}Edit Appearance", null).ToString();
+            }
+        }
+
+        [DataSourceProperty]
+        public string ChangenNameText
+        {
+            get
+            {
+                return new TextObject("{=cr_change_name}Change Name", null).ToString();
+            }
+        }
+
         //Game.Current.PlayerTroop -- ingore me
         //private HeroBuilderModel heroModel;
         private Hero selectedHero;

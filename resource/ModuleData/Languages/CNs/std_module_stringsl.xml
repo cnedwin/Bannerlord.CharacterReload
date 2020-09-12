@@ -21,6 +21,8 @@
 	<string id="tips_cr_DoRefleshTrait" text="升级英雄的特质后，您需要关闭氏族屏幕并重新打开以生效！" />
 	<string id="tips_cr_DoRefleshLevel" text="重置英雄的等级后，您需要关闭氏族屏幕并重新打开以生效！" />
 
+	<string id="cr_edit_appearance" text="编辑外貌" />
+	<string id="cr_change_name" text="编辑姓名" />
 	<string id="str_facegen_skin_TorsoBelly" text="腹部" />
 	<string id="str_facegen_skin_TorsoHips" text="臀部" />
 	<string id="str_facegen_skin_TorsoButt" text="髋关节" />

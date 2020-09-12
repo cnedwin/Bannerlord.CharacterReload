@@ -21,6 +21,8 @@
 		<string id="tips_cr_DoRefleshTrait" text="After upgrading the hero’s traits, you need to close the clan screen and reopen it to take effect!" />
 		<string id="tips_cr_DoRefleshTrait" text="After reset the hero’s Level, you need to close the clan screen and reopen it to take effect!" />
 
+		<string id="cr_edit_appearance" text="Edit Appearance" />
+		<string id="cr_change_name" text="Change Name" />
 		<string id="str_facegen_skin_TorsoBelly" text="Belly Girth" />
 		<string id="str_facegen_skin_TorsoHips" text="Hip Size" />
 		<string id="str_facegen_skin_TorsoButt" text="Butt Size" />

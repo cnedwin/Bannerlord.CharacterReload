@@ -19,32 +19,13 @@ namespace MyLocation.patch
             }
             else
             {
-                // InformationManager.DisplayMessage(new InformationMessage(text));
+                //  InformationManager.DisplayMessage( new InformationMessage("DeserializeDelegate" +  text));
             }
 
             return true;
 
         }
     }
-
-    [HarmonyPatch(typeof(Location), "GetLocationCharacter", new Type[] { typeof(IAgentOriginBase) })]
-    class LocatonGetLocationCharacterPath
-    {
-
-         public static bool Prefix(ref LocationCharacter __result, ref Location __instance)
-        {
-           // InformationManager.DisplayMessage(new InformationMessage(__instance.ToString()));
-            Traverse traverse = HarmonyLib.Traverse.Create(__instance);
-            List<LocationCharacter> agentOrigin = traverse.Field<List<LocationCharacter>>("_characterList").Value;
-            if (null == agentOrigin)
-            {
-                __result = null;
-                return false;
-            }
-            return true;
-        }
-    }
-
 
     [HarmonyPatch(typeof(Location), "CanAIExit")]
     class LocatonCanAIExitPath
@@ -52,47 +33,127 @@ namespace MyLocation.patch
 
         public static bool Prefix(ref Location __instance, LocationCharacter character)
         {
-            if (null == character || null == __instance || null == __instance.Name)
+            if (null == __instance || null == __instance.Name)
             {
-                if (null != __instance && null != __instance.Name)
+                if (null != __instance)
                 {
-                    InformationManager.DisplayMessage(new InformationMessage("CanAIExit" + __instance.Name.ToString() + "  LocationCharacter= null "));
-
+                    Traverse traverse = HarmonyLib.Traverse.Create(__instance);
+                    CanUseDoor aiCanExitDelegate = traverse.Field<CanUseDoor>("_aiCanExitDelegate").Value;
+                    String aiCanExit = traverse.Field<String>("_aiCanExit").Value;
+                    if (null == aiCanExitDelegate && null == aiCanExit)
+                    {
+                        return false;
+                    }
                 }
-                return false;
             }
             return true;
 
         }
     }
 
-    [HarmonyPatch(typeof(LocationComplex), "GetLocationOfCharacter", new Type[] { typeof(LocationCharacter) })]
-    class LocationComplexGetLocationOfCharacterPath
+
+    [HarmonyPatch(typeof(Location), "CanPlayerSee")]
+    class LocatonCanPlayerSeePath
+    {
+
+        public static bool Prefix(ref Location __instance)
+        {
+            if (null != __instance)
+            {
+                Traverse traverse = HarmonyLib.Traverse.Create(__instance);
+                CanUseDoor _playerCanSeeDelegate = traverse.Field<CanUseDoor>("_playerCanSeeDelegate").Value;
+                String _playerCanSee = traverse.Field<String>("_playerCanSee").Value;
+                if (null == _playerCanSeeDelegate && null == _playerCanSee)
+                {
+                    return false;
+                }
+
+            }
+            return true;
+
+        }
+    }
+
+
+    [HarmonyPatch(typeof(Location), "CanPlayerEnter")]
+    class LocatonCanPlayerEnterPath
+    {
+
+        public static bool Prefix(ref Location __instance)
+        {
+            if (null != __instance)
+            {
+                Traverse traverse = HarmonyLib.Traverse.Create(__instance);
+                CanUseDoor _playerCanEnterDelegate = traverse.Field<CanUseDoor>("_playerCanEnterDelegate").Value;
+                String _playerCanEnter = traverse.Field<String>("_playerCanEnter").Value;
+                if (null == _playerCanEnterDelegate && null == _playerCanEnter)
+                {
+                    return false;
+                }
+
+            }
+            return true;
+
+        }
+    }
+
+    [HarmonyPatch(typeof(Location), "CanAIEnter")]
+    class LocatonCanAIEnterPath
+    {
+
+        public static bool Prefix(ref Location __instance, LocationCharacter character)
+        {
+            if (null == __instance || null == __instance.Name)
+            {
+                if (null != __instance)
+                {
+                    Traverse traverse = HarmonyLib.Traverse.Create(__instance);
+                    CanUseDoor aiCanEnterDelegate = traverse.Field<CanUseDoor>("_aiCanEnterDelegate").Value;
+                    String aiCanEnter = traverse.Field<String>("_aiCanEnter").Value;
+                    if (null == aiCanEnterDelegate && null == aiCanEnter)
+                    {
+                        return false;
+                    }
+
+                }
+
+            }
+            return true;
+
+        }
+    }
+
+    [HarmonyPatch(typeof(Location), "ContainsCharacter", new Type[] { typeof(LocationCharacter) })]
+    class LocationContainsCharacterrPath
     {
 
         [HarmonyPrefix]
-        public static bool Prefix(ref Location __result, ref LocationComplex __instance, LocationCharacter character)
+        public static bool Prefix(ref bool __result, ref Location __instance)
         {
-
-            FieldInfo fieldInfo = __instance.GetType().GetField("_locations", BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public);
-            Dictionary<string, Location> loations = null;
-            IEnumerable<LocationCharacter> list = __instance.GetListOfCharacters();
-            if (null != fieldInfo)
+            Traverse traverse = HarmonyLib.Traverse.Create(__instance);
+            List<LocationCharacter> _characterList = traverse.Field<List<LocationCharacter>>("_characterList").Value;
+            if (null == _characterList)
             {
-                loations = (Dictionary<string, Location>)fieldInfo.GetValue(__instance);
-                if (null != loations)
-                {
-                    foreach (KeyValuePair<string, Location> current in loations)
-                    {
-                        if (current.Value.ContainsCharacter(character))
-                        {
-                            __result = current.Value;
-                        }
-                    }
-                }
+                __result = false;
+                return false;
             }
-            if (null != __result)
+            return true;
+        }
+    }
+
+
+    [HarmonyPatch(typeof(Location), "GetLocationCharacter", new Type[] { typeof(IAgentOriginBase) })]
+    class LocationGetLocationCharacterPath
+    {
+
+        [HarmonyPrefix]
+        public static bool Prefix(ref LocationCharacter __result, ref Location __instance)
+        {
+            Traverse traverse = HarmonyLib.Traverse.Create(__instance);
+            List<LocationCharacter> _characterList = traverse.Field<List<LocationCharacter>>("_characterList").Value;
+            if (null == _characterList)
             {
+                __result = null;
                 return false;
             }
             return true;
