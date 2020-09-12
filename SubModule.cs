@@ -41,9 +41,11 @@ namespace CharacterReload
 			if (!(gameStarterObject is CampaignGameStarter))
 				return;
 
+			LoadXMLFiles(gameStarterObject as CampaignGameStarter);
 			EncyclopediaPageChangedHandle handle = new EncyclopediaPageChangedHandle();
 			game.EventManager.RegisterEvent<EncyclopediaPageChangedEvent>(handle.OnEncyclopediaPageChanged);
 		}
+
 		private void LoadXMLFiles(CampaignGameStarter gameInitializer)
 		{
 			// Load our additional strings

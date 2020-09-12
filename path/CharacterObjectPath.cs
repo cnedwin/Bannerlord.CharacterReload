@@ -1,5 +1,6 @@
 ﻿using FaceDetailsCreator.utils;
 using HarmonyLib;
+using Helpers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,6 +28,7 @@ namespace FaceDetailsCreator.path
                     ReflectUtils.ReflectPropertyAndSetValue("StaticBodyProperties", properties.StaticProperties, hero);
                     hero.Weight = properties.Weight;
                     hero.Build = properties.Build;
+                    hero.BirthDay = HeroHelper.GetRandomBirthDayForAge(properties.Age); 
                     hero.UpdatePlayerGender(isFemale);
                 }
             }
