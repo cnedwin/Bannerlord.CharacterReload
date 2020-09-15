@@ -3,7 +3,7 @@ using System.IO;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.Core;
 
-namespace CharacterTrainer
+namespace CharacterReload
 {
 	public static class Helper
 	{
@@ -15,12 +15,11 @@ namespace CharacterTrainer
 				{
 					return null;
 				}
-				CharacterObject characterObject = Game.Current.PlayerTroop as CharacterObject;
-				if (characterObject == null)
-				{
-					return null;
-				}
-				return characterObject.HeroObject;
+                if (!(Game.Current.PlayerTroop is CharacterObject characterObject))
+                {
+                    return null;
+                }
+                return characterObject.HeroObject;
 			}
 		}
 

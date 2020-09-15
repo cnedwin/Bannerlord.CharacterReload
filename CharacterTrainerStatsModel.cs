@@ -4,7 +4,7 @@ using System.IO;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.SandBox.GameComponents;
 
-namespace CharacterTrainer
+namespace CharacterReload
 {
 	public class CharacterTrainerStatsModel : DefaultCharacterStatsModel
 	{

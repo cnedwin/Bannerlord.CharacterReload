@@ -7,6 +7,7 @@ using TaleWorlds.MountAndBlade;
 using SandBox.GauntletUI;
 using TaleWorlds.CampaignSystem;
 using FaceDetailsCreator;
+using System.IO;
 
 namespace CharacterReload
 {
@@ -32,6 +33,12 @@ namespace CharacterReload
 			InformationManager.DisplayMessage(new InformationMessage(new TextObject("{=misc_cr_onmapload}Loaded CharacterReload succeeded", null).ToString(), Color.FromUint(ModuleColors.green)));
 		}
 
+
+		private void LoadXMLFiles(CampaignGameStarter gameInitializer)
+		{
+			// Load our additional strings
+			gameInitializer.LoadGameTexts(BasePath.Name + "Modules/CharacterReload/ModuleData/strings.xml");
+		}
 		protected override void OnGameStart(Game game, IGameStarter gameStarterObject)
 		{
 			base.OnGameStart(game, gameStarterObject);
@@ -44,13 +51,23 @@ namespace CharacterReload
 			LoadXMLFiles(gameStarterObject as CampaignGameStarter);
 			EncyclopediaPageChangedHandle handle = new EncyclopediaPageChangedHandle();
 			game.EventManager.RegisterEvent<EncyclopediaPageChangedEvent>(handle.OnEncyclopediaPageChanged);
+
+			if (!Directory.Exists(Helper.SavePath))
+			{
+				Directory.CreateDirectory(Helper.SavePath);
+			}
+			Helper.ClearLog();
+			Helper.Log("Initialize CharacterTrainer v1.0.12");
 		}
 
-		private void LoadXMLFiles(CampaignGameStarter gameInitializer)
-		{
-			// Load our additional strings
-			gameInitializer.LoadGameTexts(BasePath.Name + "Modules/CharacterReload/ModuleData/strings.xml");
-		}
+
+		private const string Version = "v1.0.12";
+
+		private CharacterTrainerViewModel viewModel;
+
+		private Hero selectedHero;
+
+
 
 	}
 	

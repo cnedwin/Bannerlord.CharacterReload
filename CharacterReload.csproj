@@ -77,7 +77,6 @@
   </ItemGroup>
   <!-- Files & Classes -->
   <ItemGroup>
-    <Compile Include="CharacterTrainer.cs" />
     <Compile Include="CharacterTrainerStatsModel.cs" />
     <Compile Include="EncyclopediaPageChangedHandle.cs" />
     <Compile Include="Extension\Helper.cs" />
@@ -91,7 +90,6 @@
     <Compile Include="SubModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="utils\ReflectUtils.cs" />
-    <Compile Include="vm\CharacterTrainerViewModel.cs" />
     <Compile Include="vm\HeroBuilderVM.cs" />
     <Compile Include="vm\MyClanLordItemVM.cs" />
     <Content Include="resource\GUI\Prefabs\Clan\ClanMembers.xml" />

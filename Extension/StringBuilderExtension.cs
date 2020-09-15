@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Text;
 
-namespace CharacterTrainer
+namespace CharacterReload
 {
 	public static class StringBuilderExtension
 	{
