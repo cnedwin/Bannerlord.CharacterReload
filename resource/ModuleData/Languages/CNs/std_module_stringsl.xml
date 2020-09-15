@@ -47,5 +47,8 @@
 	<string id="str_facegen_skin_build" text="忽略" />
 	<string id="str_facegen_skin_Weight2" text="体重" />
 	<string id="str_facegen_skin_Build2" text="躯干肌肉" />
+
+	 <string id="cr_execute_Import" text="导入" />
+	 <string id="cr_execute_export" text="导出" />
   </strings>
 </base>

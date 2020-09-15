@@ -107,7 +107,7 @@
                           </Children>
                         </ListPanel>
 						
-						<ListPanel WidthSizePolicy="CoverChildren" HeightSizePolicy="CoverChildren" HorizontalAlignment="Center" VerticalAlignment="Bottom" MarginBottom="150">
+						<ListPanel WidthSizePolicy="CoverChildren" HeightSizePolicy="CoverChildren" HorizontalAlignment="Center" VerticalAlignment="Bottom" MarginBottom="192">
                           <Children>
                         
 						           <ButtonWidget DoNotPassEventsToChildren="true" WidthSizePolicy="Fixed" SuggestedWidth="180"  HeightSizePolicy="Fixed" SuggestedHeight="64"  Brush="Popup.Cancel.Button" Command.Click="DoRefleshAPoint">
@@ -130,14 +130,32 @@
 									  <TextWidget WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent" Brush="Popup.Button.Text" Text="@ResetTraitsText" />
 								      </Children>
 							      </ButtonWidget>
-							      <ButtonWidget DoNotPassEventsToChildren="true" WidthSizePolicy="Fixed" SuggestedWidth="180" HeightSizePolicy="Fixed" SuggestedHeight="64" Brush="Popup.Cancel.Button" Command.Click="DoRefleshLevel" >
-								      <Children>
-									  <TextWidget WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent" Brush="Popup.Button.Text" Text="@ResetLevelText" />
-							    	  </Children>
-						    	  </ButtonWidget>
+
 
 						</Children>
                         </ListPanel>
+
+						  <ListPanel WidthSizePolicy="CoverChildren" HeightSizePolicy="CoverChildren" HorizontalAlignment="Center" VerticalAlignment="Bottom" MarginBottom="128">
+							  <Children>
+
+								  <ButtonWidget DoNotPassEventsToChildren="true" WidthSizePolicy="Fixed" SuggestedWidth="180" HeightSizePolicy="Fixed" SuggestedHeight="64" Brush="Popup.Cancel.Button" Command.Click="DoRefleshLevel" >
+									  <Children>
+										  <TextWidget WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent" Brush="Popup.Button.Text" Text="@ResetLevelText" />
+									  </Children>
+								  </ButtonWidget>
+								  <ButtonWidget DoNotPassEventsToChildren="true" WidthSizePolicy="Fixed" SuggestedWidth="180" HeightSizePolicy="Fixed" SuggestedHeight="64" Brush="Popup.Cancel.Button" Command.Click="ExecuteExport" >
+									  <Children>
+										  <TextWidget WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent" Brush="Popup.Button.Text" Text="@ExecuteExportText" />
+									  </Children>
+								  </ButtonWidget>
+								  <ButtonWidget DoNotPassEventsToChildren="true" WidthSizePolicy="Fixed" SuggestedWidth="180" HeightSizePolicy="Fixed" SuggestedHeight="64" Brush="Popup.Cancel.Button" Command.Click="ExecuteImport" >
+									  <Children>
+										  <TextWidget WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent" Brush="Popup.Button.Text" Text="@ExecuteImportText" />
+									  </Children>
+								  </ButtonWidget>
+
+							  </Children>
+						  </ListPanel>
 
                         <!--Action Buttons Container-->
                         <ListPanel WidthSizePolicy="CoverChildren" HeightSizePolicy="CoverChildren" HorizontalAlignment="Center" VerticalAlignment="Bottom" MarginBottom="30">
