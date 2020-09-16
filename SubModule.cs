@@ -13,7 +13,7 @@ namespace CharacterReload
 {
     public class SubModule : MBSubModuleBase
     {
-		private CharacterTrainerStatsModel statsModel;
+	
 		protected override void OnSubModuleLoad()
 		{
 			try
@@ -64,16 +64,17 @@ namespace CharacterReload
 			}
 			Helper.ClearLog();
 			Helper.Log("Set character stats model");
-			gameStarterObject.AddModel(this.statsModel = new CharacterTrainerStatsModel());
+
+			gameStarterObject.AddModel(CharacterTrainerStatsModel.Instance());
 
 		}
 
 		protected override void OnApplicationTick(float dt)
 		{
 			base.OnApplicationTick(dt);
-			if (Campaign.Current != null && Campaign.Current.GameStarted && !statsModel.IsInitialized)
+			if (Campaign.Current != null && Campaign.Current.GameStarted && !CharacterTrainerStatsModel.Instance().IsInitialized)
 			{
-				statsModel.Initialize();
+				CharacterTrainerStatsModel.Instance().Initialize();
 			}
 		}
 	}

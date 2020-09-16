@@ -3,18 +3,45 @@ using System.Collections.Generic;
 using System.IO;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.SandBox.GameComponents;
+using TaleWorlds.Core;
+using TaleWorlds.Library;
 
 namespace CharacterReload
 {
+	/**
+	 * 这个类，没有引用特别东西，所以可以改造成一个单例模式
+	 * 这样其他地方使用可以通过静态方法直接获取到实例。
+	 * 这个类复制导入导出功能，可以把所有方法写这里
+	 */
 	public class CharacterTrainerStatsModel : DefaultCharacterStatsModel
 	{
-		public bool IsInitialized { get; private set; }
+		private static CharacterTrainerStatsModel _instance;
 
-		public CharacterTrainerStatsModel()
+		public const int DefaultBaseHitPoint = 100;
+
+		public int playerBaseHitPoint;
+
+		public Dictionary<string, int> othersBaseHitPoint;
+
+		private CharacterTrainerStatsModel()
 		{
 			this.playerBaseHitPoint = 100;
 			this.othersBaseHitPoint = new Dictionary<string, int>();
 		}
+
+		public static CharacterTrainerStatsModel Instance()
+		{
+			if (null == _instance)
+			{
+				_instance = new CharacterTrainerStatsModel();
+			}
+			return _instance;
+		}
+
+
+
+		public bool IsInitialized { get; private set; }
+
 
 		private int ImportBaseHitPoint(Hero hero)
 		{
@@ -103,10 +130,131 @@ namespace CharacterReload
 		}
 
 
-		public const int DefaultBaseHitPoint = 100;
 
-		public int playerBaseHitPoint;
-
-		public Dictionary<string, int> othersBaseHitPoint;
+		public string Import(Hero hero, bool ignoreCharacterExp)
+		{
+			Helper.Log("Import " + hero.Name);
+			string filename = Helper.GetFilename(hero);
+			if (!File.Exists(filename))
+			{
+				return "Chararacter file does not exist";
+			}
+			Helper.Log("File found");
+			string[] array = File.ReadAllLines(filename);
+			MBReadOnlyList<SkillObject> skillList = Game.Current.SkillList;
+			Dictionary<string, SkillObject> dictionary = new Dictionary<string, SkillObject>();
+			for (int i = 0; i < skillList.Count; i++)
+			{
+				SkillObject skillObject = skillList[i];
+				dictionary[skillObject.StringId] = skillObject;
+			}
+			Dictionary<string, PerkObject> dictionary2 = new Dictionary<string, PerkObject>();
+			foreach (PerkObject perkObject in PerkObject.All)
+			{
+				dictionary2[perkObject.StringId] = perkObject;
+			}
+			foreach (string text in array)
+			{
+				if (!text.Contains("#") && text.Contains("="))
+				{
+					string[] array2 = text.Split(new char[]
+					{
+						'='
+					});
+					string text2 = array2[0].Trim();
+					string text3 = array2[1].Trim();
+					int num;
+					int.TryParse(text3, out num);
+					if (!(text2 == "Gold"))
+					{
+						if (!(text2 == "BaseHitPoint"))
+						{
+							if (!(text2 == "CurrentHitPoint"))
+							{
+								if (!(text2 == "BodyProperties"))
+								{
+									CharacterAttributesEnum charAttribute;
+									if (Enum.TryParse<CharacterAttributesEnum>(text2, out charAttribute))
+									{
+										hero.SetAttributeValue(charAttribute, (int)MathF.Clamp((float)num, 0f, 10f));
+									}
+									else
+									{
+										bool flag = false;
+										SkillObject skillObject2 = null;
+										if (text2.Contains(".focus"))
+										{
+											skillObject2 = dictionary[text2.Split(new char[]
+											{
+												'.'
+											})[0]];
+											flag = true;
+										}
+										else
+										{
+											dictionary.TryGetValue(text2, out skillObject2);
+										}
+										PerkObject perk;
+										if (skillObject2 != null)
+										{
+											if (flag)
+											{
+												int num2 = (int)MathF.Clamp((float)num, 0f, 5f);
+												int focus = hero.HeroDeveloper.GetFocus(skillObject2);
+												hero.HeroDeveloper.AddFocus(skillObject2, num2 - focus, false);
+											}
+											else
+											{
+												int num3 = num;
+												if (ignoreCharacterExp)
+												{
+													hero.HeroDeveloper.SetInitialSkillLevel(skillObject2, num3);
+													hero.HeroDeveloper.InitializeSkillXp(skillObject2);
+												}
+												else
+												{
+													int skillValue = hero.GetSkillValue(skillObject2);
+													hero.HeroDeveloper.ChangeSkillLevel(skillObject2, num3 - skillValue, true);
+												}
+											}
+										}
+										else if (dictionary2.TryGetValue(text2, out perk))
+										{
+											bool perkValue = hero.GetPerkValue(perk);
+											bool flag2 = Convert.ToBoolean(num);
+											if (perkValue != flag2)
+											{
+												hero.SetPerkValue(perk, flag2);
+											}
+										}
+									}
+								}
+								else
+								{
+									Helper.ApplyBodyPropertiesToHero(hero, text3);
+								}
+							}
+							else
+							{
+								hero.HitPoints = Math.Max(num, 1);
+							}
+						}
+						else if (hero.IsHumanPlayerCharacter)
+						{
+							CharacterTrainerStatsModel.Instance().playerBaseHitPoint = Math.Max(num, 1);
+						}
+						else
+						{
+							CharacterTrainerStatsModel.Instance().othersBaseHitPoint[hero.StringId] = Math.Max(num, 1);
+						}
+					}
+					else
+					{
+						hero.ChangeHeroGold(num - hero.Gold);
+					}
+				}
+			}
+			return null;
+		}
 	}
 }

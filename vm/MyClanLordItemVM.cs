@@ -112,7 +112,7 @@ namespace CharacterReload.View
 		{
 			TextObject textObject = new TextObject("{=misc_cr_ExecuteImport}Import the hero", null);
 			bool flag = InputKey.LeftShift.IsDown() || InputKey.RightShift.IsDown();
-			this.ShowComfirDialog(textObject, () => Import(GetHero(), flag));
+			this.ShowComfirDialog(textObject, () => CharacterTrainerStatsModel.Instance().Import(GetHero(), flag));
 			InformationManager.DisplayMessage(new InformationMessage(new TextObject("{=tips_cr_DoRefleshLevel}After reset the hero’s Level, you need to close the clan screen and reopen it to take effect!", null).ToString()));
 
 
@@ -302,131 +302,7 @@ namespace CharacterReload.View
 			return null;
 		}
 
-		public string Import(Hero hero, bool ignoreCharacterExp)
-		{
-			Helper.Log("Import " + hero.Name);
-			string filename = Helper.GetFilename(hero);
-			if (!File.Exists(filename))
-			{
-				return "Chararacter file does not exist";
-			}
-			Helper.Log("File found");
-			string[] array = File.ReadAllLines(filename);
-			MBReadOnlyList<SkillObject> skillList = Game.Current.SkillList;
-			Dictionary<string, SkillObject> dictionary = new Dictionary<string, SkillObject>();
-			for (int i = 0; i < skillList.Count; i++)
-			{
-				SkillObject skillObject = skillList[i];
-				dictionary[skillObject.StringId] = skillObject;
-			}
-			Dictionary<string, PerkObject> dictionary2 = new Dictionary<string, PerkObject>();
-			foreach (PerkObject perkObject in PerkObject.All)
-			{
-				dictionary2[perkObject.StringId] = perkObject;
-			}
-			foreach (string text in array)
-			{
-				if (!text.Contains("#") && text.Contains("="))
-				{
-					string[] array2 = text.Split(new char[]
-					{
-						'='
-					});
-					string text2 = array2[0].Trim();
-					string text3 = array2[1].Trim();
-					int num;
-					int.TryParse(text3, out num);
-					if (!(text2 == "Gold"))
-					{
-						if (!(text2 == "BaseHitPoint"))
-						{
-							if (!(text2 == "CurrentHitPoint"))
-							{
-								if (!(text2 == "BodyProperties"))
-								{
-									CharacterAttributesEnum charAttribute;
-									if (Enum.TryParse<CharacterAttributesEnum>(text2, out charAttribute))
-									{
-										hero.SetAttributeValue(charAttribute, (int)MathF.Clamp((float)num, 0f, 10f));
-									}
-									else
-									{
-										bool flag = false;
-										SkillObject skillObject2 = null;
-										if (text2.Contains(".focus"))
-										{
-											skillObject2 = dictionary[text2.Split(new char[]
-											{
-												'.'
-											})[0]];
-											flag = true;
-										}
-										else
-										{
-											dictionary.TryGetValue(text2, out skillObject2);
-										}
-										PerkObject perk;
-										if (skillObject2 != null)
-										{
-											if (flag)
-											{
-												int num2 = (int)MathF.Clamp((float)num, 0f, 5f);
-												int focus = hero.HeroDeveloper.GetFocus(skillObject2);
-												hero.HeroDeveloper.AddFocus(skillObject2, num2 - focus, false);
-											}
-											else
-											{
-												int num3 = num;
-												if (ignoreCharacterExp)
-												{
-													hero.HeroDeveloper.SetInitialSkillLevel(skillObject2, num3);
-													hero.HeroDeveloper.InitializeSkillXp(skillObject2);
-												}
-												else
-												{
-													int skillValue = hero.GetSkillValue(skillObject2);
-													hero.HeroDeveloper.ChangeSkillLevel(skillObject2, num3 - skillValue, true);
-												}
-											}
-										}
-										else if (dictionary2.TryGetValue(text2, out perk))
-										{
-											bool perkValue = hero.GetPerkValue(perk);
-											bool flag2 = Convert.ToBoolean(num);
-											if (perkValue != flag2)
-											{
-												hero.SetPerkValue(perk, flag2);
-											}
-										}
-									}
-								}
-								else
-								{
-									Helper.ApplyBodyPropertiesToHero(hero, text3);
-								}
-							}
-							else
-							{
-								hero.HitPoints = Math.Max(num, 1);
-							}
-						}
-						else if (hero.IsHumanPlayerCharacter)
-						{
-							this.statsModel.playerBaseHitPoint = Math.Max(num, 1);
-						}
-						else
-						{
-							this.statsModel.othersBaseHitPoint[hero.StringId] = Math.Max(num, 1);
-						}
-					}
-					else
-					{
-						hero.ChangeHeroGold(num - hero.Gold);
-					}
-				}
-			}
-			return null;
-		}
+	
 
 	}
 }
