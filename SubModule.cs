@@ -13,6 +13,7 @@ namespace CharacterReload
 {
     public class SubModule : MBSubModuleBase
     {
+		private CharacterTrainerStatsModel statsModel;
 		protected override void OnSubModuleLoad()
 		{
 			try
@@ -62,7 +63,18 @@ namespace CharacterReload
 				Directory.CreateDirectory(Helper.SavePath);
 			}
 			Helper.ClearLog();
+			Helper.Log("Set character stats model");
+			gameStarterObject.AddModel(this.statsModel = new CharacterTrainerStatsModel());
 
+		}
+
+		protected override void OnApplicationTick(float dt)
+		{
+			base.OnApplicationTick(dt);
+			if (Campaign.Current != null && Campaign.Current.GameStarted && !statsModel.IsInitialized)
+			{
+				statsModel.Initialize();
+			}
 		}
 	}
 	

@@ -54,6 +54,7 @@ namespace CharacterReload.View
 			}
 		}
 
+
 		public void DoRefleshAPoint()
 		{
 			TextObject textObject = new TextObject("{=misc_cr_DoRefleshAPoint}The hero's attribute points have been reset", null);
@@ -93,6 +94,25 @@ namespace CharacterReload.View
 		{
 			TextObject textObject = new TextObject("{=misc_cr_DoRefleshLevel}The hero's level have been reset", null);
 			this.ShowComfirDialog(textObject, () => ReLevel(GetHero()));
+			InformationManager.DisplayMessage(new InformationMessage(new TextObject("{=tips_cr_DoRefleshLevel}After reset the hero’s Level, you need to close the clan screen and reopen it to take effect!", null).ToString()));
+
+
+		}
+
+		public void ExecuteExport()
+		{
+			TextObject textObject = new TextObject("{=misc_cr_ExecuteExportl}Export the Hero", null);
+			this.ShowComfirDialog(textObject, () => Export(GetHero()));
+			InformationManager.DisplayMessage(new InformationMessage(new TextObject("{=tips_cr_DoRefleshLevel}After reset the hero’s Level, you need to close the clan screen and reopen it to take effect!", null).ToString()));
+
+
+		}
+
+		public void ExecuteImport()
+		{
+			TextObject textObject = new TextObject("{=misc_cr_ExecuteImport}Import the hero", null);
+			bool flag = InputKey.LeftShift.IsDown() || InputKey.RightShift.IsDown();
+			this.ShowComfirDialog(textObject, () => Import(GetHero(), flag));
 			InformationManager.DisplayMessage(new InformationMessage(new TextObject("{=tips_cr_DoRefleshLevel}After reset the hero’s Level, you need to close the clan screen and reopen it to take effect!", null).ToString()));
 
 
@@ -243,28 +263,6 @@ namespace CharacterReload.View
             }
         }
 
-		public void ExecuteExport()
-		{
-			Helper.Log("ExecuteExport");
-			if (this._characterSelect == null)
-			{
-				return;
-			}
-			Export(GetHero());
-
-		}
-
-		public void ExecuteImport()
-		{
-			Helper.Log("ExecuteImport");
-			if (this._characterSelect == null)
-			{
-				return;
-			}
-			bool flag = InputKey.LeftShift.IsDown() || InputKey.RightShift.IsDown();
-			Import(GetHero(), flag);
-
-		}
 
 
 		public string Export(Hero hero)
@@ -273,7 +271,7 @@ namespace CharacterReload.View
 			StringBuilder stringBuilder = new StringBuilder();
 			stringBuilder.AppendLine("# BaseHitpoint is character's max HP before perk bonus added.");
 			stringBuilder.AppendLine("# IMPORTANT! If you ever change BaseHitpoint, you shouldn't delete this file or character BaseHitPoint will be reverted to 100 (Bannerlord default)");
-			stringBuilder.AddItem("BaseHitPoint", CharacterTrainerStatsModel.GetBaseHitPoint(hero));
+			stringBuilder.AddItem("BaseHitPoint", 100);
 			stringBuilder.AddItem("CurrentHitPoint", hero.HitPoints);
 			stringBuilder.AddItem("Gold", hero.Gold);
 			stringBuilder.AppendLine();
@@ -429,7 +427,6 @@ namespace CharacterReload.View
 			}
 			return null;
 		}
-
 
 	}
 }
