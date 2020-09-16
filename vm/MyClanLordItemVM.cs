@@ -92,7 +92,7 @@ namespace CharacterReload.View
 		public void DoRefleshLevel()
 		{
 			TextObject textObject = new TextObject("{=misc_cr_DoRefleshLevel}The hero's level have been reset", null);
-			this.ShowComfirDialog(textObject, () => ExecuteExport(GetHero()));
+			this.ShowComfirDialog(textObject, () => ReLevel(GetHero()));
 			InformationManager.DisplayMessage(new InformationMessage(new TextObject("{=tips_cr_DoRefleshLevel}After reset the hero’s Level, you need to close the clan screen and reopen it to take effect!", null).ToString()));
 
 
@@ -219,7 +219,7 @@ namespace CharacterReload.View
             hero.SetTraitLevel(DefaultTraits.Calculating, num);
             }
 
-        public void ExecuteExport(Hero hero)
+        public void ReLevel(Hero hero)
         {
             int num = 1;
             hero.HeroDeveloper.ClearDeveloper();
@@ -242,8 +242,6 @@ namespace CharacterReload.View
                 hero.HeroDeveloper.AddSkillXp(defaultSkills, (float)(hero.HeroDeveloper.GetSkillXpProgress(defaultSkills) * -1 + 1), false, false);
             }
         }
-		
-
 
 		public void ExecuteExport()
 		{
@@ -275,7 +273,7 @@ namespace CharacterReload.View
 			StringBuilder stringBuilder = new StringBuilder();
 			stringBuilder.AppendLine("# BaseHitpoint is character's max HP before perk bonus added.");
 			stringBuilder.AppendLine("# IMPORTANT! If you ever change BaseHitpoint, you shouldn't delete this file or character BaseHitPoint will be reverted to 100 (Bannerlord default)");
-			stringBuilder.AddItem("BaseHitPoint", this.statsModel.GetBaseHitPoint(hero));
+			stringBuilder.AddItem("BaseHitPoint", CharacterTrainerStatsModel.GetBaseHitPoint(hero));
 			stringBuilder.AddItem("CurrentHitPoint", hero.HitPoints);
 			stringBuilder.AddItem("Gold", hero.Gold);
 			stringBuilder.AppendLine();

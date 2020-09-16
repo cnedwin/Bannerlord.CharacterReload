@@ -102,6 +102,7 @@ namespace CharacterReload
 			return base.MaxHitpoints(character, explanation) + num;
 		}
 
+
 		public const int DefaultBaseHitPoint = 100;
 
 		public int playerBaseHitPoint;

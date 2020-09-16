@@ -43,32 +43,27 @@ namespace CharacterReload
 		{
 			base.OnGameStart(game, gameStarterObject);
 
-			if (!(game.GameType is Campaign))
-				return;
-			if (!(gameStarterObject is CampaignGameStarter))
-				return;
-
 			LoadXMLFiles(gameStarterObject as CampaignGameStarter);
 			EncyclopediaPageChangedHandle handle = new EncyclopediaPageChangedHandle();
 			game.EventManager.RegisterEvent<EncyclopediaPageChangedEvent>(handle.OnEncyclopediaPageChanged);
+
+			if (!(game.GameType is Campaign))
+			{
+				Helper.Log("GameType is not Campaign. CharacterTrainer disabled.");
+				return;
+			}
+			if (!(gameStarterObject is CampaignGameStarter))
+			{ 
+				return;
+		    }
 
 			if (!Directory.Exists(Helper.SavePath))
 			{
 				Directory.CreateDirectory(Helper.SavePath);
 			}
 			Helper.ClearLog();
-			Helper.Log("Initialize CharacterTrainer v1.0.12");
+
 		}
-
-
-		private const string Version = "v1.0.12";
-
-		private CharacterTrainerViewModel viewModel;
-
-		private Hero selectedHero;
-
-
-
 	}
 	
 
