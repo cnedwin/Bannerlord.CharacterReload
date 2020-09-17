@@ -81,40 +81,40 @@
   <!-- Files & Classes -->
   <ItemGroup>
     <Compile Include="CharacterTrainerStatsModel.cs" />
-    <Compile Include="data\FacGenRecordData.cs" />
-    <Compile Include="data\GlobalDataProvider.cs" />
+    <Compile Include="Data\FacGenRecordData.cs" />
+    <Compile Include="Data\GlobalDataProvider.cs" />
     <Compile Include="EncyclopediaPageChangedHandle.cs" />
     <Compile Include="Extension\Helper.cs" />
     <Compile Include="Extension\StringBuilderExtension.cs" />
     <Compile Include="MBBindingLordItemListInterceptor.cs" />
-    <Compile Include="path\BodyGeneratorViewPath.cs" />
-    <Compile Include="path\CharacterObjectPath.cs" />
-    <Compile Include="path\ClanMemberPath.cs" />
-    <Compile Include="path\BowAndCross.cs" />
-    <Compile Include="path\FaceGenPropertyVMPath.cs" />
-    <Compile Include="path\LocationPath.cs" />
-    <Compile Include="path\ModuleProcessSkinsXmlPatch.cs" />
+    <Compile Include="Pathes\BodyGeneratorViewPath.cs" />
+    <Compile Include="Pathes\CharacterObjectPath.cs" />
+    <Compile Include="Pathes\ClanMemberPath.cs" />
+    <Compile Include="Pathes\BowAndCross.cs" />
+    <Compile Include="Pathes\FaceGenPropertyVMPath.cs" />
+    <Compile Include="Pathes\LocationPath.cs" />
+    <Compile Include="Pathes\ModuleProcessSkinsXmlPatch.cs" />
     <Compile Include="SubModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="utils\InformationUtils.cs" />
-    <Compile Include="utils\ReflectUtils.cs" />
-    <Compile Include="vm\facgen\FacGenRecordItemVM.cs" />
-    <Compile Include="vm\facgen\FacGenRecordVM.cs" />
-    <Compile Include="vm\HeroBuilderVM.cs" />
-    <Compile Include="vm\MyClanLordItemVM.cs" />
-    <Content Include="resource\GUI\Brushes\FacGenRecordBrushes.xml" />
-    <Content Include="resource\GUI\Prefabs\Clan\ClanMembers.xml" />
-    <Content Include="resource\GUI\Prefabs\HeroEditor.xml" />
-    <Content Include="resource\ModuleData\Languages\CNs\std_module_stringsl.xml" />
-    <Content Include="resource\ModuleData\Languages\English\std_module_stringsl.xml" />
-    <Content Include="resource\ModuleData\skins.xml" />
-    <Content Include="resource\ModuleData\strings.xml" />
-    <Content Include="resource\ModuleData\xml_attributes_to_be_identified.txt" />
-    <Content Include="resource\SubModule.xml" />
+    <Compile Include="Utils\InformationUtils.cs" />
+    <Compile Include="Utils\ReflectUtils.cs" />
+    <Compile Include="VM\facgen\FacGenRecordItemVM.cs" />
+    <Compile Include="VM\facgen\FacGenRecordVM.cs" />
+    <Compile Include="VM\HeroBuilderVM.cs" />
+    <Compile Include="VM\MyClanLordItemVM.cs" />
+    <Content Include="Resource\GUI\Brushes\FacGenRecordBrushes.xml" />
+    <Content Include="Resource\GUI\Prefabs\Clan\ClanMembers.xml" />
+    <Content Include="Resource\GUI\Prefabs\HeroEditor.xml" />
+    <Content Include="Resource\ModuleData\Languages\CNs\std_module_stringsl.xml" />
+    <Content Include="Resource\ModuleData\Languages\English\std_module_stringsl.xml" />
+    <Content Include="Resource\ModuleData\skins.xml" />
+    <Content Include="Resource\ModuleData\strings.xml" />
+    <Content Include="Resource\ModuleData\xml_attributes_to_be_identified.txt" />
+    <Content Include="Resource\SubModule.xml" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-    <None Include="resource\ModuleData\project.mbproj" />
+    <None Include="Resource\ModuleData\project.mbproj" />
   </ItemGroup>
   <ItemGroup />
   <!-- Post-Build -->
