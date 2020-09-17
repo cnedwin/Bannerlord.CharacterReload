@@ -116,6 +116,16 @@
 	<string id="str_facegen_skin_Weight2" text="体重" />
 	<string id="str_facegen_skin_Build2" text="躯干肌肉" />
 
+	<string id="bottom_SavedList" text="形象仓库" />
+	<string id="bottom_SaveCurrent" text="保存此项" />
+	<string id="bottom_LoadCurrent" text="加载此项" />
+	<string id="bottom_DeleteCurrent" text="删除此项" />
+	<string id="tips_cr_InputSaveName" text="输入保存的名字" />
+	<string id="tips_cr_MaxSaved" text="最多只能保存 " />
+	<string id="tips_cr_ConfirmLoad" text="确认加载此项" />
+	<string id="tips_cr_WarningToDelete" text="警告: 确认要删除此项" />
+	<string id="tips_cr_WarningToDelete2" text="这个操作将删除数据，且无法撤销" />
+
 	 <string id="cr_execute_Import" text="角色导入" />
 	 <string id="cr_execute_export" text="角色导出" />
 	 <string id="misc_cr_ExecuteExportl" text="导出角色到文件" />

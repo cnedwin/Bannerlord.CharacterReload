@@ -116,6 +116,16 @@
 		<string id="str_facegen_skin_Weight2" text="Body Weight" />
 		<string id="str_facegen_skin_Build2" text="Body Muscle" />
 
+		<string id="bottom_SavedList" text="Saved Faces" />
+		<string id="bottom_SaveCurrent" text="Save Current" />
+		<string id="bottom_LoadCurrent" text="Load Current" />
+		<string id="bottom_DeleteCurrent" text="Delete Current" />
+		<string id="tips_cr_InputSaveName" text="Enter the saved name" />
+		<string id="tips_cr_MaxSaved" text="Can only save up to " />
+		<string id="tips_cr_ConfirmLoad" text="Confirm to load" />
+		<string id="tips_cr_WarningToDelete" text="Warning: Confirm to Delete" />
+		<string id="tips_cr_WarningToDelete2" text="This operation will delete the data and cannot be undone" />
+
 		<string id="cr_execute_Import" text="Import" />
 		<string id="cr_execute_export" text="Export" />
 		<string id="misc_cr_ExecuteExportl" text="Export Hero to files" />

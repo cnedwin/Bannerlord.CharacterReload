@@ -104,6 +104,8 @@
     <Compile Include="VM\MyClanLordItemVM.cs" />
     <Content Include="Resource\GUI\Brushes\FacGenRecordBrushes.xml" />
     <Content Include="Resource\GUI\Prefabs\Clan\ClanMembers.xml" />
+    <Content Include="Resource\GUI\Prefabs\facgen\FacGenRecord.xml" />
+    <Content Include="Resource\GUI\Prefabs\facgen\FacGenRecordItem.xml" />
     <Content Include="Resource\GUI\Prefabs\HeroEditor.xml" />
     <Content Include="Resource\ModuleData\Languages\CNs\std_module_stringsl.xml" />
     <Content Include="Resource\ModuleData\Languages\English\std_module_stringsl.xml" />

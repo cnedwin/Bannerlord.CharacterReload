@@ -56,6 +56,45 @@ namespace FaceDetailsCreator.VM.Facgen
             }
         }
 
+        [DataSourceProperty]
+        public string SavedListText
+        {
+            get
+            {
+                return new TextObject("{=bottom_SavedList}Saved Faces", null).ToString();
+            }
+
+        }
+
+        [DataSourceProperty]
+        public string SaveCurrentText
+        {
+            get
+            {
+                return new TextObject("{=bottom_SaveCurrent}Save Current", null).ToString();
+            }
+
+        }
+
+        [DataSourceProperty]
+        public string LoadCurrentText
+        {
+            get
+            {
+                return new TextObject("{=bottom_LoadCurrent}Load Current", null).ToString();
+            }
+
+        }
+
+        [DataSourceProperty]
+        public string DeleteCurrentText
+        {
+            get
+            {
+                return new TextObject("{=bottom_DeleteCurrent}Delete Current", null).ToString();
+            }
+
+        }
 
         [DataSourceProperty]
         public MBBindingList<FacGenRecordItemVM> RecordItems
@@ -87,7 +126,7 @@ namespace FaceDetailsCreator.VM.Facgen
 
         public void ExecuteSaveSelected()
         {
-            InformationManager.ShowTextInquiry(new TextInquiryData(new TextObject("请输入保存名字").ToString(), new TextObject("最多只保存" + MaxSaveCount + "个").ToString(),
+            InformationManager.ShowTextInquiry(new TextInquiryData(new TextObject("{=tips_cr_InputSaveName}Enter the saved name").ToString(), new TextObject("{=tips_cr_MaxSaved}Can only save up to " + MaxSaveCount).ToString(),
              true, true, GameTexts.FindText("str_done", null).ToString(), GameTexts.FindText("str_cancel", null).ToString(), new Action<string>(OnEnterNameAfter), InformationManager.HideInquiry, false));
         }
 
@@ -116,7 +155,7 @@ namespace FaceDetailsCreator.VM.Facgen
         {
             if (null != this._lastSelectedItem)
             {
-                InformationUtils.ShowComfirInformation(new TextObject("是否确认加载选中"), null, () => {
+                InformationUtils.ShowComfirInformation(new TextObject("{=tips_cr_ConfirmLoad}Confirm to load"), null, () => {
                     String propertiesString = this._lastSelectedItem.GetFacGenRecordData().BodyPropertiesString;
                     BodyProperties bodyProperties = BodyProperties.Default;
                     BodyProperties.FromString(propertiesString, out bodyProperties);
@@ -132,7 +171,7 @@ namespace FaceDetailsCreator.VM.Facgen
         {
             if (null != this._lastSelectedItem)
             {
-                InformationUtils.ShowComfirInformation(new TextObject("警告: 是否删除选中"), new TextObject("请慎重选中，该操作将会删除数据，并且无法撤销"), () => {
+                InformationUtils.ShowComfirInformation(new TextObject("{=tips_cr_WarningToDelete}Warning: Confirm to Delete"), new TextObject("{=tips_cr_WarningToDelete2}This operation will delete the data and cannot be undone"), () => {
                     this._lastSelectedItem.IsSelected = false;
                     this._data.Remove(this._lastSelectedItem.GetFacGenRecordData());
                     this._genRecordItemVMs.Remove(this._lastSelectedItem);
