@@ -1,12 +1,8 @@
-﻿using CharacterCreation.Models;
-using FaceDetailsCreator.utils;
+﻿using FaceDetailsCreator.VM;
+using FaceDetailsCreator.Utils;
 using SandBox.GauntletUI;
 using SandBox.View.Map;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia;
 using TaleWorlds.Core;
@@ -53,10 +49,8 @@ namespace FaceDetailsCreator
                 return;
             }
 
-            EncyclopediaData encyclopediaData = (EncyclopediaData)ReflectUtils.ReflectField("_encyclopediaData", gauntletEncyclopediaScreenManager);
-              //  AccessTools.Field(typeof(GauntletEncyclopediaScreenManager), ).GetValue(gauntletEncyclopediaScreenManager) as EncyclopediaData;
-            EncyclopediaPageVM encyclopediaPageVM = (EncyclopediaPageVM)ReflectUtils.ReflectField("_activeDatasource", encyclopediaData);
-            //AccessTools.Field(typeof(EncyclopediaData), "_activeDatasource").GetValue(encyclopediaData) as EncyclopediaPageVM;
+            EncyclopediaData encyclopediaData = ReflectUtils.ReflectField<EncyclopediaData>("_encyclopediaData", gauntletEncyclopediaScreenManager);
+            EncyclopediaPageVM encyclopediaPageVM = ReflectUtils.ReflectField<EncyclopediaPageVM>("_activeDatasource", encyclopediaData);
             selectedHeroPage = (encyclopediaPageVM as EncyclopediaHeroPageVM);
 
             if (selectedHeroPage == null)
@@ -93,7 +87,7 @@ namespace FaceDetailsCreator
             }
             catch (Exception ex)
             {
-               // MessageBox.Show($"Error :\n{ex.Message} \n\n{ex.InnerException?.Message}");
+                // MessageBox.Show($"Error :\n{ex.Message} \n\n{ex.InnerException?.Message}");
             }
         }
     }

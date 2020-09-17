@@ -1,4 +1,4 @@
-﻿using FaceDetailsCreator.utils;
+﻿using FaceDetailsCreator.Utils;
 using HarmonyLib;
 using Helpers;
 using System;
@@ -11,14 +11,13 @@ using TaleWorlds.CampaignSystem;
 using TaleWorlds.Core;
 using TaleWorlds.Localization;
 
-namespace FaceDetailsCreator.path
+namespace FaceDetailsCreator.Pathes
 {
     class CharacterObjectPath
     {
         [HarmonyPatch(typeof(CharacterObject), nameof(CharacterObject.UpdatePlayerCharacterBodyProperties))]
         static class CharacterObjectPatch
         {
-            private static readonly TextObject HeroUpdatedMsg = new TextObject("{=CharacterCreation_HeroUpdatedMsg}Hero updated: ");
 
             static void Postfix(CharacterObject __instance, BodyProperties properties, bool isFemale)
             {
@@ -28,7 +27,7 @@ namespace FaceDetailsCreator.path
                     ReflectUtils.ReflectPropertyAndSetValue("StaticBodyProperties", properties.StaticProperties, hero);
                     hero.Weight = properties.Weight;
                     hero.Build = properties.Build;
-                    hero.BirthDay = HeroHelper.GetRandomBirthDayForAge(properties.Age); 
+                    hero.BirthDay = HeroHelper.GetRandomBirthDayForAge((int)properties.Age);
                     hero.UpdatePlayerGender(isFemale);
                 }
             }

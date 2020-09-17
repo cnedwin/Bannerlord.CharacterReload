@@ -9,7 +9,7 @@ using SandBox.View.Map;
 using TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia;
 using HarmonyLib;
 using TaleWorlds.MountAndBlade.LegacyGUI.Missions;
-namespace CharacterCreation.Models
+namespace FaceDetailsCreator.VM
 {
     public partial class HeroBuilderVM : ViewModel
     {
@@ -19,11 +19,29 @@ namespace CharacterCreation.Models
             selectedHero = hero;
         }
 
-        public HeroBuilderVM( Action<Hero> editCallback)
+        public HeroBuilderVM(Action<Hero> editCallback)
         {
-            //this.heroModel = heroModel;
             this.editCallback = editCallback;
         }
+
+        [DataSourceProperty]
+        public string EditAppearanceText
+        {
+            get
+            {
+                return new TextObject("{=cr_edit_appearance}Edit Appearance").ToString();
+            }
+        }
+
+        [DataSourceProperty]
+        public string ChangeNameText
+        {
+            get
+            {
+                return new TextObject("{=cr_change_name}Change Name").ToString();
+            }
+        }
+
 
 
         public void ExecuteEdit()
@@ -58,8 +76,8 @@ namespace CharacterCreation.Models
             if (hero.CharacterObject == null)
                 return;
 
-             InformationManager.ShowTextInquiry(new TextInquiryData(new TextObject("{=CharacterCreation_CharacterRenamerText}Character Renamer").ToString(), new TextObject("{=CharacterCreation_EnterNewNameText}Enter a new name").ToString(),
-                true, true, new TextObject("{=CharacterCreation_RenameText}Rename").ToString(), new TextObject("{=CharacterCreation_CancelText}Cancel").ToString(), new Action<string>(RenameHero), InformationManager.HideInquiry, false));
+            InformationManager.ShowTextInquiry(new TextInquiryData(new TextObject("{=CharacterCreation_CharacterRenamerText}Character Renamer").ToString(), new TextObject("{=CharacterCreation_EnterNewNameText}Enter a new name").ToString(),
+               true, true, new TextObject("{=CharacterCreation_RenameText}Rename").ToString(), new TextObject("{=CharacterCreation_CancelText}Cancel").ToString(), new Action<string>(RenameHero), InformationManager.HideInquiry, false));
         }
 
         private void RenameHero(string heroName)
@@ -68,7 +86,7 @@ namespace CharacterCreation.Models
             {
                 return;
             }
-            
+
             if (!string.IsNullOrEmpty(heroName))
             {
                 selectedHero.Name = new TextObject(heroName);
@@ -87,7 +105,7 @@ namespace CharacterCreation.Models
                 return;
 
             EncyclopediaData encyclopediaData = AccessTools.Field(typeof(GauntletEncyclopediaScreenManager), "_encyclopediaData").GetValue(gauntletEncyclopediaScreenManager) as EncyclopediaData;
-            EncyclopediaPageVM  encyclopediaPageVM = AccessTools.Field(typeof(EncyclopediaData), "_activeDatasource").GetValue(encyclopediaData) as EncyclopediaPageVM;
+            EncyclopediaPageVM encyclopediaPageVM = AccessTools.Field(typeof(EncyclopediaData), "_activeDatasource").GetValue(encyclopediaData) as EncyclopediaPageVM;
 
             this.selectedHeroPage = (encyclopediaPageVM as EncyclopediaHeroPageVM);
 
@@ -103,8 +121,8 @@ namespace CharacterCreation.Models
             if (gauntletEncyclopediaScreenManager == null)
                 return;
 
-            EncyclopediaData   encyclopediaData = AccessTools.Field(typeof(GauntletEncyclopediaScreenManager), "_encyclopediaData").GetValue(gauntletEncyclopediaScreenManager) as EncyclopediaData;
-            EncyclopediaPageVM  encyclopediaPageVM = AccessTools.Field(typeof(EncyclopediaData), "_activeDatasource").GetValue(encyclopediaData) as EncyclopediaPageVM;
+            EncyclopediaData encyclopediaData = AccessTools.Field(typeof(GauntletEncyclopediaScreenManager), "_encyclopediaData").GetValue(gauntletEncyclopediaScreenManager) as EncyclopediaData;
+            EncyclopediaPageVM encyclopediaPageVM = AccessTools.Field(typeof(EncyclopediaData), "_activeDatasource").GetValue(encyclopediaData) as EncyclopediaPageVM;
 
             this.selectedHeroPage = (encyclopediaPageVM as EncyclopediaHeroPageVM);
 
@@ -124,28 +142,6 @@ namespace CharacterCreation.Models
             ScreenManager.PushScreen(ViewCreator.CreateMBFaceGeneratorScreen(hero.CharacterObject, false));
         }
 
-        [DataSourceProperty]
-        public string EditAppearanceText
-        {
-            get
-            {
-                return new TextObject("{=cr_edit_appearance}Edit Appearance", null).ToString();
-            }
-        }
-
-        [DataSourceProperty]
-        public string ChangenNameText
-        {
-            get
-            {
-                return new TextObject("{=cr_change_name}Change Name", null).ToString();
-            }
-        }
-
-
-
-        //Game.Current.PlayerTroop -- ingore me
-        //private HeroBuilderModel heroModel;
         private Hero selectedHero;
         private Action<Hero> editCallback;
         private Action<Hero> nameCallback;

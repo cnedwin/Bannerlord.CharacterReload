@@ -21,7 +21,7 @@ namespace CharacterReload
 				base.OnSubModuleLoad();
 				new Harmony("mod.CharacterReload.cnedwin").PatchAll();
 
-				TaleWorlds.Core.FaceGen.ShowDebugValues = true;
+				TaleWorlds.Core.FaceGen.ShowDebugValues = true; // Developer facegen
 			}
 			catch (Exception)
 			{
@@ -34,19 +34,10 @@ namespace CharacterReload
 			InformationManager.DisplayMessage(new InformationMessage(new TextObject("{=misc_cr_onmapload}Loaded CharacterReload succeeded", null).ToString(), Color.FromUint(ModuleColors.green)));
 		}
 
-
-		private void LoadXMLFiles(CampaignGameStarter gameInitializer)
-		{
-			// Load our additional strings
-			gameInitializer.LoadGameTexts(BasePath.Name + "Modules/CharacterReload/ModuleData/strings.xml");
-		}
 		protected override void OnGameStart(Game game, IGameStarter gameStarterObject)
 		{
 			base.OnGameStart(game, gameStarterObject);
 
-			LoadXMLFiles(gameStarterObject as CampaignGameStarter);
-			EncyclopediaPageChangedHandle handle = new EncyclopediaPageChangedHandle();
-			game.EventManager.RegisterEvent<EncyclopediaPageChangedEvent>(handle.OnEncyclopediaPageChanged);
 
 			if (!(game.GameType is Campaign))
 			{
@@ -67,6 +58,10 @@ namespace CharacterReload
 
 			gameStarterObject.AddModel(CharacterTrainerStatsModel.Instance());
 
+			LoadXMLFiles(gameStarterObject as CampaignGameStarter);
+			EncyclopediaPageChangedHandle handle = new EncyclopediaPageChangedHandle();
+			game.EventManager.RegisterEvent<EncyclopediaPageChangedEvent>(handle.OnEncyclopediaPageChanged);
+
 		}
 
 		protected override void OnApplicationTick(float dt)
@@ -76,6 +71,13 @@ namespace CharacterReload
 			{
 				CharacterTrainerStatsModel.Instance().Initialize();
 			}
+		}
+
+		private void LoadXMLFiles(CampaignGameStarter gameInitializer)
+		{
+			// Load our additional strings
+			gameInitializer.LoadGameTexts(BasePath.Name + "Modules/CharacterReload/ModuleData/strings.xml");
+
 		}
 	}
 	

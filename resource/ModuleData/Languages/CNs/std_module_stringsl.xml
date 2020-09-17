@@ -21,6 +21,74 @@
 	<string id="tips_cr_DoRefleshTrait" text="升级英雄的特质后，您需要关闭氏族屏幕并重新打开以生效！" />
 	<string id="tips_cr_DoRefleshLevel" text="重置英雄的等级后，您需要关闭氏族屏幕并重新打开以生效！" />
 
+	<!-- Settings entries -->
+	<string id="CharacterCration_ModNameText" text="角色创建1.1.8 (cnedwin)"/>
+
+	<string id="CharacterCreation_Section0" text="第0节:调试模式"/>
+	<string id="CharacterCreation_DebugModeName" text="启用调试模式"/>
+	<string id="CharacterCreation_DebugModeHint" text="启用DCC的调试输出。不需要重新启动。"/>
+
+	<string id="CharacterCreation_Section1" text="第1节:独立设置"/>
+	<string id="CharacterCreation_IgnoreDailyTickName" text="启用外观覆盖"/>
+	<string id="CharacterCreation_IgnoreDailyTickHint" text="保持此状态可防止游戏还原您的外观。不需要重新启动。"/>
+	<string id="CharacterCreation_OverrideAgeName" text="禁止年龄增长"/>
+	<string id="CharacterCreation_OverrideAgeHint" text="启用将阻止系统更改英雄的年龄。不需要重新启动。"/>
+	<string id="CharacterCreation_DisableAutoAgingName" text="禁用外观老化"/>
+	<string id="CharacterCreation_DisableAutoAgingHint" text="启用此选项可防止游戏更改年龄外观。不需要重新启动。"/>
+
+	<string id="CharacterCreation_Section2" text="第2节:年龄设置"/>
+	<string id="CharacterCreation_CustomAgeModelName" text="自定义年龄模型"/>
+	<string id="CharacterCreation_CustomAgeModelHint" text="启用此选项可使用自定义年龄模型。如果另一个mod使用自定义年龄模型，则禁用。需要重新启动."/>
+	<string id="CharacterCreation_BecomeInfantAgeName" text="婴儿阶段"/>
+	<string id="CharacterCreation_BecomeInfantAgeHint" text="设置系统默认婴儿阶段年龄."/>
+	<string id="CharacterCreation_BecomeChildAgeName" text="儿童阶段"/>
+	<string id="CharacterCreation_BecomeChildAgeHint" text="设置系统默认儿童阶段年龄."/>
+	<string id="CharacterCreation_BecomeTeenagerAgeName" text="少年阶段"/>
+	<string id="CharacterCreation_BecomeTeenagerAgeHint" text="设置系统默认少年阶段年龄"/>
+	<string id="CharacterCreation_BecomeAdultAgeName" text="成人阶段"/>
+	<string id="CharacterCreation_BecomeAdultAgeHint" text="设置系统默认成人阶段年龄"/>
+	<string id="CharacterCreation_BecomeOldAgeName" text="老年阶段"/>
+	<string id="CharacterCreation_BecomeOldAgeHint" text="设置系统默认老年阶段年龄"/>
+	<string id="CharacterCreation_MaxAgeName" text="最大年龄"/>
+	<string id="CharacterCreation_MaxAgeHint" text="设置系统默认最大年龄"/>
+
+	<!-- SubModule entries -->
+	<string id="CharacterCreation_LoadedModMessage" text="加载详细角色创建1.1.8 (cnedwin)"/>
+	<string id="CharacterCreation_EditAppearanceForHeroMessage" text="编辑外观"/>
+	<string id="CharacterCreation_ErrorLoadingDccMessage" text="初始化详细角色创建时出错:"/>
+	<string id="CharacterCreation_ExpectedActualAgeMessage" text="[调试] 角色 {HERO_NAME} 预期年龄: {AGE1}, 实际年龄: {AGE2}"/>
+
+	<!-- HeroBuilderVM entries -->
+	<string id="CharacterCreation_ChangingNameForText" text="更改姓名"/>
+	<string id="CharacterCreation_InvalidCharacterText" text="角色无效。"/>
+	<string id="CharacterCreation_InvalidNameText" text="姓名无效。"/>
+	<string id="CharacterCreation_CharacterRenamerText" text="重新起名"/>
+	<string id="CharacterCreation_EnterNewNameText" text="输入新名称"/>
+	<string id="CharacterCreation_RenameText" text="确定"/>
+	<string id="CharacterCreation_CancelText" text="取消"/>
+
+	<!-- CharacterObjectPatch entry -->
+	<string id="CharacterCreation_HeroUpdatedMsg" text="角色更新: "/>
+
+	<!-- BodyGeneratorPatch entry -->
+	<string id="CharacterCreation_ErrorText" text="错误:"/>
+
+	<!-- DynamicBodyPatch entries -->
+	<string id="CharacterCreation_DebugSetAppearanceMsg" text="[调试] 设置外观: "/>
+	<string id="CharacterCreation_DebugResultMsg" text="[调试] 结果: "/>
+
+	<!-- Commands entries -->
+	<string id="CharacterCreation_DccDisabledMsg" text="禁用详细角色创建。"/>
+	<string id="CharacterCreation_DccEnabledMsg" text="您已启用详细角色创建。按V进入。"/>
+	<string id="CharacterCreation_FormatMsgHeader" text="格式: "/>
+	<string id="CharacterCreation_HeroNameText" text="角色名称"/>
+	<string id="CharacterCreation_AgeText" text="年龄"/>
+	<string id="CharacterCreation_HeroNotFoundMsg" text="找不到角色"/>
+	<string id="CharacterCreation_EnterAgeMsg" text="请输入年龄。"/>
+	<string id="CharacterCreation_SuccessMsg" text="成功"/>
+	<!-- ModuleProcessSkinxXmlPatch entry -->
+	<string id="CharacterCreation_ProcessSkinsXmlDebug" text="修正皮肤XML以反转文件加载顺序"/>
+
 	<string id="cr_edit_appearance" text="编辑外貌" />
 	<string id="cr_change_name" text="编辑姓名" />
 	<string id="str_facegen_skin_TorsoBelly" text="腹部" />
@@ -52,7 +120,7 @@
 	 <string id="cr_execute_export" text="角色导出" />
 	 <string id="misc_cr_ExecuteExportl" text="导出角色到文件" />
 	 <string id="misc_cr_ExecuteImport" text="从文件导入角色" />
-	 <string id="tips_cr_doexport" text="角色到处到" />
+	 <string id="tips_cr_doexport" text="角色导出到文件" />
 	 <string id="tips_cr_doimport" text="角色已经导入从" />
 	  
   </strings>

@@ -67,6 +67,9 @@
       <HintPath>%(Identity)</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System.Runtime.InteropServices.RuntimeInformation" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.XmlDocument, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
@@ -78,20 +81,28 @@
   <!-- Files & Classes -->
   <ItemGroup>
     <Compile Include="CharacterTrainerStatsModel.cs" />
+    <Compile Include="data\FacGenRecordData.cs" />
+    <Compile Include="data\GlobalDataProvider.cs" />
     <Compile Include="EncyclopediaPageChangedHandle.cs" />
     <Compile Include="Extension\Helper.cs" />
     <Compile Include="Extension\StringBuilderExtension.cs" />
     <Compile Include="MBBindingLordItemListInterceptor.cs" />
+    <Compile Include="path\BodyGeneratorViewPath.cs" />
     <Compile Include="path\CharacterObjectPath.cs" />
     <Compile Include="path\ClanMemberPath.cs" />
     <Compile Include="path\BowAndCross.cs" />
+    <Compile Include="path\FaceGenPropertyVMPath.cs" />
     <Compile Include="path\LocationPath.cs" />
     <Compile Include="path\ModuleProcessSkinsXmlPatch.cs" />
     <Compile Include="SubModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="utils\InformationUtils.cs" />
     <Compile Include="utils\ReflectUtils.cs" />
+    <Compile Include="vm\facgen\FacGenRecordItemVM.cs" />
+    <Compile Include="vm\facgen\FacGenRecordVM.cs" />
     <Compile Include="vm\HeroBuilderVM.cs" />
     <Compile Include="vm\MyClanLordItemVM.cs" />
+    <Content Include="resource\GUI\Brushes\FacGenRecordBrushes.xml" />
     <Content Include="resource\GUI\Prefabs\Clan\ClanMembers.xml" />
     <Content Include="resource\GUI\Prefabs\HeroEditor.xml" />
     <Content Include="resource\ModuleData\Languages\CNs\std_module_stringsl.xml" />

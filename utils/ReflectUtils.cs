@@ -5,7 +5,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FaceDetailsCreator.utils
+namespace FaceDetailsCreator.Utils
 {
     class ReflectUtils
     {
@@ -15,13 +15,13 @@ namespace FaceDetailsCreator.utils
             return BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Public | BindingFlags.Static;
         }
 
-        public static object ReflectField(String key, object instance)
+        public static T ReflectField<T>(String key, object instance)
         {
-            object result = null;
+            T result = default;
             FieldInfo fieldInfo = instance.GetType().GetField(key, GetBindingFlags());
-            if (null != fieldInfo)
+            if (null != fieldInfo && null != fieldInfo.GetValue(instance))
             {
-                result = fieldInfo.GetValue(instance);
+                result = (T)fieldInfo.GetValue(instance);
             }
 
             return result;

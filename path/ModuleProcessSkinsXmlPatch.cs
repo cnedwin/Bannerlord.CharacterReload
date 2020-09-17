@@ -9,14 +9,11 @@ using TaleWorlds.Localization;
 using TaleWorlds.MountAndBlade;
 using TaleWorlds.ObjectSystem;
 
-namespace FaceDetailsCreator.path
+namespace FaceDetailsCreator.Pathes
 {
     [HarmonyPatch(typeof(Module), "CreateProcessedSkinsXMLForNative")]
     public static class ModuleProcessSkinsXmlPatch
     {
-        private static readonly TextObject DebugString =
-            new TextObject("{=CharacterCreation_ProcessSkinsXmlDebug}[CharacterCreation] Patching skins.xml loader to reverse file loading order");
-
         [HarmonyPrefix]
         public static bool Prefix(ref string __result, ref string baseSkinsXmlPath)
         {
@@ -54,7 +51,7 @@ namespace FaceDetailsCreator.path
                 else
                     xsltList.Add("");
             }
-            XmlDocument mergedXmlForNative = MBObjectManager.CreateMergedXmlFile(toBeMerged, xsltList, true);
+            System.Xml.XmlDocument mergedXmlForNative = MBObjectManager.CreateMergedXmlFile(toBeMerged, xsltList, true);
 
             System.IO.StringWriter stringWriter = new System.IO.StringWriter();
             XmlTextWriter xmlTextWriter = new XmlTextWriter(stringWriter);
