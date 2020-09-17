@@ -48,7 +48,12 @@
 	<string id="str_facegen_skin_Weight2" text="体重" />
 	<string id="str_facegen_skin_Build2" text="躯干肌肉" />
 
-	 <string id="cr_execute_Import" text="导入" />
-	 <string id="cr_execute_export" text="导出" />
+	 <string id="cr_execute_Import" text="角色导入" />
+	 <string id="cr_execute_export" text="角色导出" />
+	 <string id="misc_cr_ExecuteExportl" text="导出角色到文件" />
+	 <string id="misc_cr_ExecuteImport" text="从文件导入角色" />
+	 <string id="tips_cr_doexport" text="角色到处到" />
+	 <string id="tips_cr_doimport" text="角色已经导入从" />
+	  
   </strings>
 </base>

@@ -49,6 +49,10 @@
 		<string id="str_facegen_skin_Build2" text="Body Muscle" />
 
 		<string id="cr_execute_Import" text="Import" />
-		<string id="cr_execute_export" text="Export" />		
+		<string id="cr_execute_export" text="Export" />
+		<string id="misc_cr_ExecuteExportl" text="Export Hero to files" />
+		<string id="misc_cr_ExecuteImport" text="Import hero from files" />
+		<string id="tips_cr_doexport" text="Character exported to " />
+		<string id="tips_cr_doimport" text="Character imported from " />
 	</strings>
 </base>

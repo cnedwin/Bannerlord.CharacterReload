@@ -103,7 +103,7 @@ namespace CharacterReload.View
 		{
 			TextObject textObject = new TextObject("{=misc_cr_ExecuteExportl}Export the Hero", null);
 			this.ShowComfirDialog(textObject, () => Export(GetHero()));
-			InformationManager.DisplayMessage(new InformationMessage(new TextObject("{=tips_cr_DoRefleshLevel}After reset the hero’s Level, you need to close the clan screen and reopen it to take effect!", null).ToString()));
+			InformationManager.DisplayMessage(new InformationMessage(new TextObject("{=tips_cr_doexport}Character exported to " + Helper.GetFilename(GetHero()), null).ToString()));
 
 
 		}
@@ -113,7 +113,7 @@ namespace CharacterReload.View
 			TextObject textObject = new TextObject("{=misc_cr_ExecuteImport}Import the hero", null);
 			bool flag = InputKey.LeftShift.IsDown() || InputKey.RightShift.IsDown();
 			this.ShowComfirDialog(textObject, () => CharacterTrainerStatsModel.Instance().Import(GetHero(), flag));
-			InformationManager.DisplayMessage(new InformationMessage(new TextObject("{=tips_cr_DoRefleshLevel}After reset the hero’s Level, you need to close the clan screen and reopen it to take effect!", null).ToString()));
+			InformationManager.DisplayMessage(new InformationMessage(new TextObject("{=tips_cr_DoExport}Character imported from " + Helper.GetFilename(GetHero()),null).ToString()));
 
 
 		}
