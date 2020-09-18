@@ -47,7 +47,7 @@ namespace FaceDetailsCreator.Data
 
         public void LoadFacGenData()
         {
-            string path = System.IO.Path.Combine(Utilities.GetConfigsPath(), "FaceDetailsCreator", "FacGenRecordData.json");
+            string path = System.IO.Path.Combine(Utilities.GetConfigsPath(), "CharacterReload", "CharacterReload.json");
             FileInfo fileInfo = new FileInfo(path);
             if (fileInfo.Exists)
             {
@@ -74,8 +74,8 @@ namespace FaceDetailsCreator.Data
         {
             try
             {
-                string dic = System.IO.Path.Combine(Utilities.GetConfigsPath(), "FaceDetailsCreator");
-                string path = System.IO.Path.Combine(dic, "FacGenRecordData.json");
+                string dic = System.IO.Path.Combine(Utilities.GetConfigsPath(), "CharacterReload");
+                string path = System.IO.Path.Combine(dic, "CharacterReload.json");
 
                 System.IO.Directory.CreateDirectory(dic);
 
