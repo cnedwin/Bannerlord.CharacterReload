@@ -21,6 +21,11 @@ namespace FaceDetailsCreator.Pathes
 
             static void Postfix(CharacterObject __instance, BodyProperties properties, bool isFemale)
             {
+                if (__instance.IsPlayerCharacter && __instance.IsHero)
+                {
+                    __instance.HeroObject.BirthDay = HeroHelper.GetRandomBirthDayForAge((int)properties.Age);
+                }
+
                 if (!__instance.IsPlayerCharacter && __instance.IsHero)
                 {
                     Hero hero = __instance.HeroObject;

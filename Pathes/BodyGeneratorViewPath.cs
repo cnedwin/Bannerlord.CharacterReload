@@ -28,7 +28,6 @@ namespace FaceDetailsCreator.Pathes
      typeof(TextObject),
      typeof( BasicCharacterObject ),
      typeof( bool ),
-     typeof( IFaceGeneratorCustomFilter ),
      typeof( ControlCharacterCreationStageReturnInt ),
      typeof( ControlCharacterCreationStageReturnInt  ),
      typeof(  ControlCharacterCreationStageReturnInt  ),
