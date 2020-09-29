@@ -1,1 +1,0 @@
-CharacterReload/ModuleData/strings.xml: strings.string.text
