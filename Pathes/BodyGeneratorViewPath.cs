@@ -1,6 +1,6 @@
-﻿using FaceDetailsCreator.VM;
-using FaceDetailsCreator.Data;
-using FaceDetailsCreator.VM.Facgen;
+﻿using CharacterReload.VM;
+using CharacterReload.Data;
+using CharacterReload.VM.Facgen;
 using HarmonyLib;
 using System;
 using System.Collections.Generic;
@@ -19,7 +19,7 @@ using TaleWorlds.Localization;
 using TaleWorlds.MountAndBlade.GauntletUI;
 using TaleWorlds.TwoDimension;
 
-namespace FaceDetailsCreator.Pathes
+namespace CharacterReload.Pathes
 {
     [HarmonyPatch(typeof(BodyGeneratorView), MethodType.Constructor, new Type[] {
      typeof(ControlCharacterCreationStage),

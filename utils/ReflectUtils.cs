@@ -5,7 +5,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FaceDetailsCreator.Utils
+namespace CharacterReload.Utils
 {
     class ReflectUtils
     {

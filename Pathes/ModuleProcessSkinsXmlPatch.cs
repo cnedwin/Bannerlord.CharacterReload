@@ -9,7 +9,7 @@ using TaleWorlds.Localization;
 using TaleWorlds.MountAndBlade;
 using TaleWorlds.ObjectSystem;
 
-namespace FaceDetailsCreator.Pathes
+namespace CharacterReload.Pathes
 {
     [HarmonyPatch(typeof(Module), "CreateProcessedSkinsXMLForNative")]
     public static class ModuleProcessSkinsXmlPatch

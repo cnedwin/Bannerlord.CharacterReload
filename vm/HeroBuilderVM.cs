@@ -9,7 +9,7 @@ using SandBox.View.Map;
 using TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia;
 using HarmonyLib;
 using TaleWorlds.MountAndBlade.LegacyGUI.Missions;
-namespace FaceDetailsCreator.VM
+namespace CharacterReload.VM
 {
     public partial class HeroBuilderVM : ViewModel
     {

@@ -1,4 +1,4 @@
-﻿using FaceDetailsCreator.Utils;
+﻿using CharacterReload.Utils;
 using HarmonyLib;
 using System;
 using System.Collections.Generic;
@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using TaleWorlds.Localization;
 using TaleWorlds.MountAndBlade.ViewModelCollection;
 
-namespace FaceDetailsCreator.Pathes
+namespace CharacterReload.Pathes
 {
     [HarmonyPatch(typeof(FaceGenPropertyVM), "Name", MethodType.Getter)]
      class FaceGenPropertyVMNamePath

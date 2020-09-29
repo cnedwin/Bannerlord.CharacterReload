@@ -13,7 +13,7 @@ using TaleWorlds.InputSystem;
 using TaleWorlds.Library;
 using TaleWorlds.Localization;
 
-namespace CharacterReload.View
+namespace CharacterReload.VM
 {
 	public class MyClanLordItemVM : ClanLordItemVM
 	{

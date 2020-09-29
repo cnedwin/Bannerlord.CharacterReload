@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using TaleWorlds.Core;
 using TaleWorlds.Engine;
 
-namespace FaceDetailsCreator.Data
+namespace CharacterReload.Data
 {
     class GlobalDataProvider
     {

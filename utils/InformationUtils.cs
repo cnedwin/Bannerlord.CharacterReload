@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using TaleWorlds.Core;
 using TaleWorlds.Localization;
 
-namespace FaceDetailsCreator.Utils
+namespace CharacterReload.Utils
 {
     class InformationUtils
     {

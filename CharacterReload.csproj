@@ -90,7 +90,6 @@
     <Compile Include="Pathes\BodyGeneratorViewPath.cs" />
     <Compile Include="Pathes\CharacterObjectPath.cs" />
     <Compile Include="Pathes\ClanMemberPath.cs" />
-    <Compile Include="Pathes\BowAndCross.cs" />
     <Compile Include="Pathes\FaceGenPropertyVMPath.cs" />
     <Compile Include="Pathes\LocationPath.cs" />
     <Compile Include="Pathes\ModuleProcessSkinsXmlPatch.cs" />

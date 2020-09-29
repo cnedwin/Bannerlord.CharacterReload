@@ -1,4 +1,4 @@
-﻿using FaceDetailsCreator.Utils;
+﻿using CharacterReload.Utils;
 using HarmonyLib;
 using Helpers;
 using System;
@@ -11,7 +11,7 @@ using TaleWorlds.CampaignSystem;
 using TaleWorlds.Core;
 using TaleWorlds.Localization;
 
-namespace FaceDetailsCreator.Pathes
+namespace CharacterReload.Pathes
 {
     class CharacterObjectPath
     {

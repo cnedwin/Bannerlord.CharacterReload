@@ -6,7 +6,7 @@ using TaleWorlds.Localization;
 using TaleWorlds.MountAndBlade;
 using SandBox.GauntletUI;
 using TaleWorlds.CampaignSystem;
-using FaceDetailsCreator;
+using CharacterReload;
 using System.IO;
 
 namespace CharacterReload

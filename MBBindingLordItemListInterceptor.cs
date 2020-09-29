@@ -1,4 +1,4 @@
-﻿using CharacterReload.View;
+﻿using CharacterReload.VM;
 using HarmonyLib;
 using System;
 using TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement;

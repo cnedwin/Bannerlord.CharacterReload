@@ -1,5 +1,5 @@
-﻿using FaceDetailsCreator.Data;
-using FaceDetailsCreator.Utils;
+﻿using CharacterReload.Data;
+using CharacterReload.Utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +11,7 @@ using TaleWorlds.Localization;
 using TaleWorlds.MountAndBlade;
 using TaleWorlds.MountAndBlade.GauntletUI;
 
-namespace FaceDetailsCreator.VM.Facgen
+namespace CharacterReload.VM.Facgen
 {
     class FacGenRecordVM: ViewModel
     {

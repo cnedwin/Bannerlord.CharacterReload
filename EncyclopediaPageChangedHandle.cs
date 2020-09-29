@@ -1,5 +1,5 @@
-﻿using FaceDetailsCreator.VM;
-using FaceDetailsCreator.Utils;
+﻿using CharacterReload.VM;
+using CharacterReload.Utils;
 using SandBox.GauntletUI;
 using SandBox.View.Map;
 using System;
@@ -12,7 +12,7 @@ using TaleWorlds.GauntletUI.Data;
 using TaleWorlds.Library;
 using TaleWorlds.Localization;
 
-namespace FaceDetailsCreator
+namespace CharacterReload
 {
     class EncyclopediaPageChangedHandle
     {
