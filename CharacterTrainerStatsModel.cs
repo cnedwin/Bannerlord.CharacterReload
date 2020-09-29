@@ -8,11 +8,7 @@ using TaleWorlds.Library;
 
 namespace CharacterReload
 {
-	/**
-	 * 这个类，没有引用特别东西，所以可以改造成一个单例模式
-	 * 这样其他地方使用可以通过静态方法直接获取到实例。
-	 * 这个类复制导入导出功能，可以把所有方法写这里
-	 */
+
 	public class CharacterTrainerStatsModel : DefaultCharacterStatsModel
 	{
 		private static CharacterTrainerStatsModel _instance;

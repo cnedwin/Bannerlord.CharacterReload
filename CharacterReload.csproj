@@ -104,8 +104,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="Resource\ModuleData\project.mbproj" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Resource\GUI\Brushes\FacGenRecordBrushes.xml" />
+    <Content Include="Resource\GUI\Prefabs\Clan\ClanMembers.xml" />
+    <Content Include="Resource\GUI\Prefabs\facgen\FacGenRecord.xml" />
+    <Content Include="Resource\GUI\Prefabs\facgen\FacGenRecordItem.xml" />
+    <Content Include="Resource\GUI\Prefabs\HeroEditor.xml" />
+    <Content Include="Resource\ModuleData\Languages\CNs\std_module_stringsl.xml" />
+    <Content Include="Resource\ModuleData\Languages\English\std_module_stringsl.xml" />
+    <Content Include="Resource\ModuleData\skins.xml" />
+    <Content Include="Resource\ModuleData\strings.xml" />
+    <Content Include="Resource\ModuleData\xml_attributes_to_be_identified.txt" />
+    <Content Include="Resource\SubModule.xml" />
+  </ItemGroup>
   <!-- Post-Build -->
   <PropertyGroup>
     <PostBuildEvent>xcopy  /Y /S "$(MSBuildProjectDirectory)\resource" "$(GamePath)Modules\CharacterReload\"</PostBuildEvent>

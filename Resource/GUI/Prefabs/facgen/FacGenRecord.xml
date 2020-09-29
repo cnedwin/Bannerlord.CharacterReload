@@ -1,0 +1,71 @@
+﻿<Prefab>
+  <Window>
+    <Widget HeightSizePolicy="StretchToParent"  WidthSizePolicy="Fixed" SuggestedWidth="200"   UpdateChildrenStates="true" >
+      <Children>
+        <ListPanel Id="ClanElementsListPanel" WidthSizePolicy="CoverChildren" HeightSizePolicy="CoverChildren" LayoutImp.LayoutMethod="VerticalBottomToTop">
+          <Children>
+            
+            
+            <ToggleWidget DoNotPassEventsToChildren="true" WidthSizePolicy="StretchToParent" MarginTop="8" HeightSizePolicy="Fixed" SuggestedHeight="40"  HorizontalAlignment="Left" VerticalAlignment="Top"  RenderLate="true" WidgetToClose="..\CompanionsList">
+              <Children>
+                <TextWidget WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent" Brush="Clan.Management.Collapser.Text" Text="@SavedListText" />
+              </Children>
+            </ToggleWidget>
+
+            <ListPanel Id="CompanionsList" IsVisible="false"  WidthSizePolicy="Fixed"   MarginTop="8"  MarginRight="8"  MarginLeft="8"  MarginBottom="8"  SuggestedWidth="200" HeightSizePolicy="StretchToParent"  HorizontalAlignment="Left" LayoutImp.LayoutMethod="VerticalBottomToTop" DoNotAcceptEvents="true"  RenderLate="true" >
+              <Children>
+
+
+                <ButtonWidget WidthSizePolicy="Fixed" HeightSizePolicy="Fixed" SuggestedWidth="170" SuggestedHeight="40" DoNotPassEventsToChildren="true" VerticalAlignment="Center" Command.Click="ExecuteSaveSelected" Brush="ButtonBrush4" UpdateChildrenStates="true" IsEnabled="true">
+                  <Children>
+                    <TextWidget WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent" Brush="Popup.Button.Text" Text="@SaveCurrentText" />
+                  </Children>
+                </ButtonWidget>
+
+                <ButtonWidget WidthSizePolicy="Fixed" HeightSizePolicy="Fixed" SuggestedWidth="170" SuggestedHeight="40" DoNotPassEventsToChildren="true" VerticalAlignment="Center" Command.Click="ExecuteLoadSelected" Brush="ButtonBrush4" UpdateChildrenStates="true" IsEnabled="@HasSelectedItem">
+                  <Children>
+                    <TextWidget WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent" Brush="Popup.Button.Text" Text="@LoadCurrentText" />
+                  </Children>
+                </ButtonWidget>
+
+
+
+                <ButtonWidget WidthSizePolicy="Fixed" HeightSizePolicy="Fixed" SuggestedWidth="170" SuggestedHeight="40" DoNotPassEventsToChildren="true" VerticalAlignment="Center" Command.Click="ExecuteDeleteSelected" Brush="ButtonBrush4" UpdateChildrenStates="true" IsEnabled="@HasSelectedItem">
+                  <Children>
+                    <TextWidget WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent" Brush="Popup.Button.Text" Text="@DeleteCurrentText" />
+                  </Children>
+                </ButtonWidget>
+
+
+                <!--List and Scrollbar horizontal list-->
+                <ListPanel WidthSizePolicy="StretchToParent"  HeightSizePolicy="StretchToParent ">
+                  <Children>
+                    <!--Clan List Scrollable Panel-->
+                    <ScrollablePanel WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent"  AutoHideScrollBars="true" ClipRect="ClanListClipRect" InnerPanel="ClanListClipRect\ClanList" VerticalScrollbar="..\SideListScrollbar\Scrollbar">
+                      <Children>
+                        <Widget Id="ClanListClipRect" WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent" ClipContents="true">
+                          <Children>
+                            <ListPanel Id="ClanList" DataSource="{RecordItems}" HeightSizePolicy="CoverChildren" WidthSizePolicy="StretchToParent"
+                                        LayoutImp.LayoutMethod="VerticalBottomToTop" HorizontalAlignment="Left" >
+                              <ItemTemplate>
+                                <FacGenRecordItem />
+                              </ItemTemplate>
+                            </ListPanel>
+                          </Children>
+                        </Widget>
+
+                      </Children>
+                    </ScrollablePanel>
+                    <Standard.VerticalScrollbar Id="SideListScrollbar" IsVisible="false"   HeightSizePolicy="StretchToParent" HorizontalAlignment="Right" MarginRight="2" MarginLeft="2" MarginBottom="3" />
+                  </Children>
+                </ListPanel>
+
+              </Children>
+            </ListPanel>
+
+          </Children>
+        </ListPanel>
+      </Children>
+    </Widget>
+  </Window>
+</Prefab>

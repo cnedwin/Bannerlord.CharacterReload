@@ -241,7 +241,6 @@ namespace CharacterReload.VM
 
         public void ReLevel(Hero hero)
         {
-            int num = 1;
             hero.HeroDeveloper.ClearDeveloper();
             hero.ClearSkills();
             this.AddSkillLevel(hero, DefaultSkills.Bow, (int)60);
