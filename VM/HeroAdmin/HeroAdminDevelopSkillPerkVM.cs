@@ -27,7 +27,7 @@ namespace CharacterReload.VM.HeroAdmin
     
       
         private HeroAdminSkillVM _currentSkillVM;
-        private HeroAdminCharacter _hero;
+
 
         public HeroAdminDevelopSkillPerkVM(HeroAdminCharacter heroAdminCharacter)
         {

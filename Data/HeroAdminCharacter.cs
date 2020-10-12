@@ -37,6 +37,7 @@ namespace CharacterReload.Data
             Traits = new List<HeroAdminCharacterTrait>();
         }
 
+
         public static HeroAdminCharacter FromHero(Hero hero)
         {
             HeroAdminCharacter adminCharacter = new HeroAdminCharacter();
@@ -188,6 +189,8 @@ namespace CharacterReload.Data
                 result.SkillFocus = 0;
             }
         }
+
+
 
         public int GetSkillValue(SkillObject current)
         {

@@ -1,51 +1,53 @@
 ﻿<Prefab>
-  <VisualDefinitions>
-    <VisualDefinition Name="BottomMenu" DelayOnBegin="0.2" TransitionDuration="0.4">
-      <VisualState PositionYOffset="0" State="Default" />
-    </VisualDefinition>
-  </VisualDefinitions>
-  <Window>
-    <Widget HeightSizePolicy="StretchToParent"   WidthSizePolicy="StretchToParent" VerticalAlignment="Top"   HorizontalAlignment="Left"  UpdateChildrenStates="true"
-            Brush="Encyclopedia.SoundBrush"
-            MarginRight="-10"
-            MarginLeft="-10"
-		        Sprite="highscore_bar_9" Brush.AlphaFactor="0.55">
-      <Children>
+	<VisualDefinitions>
+		<VisualDefinition Name="BottomMenu" DelayOnBegin="0.2" TransitionDuration="0.4">
+			<VisualState PositionYOffset="0" State="Default" />
+		</VisualDefinition>
+	</VisualDefinitions>
+	<Window>
+		<Widget HeightSizePolicy="StretchToParent"   WidthSizePolicy="StretchToParent" VerticalAlignment="Top"   HorizontalAlignment="Left"  UpdateChildrenStates="true"
+				Brush="Encyclopedia.SoundBrush"
+				MarginRight="-10"
+				MarginLeft="-10"
+					Sprite="highscore_bar_9" Brush.AlphaFactor="0.55">
+			<Children>
 
-        <Widget HeightSizePolicy="StretchToParent"   WidthSizePolicy="StretchToParent" VerticalAlignment="Top" MarginLeft="10"  MarginRight="10"  HorizontalAlignment="Left"  UpdateChildrenStates="true"
+				<Widget HeightSizePolicy="StretchToParent"   WidthSizePolicy="StretchToParent" VerticalAlignment="Top" MarginLeft="10"  MarginRight="10"  HorizontalAlignment="Left"  UpdateChildrenStates="true"
            >
-          <Children>
+					<Children>
 
-            <Widget  HeightSizePolicy="Fixed" SuggestedHeight="150"  WidthSizePolicy="Fixed" SuggestedWidth="500"
-                            PositionYOffset="-5" HorizontalAlignment="Center" Sprite="StdAssets\tabbar_popup"
-                            DoNotAcceptEvents="true"  >
-              <Children>
+						<Widget  HeightSizePolicy="Fixed" SuggestedHeight="150"  WidthSizePolicy="Fixed" SuggestedWidth="500"
+										PositionYOffset="-5" HorizontalAlignment="Center" Sprite="StdAssets\tabbar_popup"
+										DoNotAcceptEvents="true"  >
+							<Children>
 
-                <RichTextWidget WidthSizePolicy="StretchToParent" HeightSizePolicy="CoverChildren" VerticalAlignment="Center"
-                   Brush="Recruitment.Popup.Title.Text"
-                                PositionYOffset="-25"
-                   Text="@HeroAdminText" Brush.FontSize="40" />
-              </Children>
-            </Widget>
-
-
-
-            <Widget  WidthSizePolicy="StretchToParent"   HeightSizePolicy="StretchToParent"  HorizontalAlignment="Center"   VerticalAlignment="Top" MarginTop="100">
-              <Children>
-             
-                <HeroAdminRecord  DataSource="{HeroAdminRecord}"  HorizontalAlignment="Left" />
-                <HeroAdminCharacter DataSource="{HeroCharacter}" MarginLeft="480" />
-                <HeroAdminDevelop DataSource="{HeronDevelop}"   HorizontalAlignment="Right"  />
-
-                <Standard.TripleDialogCloseButtons VisualDefinition="BottomMenu" HorizontalAlignment="Center" VerticalAlignment="Bottom" PositionYOffset="100" Parameter.CancelButtonAction="ExecuteCancel" Parameter.CancelButtonText="@CancelLbl" Parameter.DoneButtonAction="ExecuteDone" Parameter.DoneButtonText="@DoneLbl" Parameter.ResetButtonAction="ExecuteReset" Parameter.ResetButtonHintDataSource="{ResetHint}" />
+								<RichTextWidget WidthSizePolicy="StretchToParent" HeightSizePolicy="CoverChildren" VerticalAlignment="Center"
+								   Brush="Recruitment.Popup.Title.Text"
+												PositionYOffset="-25"
+								   Text="@HeroAdminText" Brush.FontSize="40" />
+							</Children>
+						</Widget>
 
 
-              </Children>
-            </Widget>
-          </Children>
-        </Widget>
 
-      </Children>
-    </Widget>
-  </Window>
+						<Widget  WidthSizePolicy="StretchToParent"   HeightSizePolicy="StretchToParent"  HorizontalAlignment="Center"   VerticalAlignment="Top" MarginTop="100">
+							<Children>
+
+								<HeroAdminRecord  DataSource="{HeroAdminRecord}"  HorizontalAlignment="Left" />
+								<HeroAdminCharacter DataSource="{HeroCharacter}" MarginLeft="480" />
+								<HeroAdminDevelop DataSource="{HeronDevelop}"   HorizontalAlignment="Right"  />
+
+								<Standard.TripleDialogCloseButtons VisualDefinition="BottomMenu" HorizontalAlignment="Center" VerticalAlignment="Bottom" PositionYOffset="100" Parameter.CancelButtonAction="ExecuteCancel" Parameter.CancelButtonText="@CancelLbl" Parameter.DoneButtonAction="ExecuteDone" Parameter.DoneButtonText="@DoneLbl" Parameter.ResetButtonAction="ExecuteReset" Parameter.ResetButtonHintDataSource="{ResetHint}" />
+
+
+							</Children>
+						</Widget>
+
+						<HeroAdminHeroSelector DataSource="{HeroSelector}"  HorizontalAlignment="Right" MarginRight="10" MarginTop="10"/>
+					</Children>
+				</Widget>
+
+			</Children>
+		</Widget>
+	</Window>
 </Prefab>

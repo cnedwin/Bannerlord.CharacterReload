@@ -10,6 +10,7 @@ using TaleWorlds.CampaignSystem;
 using TaleWorlds.Core;
 using TaleWorlds.Core.ViewModelCollection;
 using TaleWorlds.Library;
+using TaleWorlds.Localization;
 
 namespace CharacterReload.VM.HeroAdmin
 {
@@ -21,11 +22,12 @@ namespace CharacterReload.VM.HeroAdmin
         HeroAdminCharacterVM _heroAdminCharacterVM;
         HeroAdminDevelopVM _heroAdminDevelopVM;
         HeroAdminRecordVM _heroAdminRecordVM;
+        HeroAdminHeroSelectorVM _HeroAdminHeroSelectorVM;
         private readonly Action _closeHereAdminDashBoard;
 
         public HereAdminDashBoardVM(Hero hero, Action closeHereAdminDashBoard)
         {
-          
+            this._HeroAdminHeroSelectorVM = new HeroAdminHeroSelectorVM(hero, OnHeroSelected);
             this._closeHereAdminDashBoard = closeHereAdminDashBoard;
             this._hero = hero;
             this._heroAdminCharacter = HeroAdminCharacter.FromHero(hero);
@@ -36,7 +38,14 @@ namespace CharacterReload.VM.HeroAdmin
             this._heroAdminCharacterVM.FillFrom(hero.BodyProperties, hero.CharacterObject.FirstCivilianEquipment, hero.Culture, hero.IsFemale);
         }
 
-     
+
+        private void OnHeroSelected(Hero hero)
+        {
+            this._heroAdminCharacter = HeroAdminCharacter.FromHero(hero);
+            this._heroAdminCharacterVM.DisplayerHeroName = hero.Name.ToString();
+            this._heroAdminCharacterVM.FillFrom(hero.BodyProperties, hero.CharacterObject.FirstCivilianEquipment, hero.Culture, hero.IsFemale);
+            ResetData();
+        }
 
         private void OnToLoadHeroCharacter(HeroAdminCharacter data)
         {
@@ -56,6 +65,26 @@ namespace CharacterReload.VM.HeroAdmin
             get
             {
                 return this._hero.Name.ToString();
+            }
+        }
+
+        [DataSourceProperty]
+        public string HeroAdminText
+        {
+            get
+            {
+                return new TextObject("{=cr_hero_admin}Edit Hero").ToString();
+
+            }
+
+        }
+
+        [DataSourceProperty]
+        public HeroAdminHeroSelectorVM HeroSelector
+        {
+            get
+            {
+                return this._HeroAdminHeroSelectorVM;
             }
         }
 
@@ -91,9 +120,9 @@ namespace CharacterReload.VM.HeroAdmin
         {
             get
             {
-                return GameTexts.FindText("str_done", null).ToString(); 
+                return GameTexts.FindText("str_done", null).ToString();
             }
-           
+
         }
 
         [DataSourceProperty]
@@ -101,9 +130,9 @@ namespace CharacterReload.VM.HeroAdmin
         {
             get
             {
-                return GameTexts.FindText("str_cancel", null).ToString(); 
+                return GameTexts.FindText("str_cancel", null).ToString();
             }
-         
+
         }
 
         [DataSourceProperty]
@@ -113,19 +142,19 @@ namespace CharacterReload.VM.HeroAdmin
             {
                 return new HintViewModel(GameTexts.FindText("str_reset", null).ToString(), null); ;
             }
-          
+
         }
 
         private void ExecuteCancel()
         {
-    
+
             if (null != this._closeHereAdminDashBoard) this._closeHereAdminDashBoard();
         }
 
         private void ExecuteDone()
         {
             this._heroAdminCharacter.ToHero(this._hero);
-            if(null != this._closeHereAdminDashBoard) this._closeHereAdminDashBoard();
+            if (null != this._closeHereAdminDashBoard) this._closeHereAdminDashBoard();
         }
 
 

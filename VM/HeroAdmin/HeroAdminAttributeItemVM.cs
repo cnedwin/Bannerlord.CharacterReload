@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.Core;
 using TaleWorlds.Library;
+using TaleWorlds.Localization;
 
 namespace CharacterReload.VM.HeroAdmin
 {
@@ -75,6 +76,15 @@ namespace CharacterReload.VM.HeroAdmin
 			}
 			
 		}
-		
+
+		[DataSourceProperty]
+		public string ResetLevelText
+		{
+			get
+			{
+				return new TextObject("{=bottom_ReLevelHero}Reset Level", null).ToString();
+			}
+		}
+
 	}
 }

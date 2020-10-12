@@ -20,12 +20,12 @@ using TaleWorlds.TwoDimension;
 
 namespace CharacterReload.Screen
 {
-    [GameStateScreen(typeof(HeroAdminState))]
-    class HeroAdminScreen : ScreenBase, IGameStateListener
-    {
+	[GameStateScreen(typeof(HeroAdminState))]
+	class HeroAdminScreen : ScreenBase, IGameStateListener
+	{
 		private GauntletLayer _gauntletLayer;
-		private SpriteCategory _encyclopediaCategory;
-		private SpriteCategory _clanCatagory2;
+		private SpriteCategory _clanCategory;
+		private SpriteCategory _clanCategory2;
 
 		private SpriteCategory _characterdeveloper;
 
@@ -69,13 +69,11 @@ namespace CharacterReload.Screen
 				LoadingWindow.DisableGlobalLoadingWindow();
 			}
 
-
-			this._encyclopediaCategory.Unload();
-			this._clanCatagory2.Unload();
+			this._clanCategory.Unload();
+			this._clanCategory2.Unload();
 			this._characterdeveloper.Unload();
 			this._dataSource = null;
 			this._gauntletLayer = null;
-
 
 		}
 
@@ -87,10 +85,12 @@ namespace CharacterReload.Screen
 			ResourceDepot uIResourceDepot = UIResourceManager.UIResourceDepot;
 			this._characterdeveloper = spriteData.SpriteCategories["ui_characterdeveloper"];
 			this._characterdeveloper.Load(resourceContext, uIResourceDepot);
-			this._encyclopediaCategory = spriteData.SpriteCategories["ui_encyclopedia"];
-			this._encyclopediaCategory.Load(resourceContext, uIResourceDepot);
-			this._clanCatagory2 = spriteData.SpriteCategories["ui_clan"];
-			this._clanCatagory2.Load(resourceContext, uIResourceDepot);
+			this._clanCategory = spriteData.SpriteCategories["ui_encyclopedia"];
+			this._clanCategory.Load(resourceContext, uIResourceDepot);
+
+			this._clanCategory2 = spriteData.SpriteCategories["ui_clan"];
+			this._clanCategory2.Load(resourceContext, uIResourceDepot);
+
 			this._gauntletLayer = new GauntletLayer(1, "GauntletLayer");
 			this._gauntletLayer.InputRestrictions.SetInputRestrictions(true, InputUsageMask.All);
 			this._gauntletLayer.Input.RegisterHotKeyCategory(HotKeyManager.GetCategory("GenericCampaignPanelsGameKeyCategory"));
@@ -105,7 +105,7 @@ namespace CharacterReload.Screen
 		}
 
 		private void OnCloseHereAdminDashBoard()
-        {
+		{
 			OnExit();
 
 		}
@@ -127,7 +127,6 @@ namespace CharacterReload.Screen
 
 		void IGameStateListener.OnDeactivate()
 		{
-		
 		}
 
 		void IGameStateListener.OnInitialize()
@@ -136,7 +135,7 @@ namespace CharacterReload.Screen
 
 		void IGameStateListener.OnFinalize()
 		{
-			
+
 		}
 	}
 }

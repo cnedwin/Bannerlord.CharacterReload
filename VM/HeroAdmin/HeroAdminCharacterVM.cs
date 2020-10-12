@@ -13,17 +13,17 @@ using TaleWorlds.Library;
 
 namespace CharacterReload.VM.HeroAdmin
 {
-    class HeroAdminCharacterVM: ViewModel
+    class HeroAdminCharacterVM : ViewModel
     {
- 
+
         HeroAdminDevelopCharacterPreviewVM _heroModel;
         private string _heroName;
 
-        public HeroAdminCharacterVM( string heroName)
+        public HeroAdminCharacterVM(string heroName)
         {
             this._heroName = heroName;
             this.HeroModel = new HeroAdminDevelopCharacterPreviewVM();
- 
+
         }
 
         public void FillFrom(BodyProperties bodyProperties, Equipment equipment, CultureObject culture, bool isFemale = false)
@@ -37,6 +37,14 @@ namespace CharacterReload.VM.HeroAdmin
             get
             {
                 return this._heroName;
+            }
+            set
+            {
+                if (value != this._heroName)
+                {
+                    this._heroName = value;
+                    base.OnPropertyChangedWithValue(value, "DisplayerHeroName");
+                }
             }
         }
 
