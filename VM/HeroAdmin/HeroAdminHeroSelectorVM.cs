@@ -23,11 +23,11 @@ namespace CharacterReload.VM.HeroAdmin
             this._heros = new MBBindingList<HeroAdminHeroSelectorItemVM>();
             if(null == currentHero.Clan)
             {
-                this.currentclan = currentHero.Clan;
+                this.currentclan = Clan.PlayerClan;
             }
             else
             {
-                this.currentclan = Clan.PlayerClan;
+                this.currentclan = currentHero.Clan;
             }
 
             RefreshHeros();
