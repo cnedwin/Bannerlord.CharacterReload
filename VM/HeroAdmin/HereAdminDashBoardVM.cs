@@ -10,7 +10,6 @@ using TaleWorlds.CampaignSystem;
 using TaleWorlds.Core;
 using TaleWorlds.Core.ViewModelCollection;
 using TaleWorlds.Library;
-using TaleWorlds.Localization;
 
 namespace CharacterReload.VM.HeroAdmin
 {
@@ -66,17 +65,6 @@ namespace CharacterReload.VM.HeroAdmin
             {
                 return this._hero.Name.ToString();
             }
-        }
-
-        [DataSourceProperty]
-        public string HeroAdminText
-        {
-            get
-            {
-                return new TextObject("{=cr_hero_admin}Edit Hero").ToString();
-
-            }
-
         }
 
         [DataSourceProperty]
@@ -141,6 +129,17 @@ namespace CharacterReload.VM.HeroAdmin
             get
             {
                 return new HintViewModel(GameTexts.FindText("str_reset", null).ToString(), null); ;
+            }
+
+        }
+
+        [DataSourceProperty]
+        public string HeroAdminText
+        {
+            get
+            {
+                return new TextObject("{=cr_hero_admin}Edit Hero").ToString();
+
             }
 
         }

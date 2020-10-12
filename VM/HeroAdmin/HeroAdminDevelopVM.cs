@@ -10,7 +10,7 @@ using TaleWorlds.Localization;
 
 namespace CharacterReload.VM.HeroAdmin
 {
-    class HeroAdminDevelopVM: ViewModel
+    class HeroAdminDevelopVM : ViewModel
     {
         private HeroAdminCharacter _heroAdminCharacter;
         private int _tableSelectedIndex = 0;
@@ -127,6 +127,6 @@ namespace CharacterReload.VM.HeroAdmin
             }
         }
 
-      
+
     }
 }
