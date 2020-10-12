@@ -18,7 +18,6 @@ namespace CharacterReload.Pathes
         public static bool Prefix(ref string __result, ref string baseSkinsXmlPath)
         {
 
-            // Why do I have to clone and modify two separate methods? - Designer225
             List<string> elementNameList = new List<string>();
             List<Tuple<string, string>> toBeMerged = new List<Tuple<string, string>>();
             List<string> xsltList = new List<string>();

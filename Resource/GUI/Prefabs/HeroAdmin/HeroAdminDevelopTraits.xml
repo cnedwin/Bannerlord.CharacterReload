@@ -1,0 +1,22 @@
+﻿<Prefab>
+  <Window>
+    <Widget HeightSizePolicy="CoverChildren"   IsVisible="@IsTraitTableSelected" WidthSizePolicy="StretchToParent" VerticalAlignment="Top" HorizontalAlignment="Left"  UpdateChildrenStates="true">
+      <Children>
+
+       
+        <Widget  DataSource="{TraitView}"  WidthSizePolicy="StretchToParent"    HeightSizePolicy="StretchToParent" >
+          <Children>
+            <ListPanel DataSource="{Traits}" WidthSizePolicy="Fixed"  SuggestedWidth="500" MarginTop="50"   HorizontalAlignment="Center"  HeightSizePolicy="StretchToParent"  LayoutImp.LayoutMethod="VerticalBottomToTop">
+              <ItemTemplate>
+                <HeroAdminDevelopTraitItem  />
+              </ItemTemplate>
+            </ListPanel>
+          </Children>
+          
+        </Widget>
+      
+
+      </Children>
+    </Widget>
+  </Window>
+</Prefab>

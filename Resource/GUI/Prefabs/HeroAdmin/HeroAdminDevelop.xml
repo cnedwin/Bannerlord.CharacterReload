@@ -1,0 +1,69 @@
+﻿<Prefab>
+  <Constants>
+  
+
+    <Constant Name="Header.Tab.Center.Width" BrushLayer="Default" BrushName="Header.Tab.Center" BrushValueType="Width" />
+    <Constant Name="Header.Tab.Center.Height" BrushLayer="Default" BrushName="Header.Tab.Center" BrushValueType="Height" />
+
+    <Constant Name="Header.Tab.Center.Width.Scaled" MultiplyResult="0.90" Value="!Header.Tab.Center.Width" />
+    <Constant Name="Header.Tab.Center.Height.Scaled" MultiplyResult="0.90" Value="!Header.Tab.Center.Height" />
+
+
+
+  </Constants>
+  <Window>
+    <Widget HeightSizePolicy="StretchToParent"   WithSizePolicy="Fixed"
+            SuggestedWidth="1090"    UpdateChildrenStates="true">
+      <Children>
+
+        <ListPanel WidthSizePolicy="StretchToParent"     LayoutImp.LayoutMethod="VerticalBottomToTop"  HeightSizePolicy="StretchToParent">
+          <Children>
+
+            <!-- HeroAdmin Develop Tab -->
+            <ListPanel WidthSizePolicy="CoverChildren" HeightSizePolicy="CoverChildren" HorizontalAlignment="Center" MarginBottom="4">
+              <Children>
+
+                <!-- HeroAdminDevelopSkillPerk Tab -->
+                <ButtonWidget DoNotPassEventsToChildren="true" WidthSizePolicy="Fixed" HeightSizePolicy="Fixed" SuggestedWidth="200" SuggestedHeight="50" MarginRight="2" Brush="Header.Tab.Left" Command.Click="SetSelectedCategory" CommandParameter.Click="0" IsSelected="@IsSkillTableSelected" UpdateChildrenStates="true">
+                  <Children>
+                    <TextWidget WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent" MarginTop="3" Brush="FaceDetaildCreator.TabControl.Text" Text="@HeroAdminDevelopSkillPerkText" />
+                  </Children>
+                </ButtonWidget>
+
+                <!-- HeroAdminDevelopAttribute Tab -->
+                <ButtonWidget DoNotPassEventsToChildren="true" WidthSizePolicy="Fixed" HeightSizePolicy="Fixed" SuggestedWidth="200" SuggestedHeight="45" PositionYOffset="4" Brush="Header.Tab.Center" Command.Click="SetSelectedCategory" CommandParameter.Click="1" IsSelected="@IsAttributeTableSelected" UpdateChildrenStates="true">
+                  <Children>
+                    <TextWidget WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent" MarginTop="3" Brush="FaceDetaildCreator.TabControl.Text" Text="@HeroAdminDevelopAttributeText" />
+                  </Children>
+                </ButtonWidget>
+
+                <!-- HeroAdminDevelopTraits Tab -->
+                <ButtonWidget DoNotPassEventsToChildren="true" WidthSizePolicy="Fixed" HeightSizePolicy="Fixed" SuggestedWidth="200" SuggestedHeight="50"  Brush="Header.Tab.Right" Command.Click="SetSelectedCategory" CommandParameter.Click="2" IsSelected="@IsTraitTableSelected" UpdateChildrenStates="true">
+                  <Children>
+                    <TextWidget WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent" MarginTop="3" Brush="FaceDetaildCreator.TabControl.Text" Text="@HeroAdminDevelopTraitsText" />
+                  </Children>
+                </ButtonWidget>
+
+              </Children>
+            </ListPanel>
+
+            <Widget WidthSizePolicy="StretchToParent" HeightSizePolicy="Fixed" SuggestedHeight="4" PositionXOffset="-3" Sprite="Clan\divider_mid"/>
+
+            <Widget WidthSizePolicy="StretchToParent"  HeightSizePolicy="StretchToParent" MarginTop="2" >
+              <Children>
+
+                <HeroAdminDevelopSkillPerk  IsVisible="true" />
+                <HeroAdminDevelopAttribute   IsVisible="false" />
+                <HeroAdminDevelopTraits    IsVisible="false" />
+
+              </Children>
+            </Widget>
+
+          </Children>
+        </ListPanel>
+
+
+      </Children>
+    </Widget>
+  </Window>
+</Prefab>

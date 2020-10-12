@@ -1,0 +1,27 @@
+﻿<Prefab>
+  <Window>
+    <Widget HeightSizePolicy="StretchToParent"  
+            WidthSizePolicy="Fixed"
+            SuggestedWidth="550"
+            VerticalAlignment="Top" 
+            HorizontalAlignment="Left"
+            UpdateChildrenStates="true"
+            >
+      <Children>
+
+        <!--Lord Visual Model-->
+        <Widget WidthSizePolicy="Fixed" HeightSizePolicy="StretchToParent" SuggestedWidth="550" SuggestedHeight="512">
+          <Children>
+            <!--Selected Character Tableau-->
+            <CharacterTableauWidget DataSource="{HeroModel}" WidthSizePolicy="Fixed" HeightSizePolicy="Fixed" SuggestedWidth="550" SuggestedHeight="1000" VerticalAlignment="Bottom" PositionXOffset="-150" PositionYOffset="100" BannerCodeText="@BannerCodeText" BodyProperties="@BodyProperties" CharStringId="@CharStringId" ClipContents="false" EquipmentCode="@EquipmentCode" IsFemale="@IsFemale" MountCreationKey="@MountCreationKey" StanceIndex="@StanceIndex" ArmorColor1="@ArmorColor1" ArmorColor2="@ArmorColor2" />
+            <Widget WidthSizePolicy="StretchToParent" HeightSizePolicy="Fixed" SuggestedHeight="123" VerticalAlignment="Bottom" PositionYOffset="20" Sprite="Clan\clan_portrait_shadow" IsEnabled="false" />
+          </Children>
+        </Widget>
+
+        <TextWidget WidthSizePolicy="CoverChildren"   HorizontalAlignment="Left" MarginLeft="20" HeightSizePolicy="CoverChildren"    Brush="Popup.Button.Text" Text="@DisplayerHeroName"   MarginTop="50"/>
+
+
+      </Children>
+    </Widget>
+  </Window>
+</Prefab>

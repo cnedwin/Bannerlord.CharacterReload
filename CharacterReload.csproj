@@ -67,25 +67,45 @@
       <HintPath>%(Identity)</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="DocumentFormat.OpenXml, Version=2.11.3.0, Culture=neutral, PublicKeyToken=8fb06cb64d019a17, processorArchitecture=MSIL">
+      <HintPath>packages\DocumentFormat.OpenXml.2.11.3\lib\net46\DocumentFormat.OpenXml.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.IO.FileSystem.Primitives, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.IO.FileSystem.Primitives.4.3.0\lib\net46\System.IO.FileSystem.Primitives.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IO.Packaging, Version=4.0.5.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.IO.Packaging.4.7.0\lib\net46\System.IO.Packaging.dll</HintPath>
+    </Reference>
     <Reference Include="System.Runtime.InteropServices.RuntimeInformation" />
     <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Xml.XmlDocument, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>packages\System.Xml.XmlDocument.4.3.0\lib\net46\System.Xml.XmlDocument.dll</HintPath>
       <Private>True</Private>
       <Private>True</Private>
     </Reference>
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <!-- Files & Classes -->
   <ItemGroup>
-    <Compile Include="CharacterTrainerStatsModel.cs" />
     <Compile Include="Data\FacGenRecordData.cs" />
     <Compile Include="Data\GlobalDataProvider.cs" />
+    <Compile Include="Data\HeroAdminCharacter.cs" />
+    <Compile Include="Data\HeroAdminCharacterAttribute.cs" />
+    <Compile Include="Data\HeroAdminCharacterPerk.cs" />
+    <Compile Include="Data\HeroAdminCharacterSkill.cs" />
+    <Compile Include="Data\HeroAdminCharacterTrait.cs" />
     <Compile Include="EncyclopediaPageChangedHandle.cs" />
     <Compile Include="Extension\Helper.cs" />
     <Compile Include="Extension\StringBuilderExtension.cs" />
+    <Compile Include="GauntletUI\Screen\HeroAdminScreen.cs" />
+    <Compile Include="GauntletUI\Screen\State\HeroAdminState.cs" />
     <Compile Include="MBBindingLordItemListInterceptor.cs" />
     <Compile Include="Pathes\BodyGeneratorViewPath.cs" />
     <Compile Include="Pathes\CharacterObjectPath.cs" />
@@ -93,12 +113,30 @@
     <Compile Include="Pathes\FaceGenPropertyVMPath.cs" />
     <Compile Include="Pathes\LocationPath.cs" />
     <Compile Include="Pathes\ModuleProcessSkinsXmlPatch.cs" />
+    <Compile Include="Store\ConfigDataStore.cs" />
+    <Compile Include="Store\GlobalConfigData.cs" />
     <Compile Include="SubModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utils\HeroUtils.cs" />
     <Compile Include="Utils\InformationUtils.cs" />
     <Compile Include="Utils\ReflectUtils.cs" />
-    <Compile Include="VM\facgen\FacGenRecordItemVM.cs" />
-    <Compile Include="VM\facgen\FacGenRecordVM.cs" />
+    <Compile Include="VM\Facgen\FacGenRecordItemVM.cs" />
+    <Compile Include="VM\Facgen\FacGenRecordVM.cs" />
+    <Compile Include="VM\HeroAdmin\HereAdminDashBoardVM.cs" />
+    <Compile Include="VM\HeroAdmin\HeroAdminAttributeItemVM.cs" />
+    <Compile Include="VM\HeroAdmin\HeroAdminCharacterVM.cs" />
+    <Compile Include="VM\HeroAdmin\HeroAdminDevelopAttributeVM.cs" />
+    <Compile Include="VM\HeroAdmin\HeroAdminDevelopCharacterPreviewVM.cs" />
+    <Compile Include="VM\HeroAdmin\HeroAdminDevelopSkillPerkVM.cs" />
+    <Compile Include="VM\HeroAdmin\HeroAdminDevelopTraitItemVM.cs" />
+    <Compile Include="VM\HeroAdmin\HeroAdminDevelopTraitsVM.cs" />
+    <Compile Include="VM\HeroAdmin\HeroAdminDevelopVM.cs" />
+    <Compile Include="VM\HeroAdmin\HeroAdminHeroSelectorItemVM.cs" />
+    <Compile Include="VM\HeroAdmin\HeroAdminHeroSelectorVM.cs" />
+    <Compile Include="VM\HeroAdmin\HeroAdminPerkVM.cs" />
+    <Compile Include="VM\HeroAdmin\HeroAdminRecordItemVM.cs" />
+    <Compile Include="VM\HeroAdmin\HeroAdminRecordVM.cs" />
+    <Compile Include="VM\HeroAdmin\HeroAdminSkillVM.cs" />
     <Compile Include="VM\HeroBuilderVM.cs" />
     <Compile Include="VM\MyClanLordItemVM.cs" />
   </ItemGroup>
@@ -111,6 +149,18 @@
     <Content Include="Resource\GUI\Prefabs\Clan\ClanMembers.xml" />
     <Content Include="Resource\GUI\Prefabs\facgen\FacGenRecord.xml" />
     <Content Include="Resource\GUI\Prefabs\facgen\FacGenRecordItem.xml" />
+    <Content Include="Resource\GUI\Prefabs\HeroAdmin\HeroAdminCharacter.xml" />
+    <Content Include="Resource\GUI\Prefabs\HeroAdmin\HeroAdminDashBoard.xml" />
+    <Content Include="Resource\GUI\Prefabs\HeroAdmin\HeroAdminDevelop.xml" />
+    <Content Include="Resource\GUI\Prefabs\HeroAdmin\HeroAdminDevelopAttribute.xml" />
+    <Content Include="Resource\GUI\Prefabs\HeroAdmin\HeroAdminDevelopAttributeItem.xml" />
+    <Content Include="Resource\GUI\Prefabs\HeroAdmin\HeroAdminDevelopSkillPerk.xml" />
+    <Content Include="Resource\GUI\Prefabs\HeroAdmin\HeroAdminDevelopTraitItem.xml" />
+    <Content Include="Resource\GUI\Prefabs\HeroAdmin\HeroAdminDevelopTraits.xml" />
+    <Content Include="Resource\GUI\Prefabs\HeroAdmin\HeroAdminHeroSelector.xml" />
+    <Content Include="Resource\GUI\Prefabs\HeroAdmin\HeroAdminRecord.xml" />
+    <Content Include="Resource\GUI\Prefabs\HeroAdmin\HeroAdminRecordItem.xml" />
+    <Content Include="Resource\GUI\Prefabs\HeroAdmin\HeroAdminSkillAndFouseSet.xml" />
     <Content Include="Resource\GUI\Prefabs\HeroEditor.xml" />
     <Content Include="Resource\ModuleData\Languages\CNs\std_module_stringsl.xml" />
     <Content Include="Resource\ModuleData\Languages\English\std_module_stringsl.xml" />

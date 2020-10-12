@@ -66,6 +66,17 @@
 		<string id="CharacterCreation_RenameText" text="Rename"/>
 		<string id="CharacterCreation_CancelText" text="Cancel"/>
 
+		<!-- HeroAdmin entry -->
+		<string id="cr_hero_admin" text="Edit Hero" />
+		<string id="cr_hero_skillandperk" text="Skill And Perk" />
+		<string id="cr_hero_attrbute" text="Attrbutes" />
+		<string id="cr_hero_trait" text="Traits" />
+		<string id="bottom_HeroTemplate" text="Hero Template" />
+		<string id="cr_hero_focus" text="Focus" />
+		<string id="cr_hero_skilllevel" text="Skill Level" />
+		<string id="cr_Select_Hero" text="Select_Hero" />
+
+
 		<!-- CharacterObjectPatch entry -->
 		<string id="CharacterCreation_HeroUpdatedMsg" text="Hero updated: "/>
 

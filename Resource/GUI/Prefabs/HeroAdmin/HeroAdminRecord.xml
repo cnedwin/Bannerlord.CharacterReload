@@ -1,0 +1,84 @@
+﻿<Prefab>
+  <Window>
+    <Widget HeightSizePolicy="StretchToParent"  
+         
+            WithSizePolicy="Fixed"
+            SuggestedWidth="450"
+            VerticalAlignment="Top"
+            HorizontalAlignment="Left" 
+            UpdateChildrenStates="true" >
+      <Children>
+
+        <ListPanel Id="ClanElementsListPanel" WidthSizePolicy="StretchToParent"   HeightSizePolicy="CoverChildren" LayoutImp.LayoutMethod="VerticalBottomToTop">
+          <Children>
+
+
+            <ToggleWidget DoNotPassEventsToChildren="true" WidthSizePolicy="StretchToParent" MarginTop="8" HeightSizePolicy="Fixed" SuggestedHeight="40"  HorizontalAlignment="Left" VerticalAlignment="Top"  RenderLate="true" WidgetToClose="..\CompanionsList">
+              <Children>
+                <TextWidget WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent" Brush="Clan.Management.Collapser.Text" Text="@HeroTemplateText" />
+              </Children>
+            </ToggleWidget>
+
+            <Widget WidthSizePolicy="StretchToParent" HeightSizePolicy="Fixed" SuggestedHeight="4" PositionXOffset="-3" Sprite="Clan\divider_mid"/>
+
+            <ListPanel Id="CompanionsList" IsVisible="false"  WidthSizePolicy="StretchToParent"   MarginTop="8" MarginBottom="8" HeightSizePolicy="StretchToParent"  HorizontalAlignment="Left" LayoutImp.LayoutMethod="VerticalBottomToTop" DoNotAcceptEvents="true"  RenderLate="true" >
+              <Children>
+
+                <Widget  WidthSizePolicy="StretchToParent"  HeightSizePolicy="CoverChildren"   MarginRight="16"  MarginLeft="16"    DoNotAcceptEvents="true"  RenderLate="true" >
+                  <Children>
+                    
+                <ButtonWidget WidthSizePolicy="Fixed" HeightSizePolicy="Fixed" SuggestedWidth="100" SuggestedHeight="40" DoNotPassEventsToChildren="true" VerticalAlignment="Center" Command.Click="ExecuteSaveSelected" Brush="ButtonBrush4" UpdateChildrenStates="true" IsEnabled="true">
+                  <Children>
+                    <TextWidget WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent" Brush.FontSize="14" Brush="Popup.Button.Text" Text="@SaveCurrentText" />
+                  </Children>
+                </ButtonWidget>
+                  
+                <ButtonWidget WidthSizePolicy="Fixed" HeightSizePolicy="Fixed" SuggestedWidth="100" SuggestedHeight="40" HorizontalAlignment="Center"  DoNotPassEventsToChildren="true" VerticalAlignment="Center" Command.Click="ExecuteLoadSelected" Brush="ButtonBrush4" UpdateChildrenStates="true" IsEnabled="@HasSelectedItem">
+                  <Children>
+                    <TextWidget WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent" Brush.FontSize="14" Brush="Popup.Button.Text" Text="@LoadCurrentText" />
+                  </Children>
+                </ButtonWidget>
+                   
+                <ButtonWidget WidthSizePolicy="Fixed" HeightSizePolicy="Fixed" SuggestedWidth="100" HorizontalAlignment="Right" SuggestedHeight="40" DoNotPassEventsToChildren="true" VerticalAlignment="Center" Command.Click="ExecuteDeleteSelected" Brush="ButtonBrush4" UpdateChildrenStates="true" IsEnabled="@HasSelectedItem">
+                  <Children>
+                    <TextWidget WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent" Brush.FontSize="14" Brush="Popup.Button.Text" Text="@DeleteCurrentText" />
+                  </Children>
+                </ButtonWidget>
+                  </Children>
+                </Widget>
+
+             
+
+                <!--List and Scrollbar horizontal list-->
+                <ListPanel WidthSizePolicy="StretchToParent"  HeightSizePolicy="StretchToParent"  MarginTop="10">
+                  <Children>
+                    <!--Clan List Scrollable Panel-->
+                    <ScrollablePanel WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent"  AutoHideScrollBars="true" ClipRect="ClanListClipRect" InnerPanel="ClanListClipRect\ClanList" VerticalScrollbar="..\SideListScrollbar\Scrollbar">
+                      <Children>
+                        <Widget Id="ClanListClipRect" WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent" ClipContents="true">
+                          <Children>
+                            <ListPanel Id="ClanList" DataSource="{RecordItems}" HeightSizePolicy="CoverChildren" WidthSizePolicy="StretchToParent"
+                                        LayoutImp.LayoutMethod="VerticalBottomToTop"  >
+                              <ItemTemplate>
+                                <HeroAdminRecordItem />
+                              </ItemTemplate>
+                            </ListPanel>
+                          </Children>
+                        </Widget>
+
+                      </Children>
+                    </ScrollablePanel>
+                    <Standard.VerticalScrollbar Id="SideListScrollbar"  WidthSizePolicy="Fixed" SuggestedWidth="1" IsVisible="false"   HeightSizePolicy="StretchToParent" HorizontalAlignment="Right"  />
+                  </Children>
+                </ListPanel>
+
+              </Children>
+            </ListPanel>
+
+          </Children>
+        </ListPanel>
+
+      </Children>
+    </Widget>
+  </Window>
+</Prefab>

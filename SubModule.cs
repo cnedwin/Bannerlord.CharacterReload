@@ -6,7 +6,6 @@ using TaleWorlds.Localization;
 using TaleWorlds.MountAndBlade;
 using SandBox.GauntletUI;
 using TaleWorlds.CampaignSystem;
-using CharacterReload;
 using System.IO;
 
 namespace CharacterReload
@@ -56,7 +55,7 @@ namespace CharacterReload
 			Helper.ClearLog();
 			Helper.Log("Set character stats model");
 
-			gameStarterObject.AddModel(CharacterTrainerStatsModel.Instance());
+			//gameStarterObject.AddModel(CharacterTrainerStatsModel.Instance());
 
 			LoadXMLFiles(gameStarterObject as CampaignGameStarter);
 			EncyclopediaPageChangedHandle handle = new EncyclopediaPageChangedHandle();
@@ -64,14 +63,14 @@ namespace CharacterReload
 
 		}
 
-		protected override void OnApplicationTick(float dt)
-		{
-			base.OnApplicationTick(dt);
-			if (Campaign.Current != null && Campaign.Current.GameStarted && !CharacterTrainerStatsModel.Instance().IsInitialized)
-			{
-				CharacterTrainerStatsModel.Instance().Initialize();
-			}
-		}
+		//protected override void OnApplicationTick(float dt)
+		//{
+		//	base.OnApplicationTick(dt);
+		//	if (Campaign.Current != null && Campaign.Current.GameStarted && !CharacterTrainerStatsModel.Instance().IsInitialized)
+		//	{
+		//		CharacterTrainerStatsModel.Instance().Initialize();
+		//	}
+		//}
 
 		private void LoadXMLFiles(CampaignGameStarter gameInitializer)
 		{

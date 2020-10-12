@@ -60,12 +60,22 @@
 
 	<!-- HeroBuilderVM entries -->
 	<string id="CharacterCreation_ChangingNameForText" text="更改姓名"/>
-	<string id="CharacterCreation_InvalidCharacterText" text="角色无效。"/>
-	<string id="CharacterCreation_InvalidNameText" text="姓名无效。"/>
+	<string id="CharacterCreation_InvalidCharacterText" text="角色无效"/>
+	<string id="CharacterCreation_InvalidNameText" text="姓名无效"/>
 	<string id="CharacterCreation_CharacterRenamerText" text="重新起名"/>
 	<string id="CharacterCreation_EnterNewNameText" text="输入新名称"/>
 	<string id="CharacterCreation_RenameText" text="确定"/>
 	<string id="CharacterCreation_CancelText" text="取消"/>
+
+	<!-- HeroAdmin entry -->
+	<string id="cr_hero_admin" text="英雄管理" />
+	<string id="cr_hero_skillandperk" text="技能专精" />
+	<string id="cr_hero_attrbute" text="成长属性" />
+	<string id="cr_hero_trait" text="特质性格" />
+	<string id="bottom_HeroTemplate" text="英雄模板" />
+	<string id="cr_hero_focus" text="专精" />
+	<string id="cr_hero_skilllevel" text="技能等级" />
+	<string id="cr_Select_Hero" text="选择英雄" />
 
 	<!-- CharacterObjectPatch entry -->
 	<string id="CharacterCreation_HeroUpdatedMsg" text="角色更新: "/>
@@ -117,8 +127,8 @@
 	<string id="str_facegen_skin_Build2" text="躯干肌肉" />
 
 	<string id="bottom_SavedList" text="形象仓库" />
-	<string id="bottom_SaveCurrent" text="保存此项" />
-	<string id="bottom_LoadCurrent" text="加载此项" />
+	<string id="bottom_SaveCurrent" text="保存该项" />
+	<string id="bottom_LoadCurrent" text="加载记录" />
 	<string id="bottom_DeleteCurrent" text="删除此项" />
 	<string id="tips_cr_InputSaveName" text="输入保存的名字" />
 	<string id="tips_cr_MaxSaved" text="最多只能保存 " />

@@ -112,7 +112,7 @@ namespace CharacterReload.VM
 		{
 			TextObject textObject = new TextObject("{=misc_cr_ExecuteImport}Import the hero", null);
 			bool flag = InputKey.LeftShift.IsDown() || InputKey.RightShift.IsDown();
-			this.ShowComfirDialog(textObject, () => CharacterTrainerStatsModel.Instance().Import(GetHero(), flag));
+			//this.ShowComfirDialog(textObject, () => CharacterTrainerStatsModel.Instance().Import(GetHero(), flag));
 			InformationManager.DisplayMessage(new InformationMessage(new TextObject("{=tips_cr_DoExport}Character imported from " + Helper.GetFilename(GetHero()),null).ToString()));
 
 

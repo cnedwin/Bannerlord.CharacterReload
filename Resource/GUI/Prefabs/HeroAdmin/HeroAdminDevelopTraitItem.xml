@@ -1,0 +1,43 @@
+﻿<Prefab>
+  <Window>
+    <Widget HeightSizePolicy="CoverChildren"   WidthSizePolicy="StretchToParent" VerticalAlignment="Top" HorizontalAlignment="Left"  UpdateChildrenStates="true">
+      <Children>
+        <ListPanel WidthSizePolicy="StretchToParent"   HeightSizePolicy="Fixed" SuggestedHeight="50">
+          <Children>
+
+            <Widget HeightSizePolicy="CoverChildren" WidthSizePolicy="Fixed"  VerticalAlignment="Center" HorizontalAlignment="Left" SuggestedWidth="100">
+              <Children>
+                <RichTextWidget HeightSizePolicy="StretchToParent" WidthSizePolicy="CoverChildren" HorizontalAlignment="Left"
+                                Brush="Recruitment.Popup.Title.Text" Text="@DisplayName">
+                </RichTextWidget>
+              </Children>
+            </Widget>
+
+            <SliderWidget HeightSizePolicy="StretchToParent" WidthSizePolicy="StretchToParent"  MarginLeft="10"  VerticalAlignment="Center" HorizontalAlignment="Center"
+                  Filler="Filler" Handle="SliderHandle" MaxValueInt="@MaxValue" MinValueInt="@MinValue" ValueInt="@TraitValue" DoNotUpdateHandleSize="true">
+              <Children>
+                <Widget HeightSizePolicy="StretchToParent"  MarginLeft="-12"  MarginRight="-12"   WidthSizePolicy="StretchToParent"  MarginTop="8" MarginBottom="8"  VerticalAlignment="Center" HorizontalAlignment="Center"
+                        Sprite="SPOptions\standart_slider_canvas" IsEnabled="false" />
+                
+                <Widget Id="Filler" HeightSizePolicy="StretchToParent"  MarginLeft="-4"  MarginRight="-4" WidthSizePolicy="StretchToParent"  MarginTop="8" MarginBottom="8" VerticalAlignment="Center" HorizontalAlignment="Center"
+                        Sprite="SPOptions\standart_slider_fill" ClipContents="true" >
+                  <Children>
+                    <Widget HeightSizePolicy="StretchToParent" WidthSizePolicy="StretchToParent" VerticalAlignment="Center" HorizontalAlignment="Left"
+                            Sprite="SPOptions\standart_slider_fill"/>
+                  </Children>
+                </Widget>
+                <Widget WidthSizePolicy="StretchToParent" MarginLeft="-31"  MarginRight="-31" SuggestedHeight="65" VerticalAlignment="Center" HorizontalAlignment="Center"
+                        IsEnabled="false" Sprite="SPOptions\standart_slider_frame" />
+                <Widget Id="SliderHandle" SuggestedWidth="14" SuggestedHeight="38" VerticalAlignment="Center" HorizontalAlignment="Left"
+                         Brush="SPOptions.Slider.Handle" DoNotAcceptEvents="true" />
+              </Children>
+            </SliderWidget>
+
+            <RichTextWidget WidthSizePolicy="Fixed" HeightSizePolicy="StretchToParent"   SuggestedWidth="50" MarginLeft="30" VerticalAlignment="Center"   Text="@TraitValueText" />
+          </Children>
+        </ListPanel>
+
+      </Children>
+    </Widget>
+  </Window>
+</Prefab>

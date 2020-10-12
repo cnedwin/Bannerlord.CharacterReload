@@ -27,6 +27,8 @@ namespace CharacterReload.Utils
             return result;
         }
 
+    
+
         public static object ReflectPropertyAndSetValue(String key, object value, object instance)
         {
             object result = null;
@@ -34,6 +36,17 @@ namespace CharacterReload.Utils
             if (null != propertyInfo)
             {
                 propertyInfo.SetValue(instance, value);
+            }
+            return result;
+        }
+
+        public static T ReflectProperty<T>(String key, object instance)
+        {
+            T result = default;
+            PropertyInfo propertyInfo = instance.GetType().GetProperty(key, GetBindingFlags());
+            if (null != propertyInfo)
+            {
+                result = (T)propertyInfo.GetValue(instance);
             }
             return result;
         }

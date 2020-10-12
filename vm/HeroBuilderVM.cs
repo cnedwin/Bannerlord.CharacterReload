@@ -9,8 +9,12 @@ using SandBox.View.Map;
 using TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia;
 using HarmonyLib;
 using TaleWorlds.MountAndBlade.LegacyGUI.Missions;
+using CharacterReload.Screen.State;
+
 namespace CharacterReload.VM
 {
+
+    // Fixed 固定宽高， CoverChildren 自适应（以子控件） StretchToParent（以父控件做参考）
     public partial class HeroBuilderVM : ViewModel
     {
 
@@ -42,6 +46,15 @@ namespace CharacterReload.VM
             }
         }
 
+        [DataSourceProperty]
+        public string HeroAdminText
+        {
+            get
+            {
+                return new TextObject("{=cr_hero_admin}Edit Hero").ToString();
+            }
+        }
+
 
 
         public void ExecuteEdit()
@@ -69,6 +82,22 @@ namespace CharacterReload.VM
                 return;
 
             action(selectedHero);
+        }
+
+        /**
+         * 跳转英雄管理界面
+         */
+        public void ExecuteHeroAdmin()
+        {
+            if (selectedHero == null)
+                return;
+
+            //界面跳转，state 定位某个screen 进行跳转
+            HeroAdminState state = Game.Current.GameStateManager.CreateState<HeroAdminState>(new object[]
+                 {
+                    this.selectedHero,
+                 });
+            Game.Current.GameStateManager.PushState(state, 0);
         }
 
         public void Name(Hero hero)
