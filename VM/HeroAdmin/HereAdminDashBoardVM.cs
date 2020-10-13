@@ -42,9 +42,11 @@ namespace CharacterReload.VM.HeroAdmin
         private void OnHeroSelected(Hero hero)
         {
             this._heroAdminCharacter = HeroAdminCharacter.FromHero(hero);
+            this._hero = hero;
             this._heroAdminCharacterVM.DisplayerHeroName = hero.Name.ToString();
             this._heroAdminCharacterVM.FillFrom(hero.BodyProperties, hero.CharacterObject.FirstCivilianEquipment, hero.Culture, hero.IsFemale);
             ResetData();
+            
         }
 
         private void OnToLoadHeroCharacter(HeroAdminCharacter data)

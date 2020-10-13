@@ -69,11 +69,7 @@ namespace CharacterReload.Screen
 				LoadingWindow.DisableGlobalLoadingWindow();
 			}
 
-			this._clanCategory.Unload();
-			this._clanCategory2.Unload();
-			this._characterdeveloper.Unload();
-			this._dataSource = null;
-			this._gauntletLayer = null;
+
 
 		}
 
@@ -115,6 +111,11 @@ namespace CharacterReload.Screen
 			base.OnDeactivate();
 			LoadingWindow.EnableGlobalLoadingWindow(false);
 			InformationManager.HideInformations();
+			//this._clanCategory.Unload();
+			//this._clanCategory2.Unload();
+			//this._characterdeveloper.Unload();
+			//this._dataSource = null;
+			//this._gauntletLayer = null;
 		}
 		private void CloseScreen()
 		{
