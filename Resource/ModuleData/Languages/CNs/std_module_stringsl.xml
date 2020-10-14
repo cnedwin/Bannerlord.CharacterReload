@@ -5,6 +5,7 @@
   </tags>
   
   <strings>
+	
     <string id="misc_cr_loaderro" text="角色重建遇到错误无法加载" />
     <string id="misc_cr_onmapload" text="角色重建已成功加载" />
 	<string id="misc_cr_DoRefleshAPoint" text="英雄的属性点已经重置" />
@@ -20,9 +21,11 @@
     <string id="tips_cr_DoRefleshPerks" text="重置英雄的技能后，您必须保存并重新加载存档才能生效！" />
 	<string id="tips_cr_DoRefleshTrait" text="升级英雄的特质后，您需要关闭氏族屏幕并重新打开以生效！" />
 	<string id="tips_cr_DoRefleshLevel" text="重置英雄的等级后，您需要关闭氏族屏幕并重新打开以生效！" />
+	<string id="tips_cr_Yes" text="是" />
+	<string id="tips_cr_No" text="否" />
 
 	<!-- Settings entries -->
-	<string id="CharacterCration_ModNameText" text="角色创建1.1.8 (cnedwin)"/>
+	<string id="CharacterCration_ModNameText" text="角色重建1.5.3 (cnedwin)"/>
 
 	<string id="CharacterCreation_Section0" text="第0节:调试模式"/>
 	<string id="CharacterCreation_DebugModeName" text="启用调试模式"/>
@@ -133,6 +136,7 @@
 	<string id="tips_cr_InputSaveName" text="输入保存的名字" />
 	<string id="tips_cr_MaxSaved" text="最多只能保存 " />
 	<string id="tips_cr_ConfirmLoad" text="确认加载此项" />
+	<string id="tips_cr_IncloudBody" text="是否包含身体特征" />
 	<string id="tips_cr_WarningToDelete" text="警告: 确认要删除此项" />
 	<string id="tips_cr_WarningToDelete2" text="这个操作将删除数据，且无法撤销" />
 

@@ -20,7 +20,7 @@ namespace CharacterReload.VM.HeroAdmin
         List<HeroAdminCharacter> _data;
         MBBindingList<HeroAdminRecordItemVM> _genRecordItemVMs;
 
-        private Action<HeroAdminCharacter> _onToLoadHeroCharacter;
+        private Action<HeroAdminCharacter, bool> _onToLoadHeroCharacter;
 
         int MaxSaveCount = 50;
 
@@ -29,7 +29,7 @@ namespace CharacterReload.VM.HeroAdmin
 
         private HeroAdminRecordItemVM _lastSelectedItem;
 
-        public HeroAdminRecordVM(HeroAdminCharacter editHero, Action<HeroAdminCharacter> onToLoadHeroCharacter)
+        public HeroAdminRecordVM(HeroAdminCharacter editHero, Action<HeroAdminCharacter, bool> onToLoadHeroCharacter)
         {
             this._editHero = editHero;
             this._onToLoadHeroCharacter = onToLoadHeroCharacter;
@@ -51,6 +51,11 @@ namespace CharacterReload.VM.HeroAdmin
                 });
             }
 
+        }
+
+        public void UpdateHeroAdminCharacter(HeroAdminCharacter newheroAdminCharacter)
+        {
+            this._editHero = newheroAdminCharacter;
         }
 
         [DataSourceProperty]
@@ -154,21 +159,32 @@ namespace CharacterReload.VM.HeroAdmin
             base.OnPropertyChanged("HasSelectedItem");
         }
 
+        //这是一个点击事件，
         public void ExecuteLoadSelected()
         {
             if (null != this._lastSelectedItem)
             {
-                InformationUtils.ShowComfirInformation(new TextObject("{=tips_cr_ConfirmLoad}Confirm to load"), null, () => {
-                    HeroAdminCharacter data = this._lastSelectedItem.GetItemData();
-                   // data.ToHero(this._editHero);
-                    this._onToLoadHeroCharacter(data);
+                TextObject messageObject = new TextObject("", null);
+                //title ,message, 确认按钮，取消按钮
+                InformationUtils.ShowComfirInformation(new TextObject("{=tips_cr_ConfirmLoad}Confirm to load"), messageObject, () => {
 
+                    HeroAdminCharacter data = this._lastSelectedItem.GetItemData();
+                    data = ReflectUtils.DeepCopy(data);//拷贝
+                    String title = new TextObject("{=tips_cr_IncloudBody}Does it contain physical characteristics", null).ToString();
+                    String message = new TextObject("", null).ToString();
+                    InformationManager.ShowInquiry(new InquiryData(title, message, true, true, "{=tips_cr_Yes}Yes", "{=tips_cr_No}No", () => {
+                        //是的话
+                        this._onToLoadHeroCharacter(data, true);
+                    }, () => {
+                        // 否的话
+                        this._onToLoadHeroCharacter(data, false);
+                    }));
 
                 });
             }
         }
 
-    
+
 
         public void ExecuteDeleteSelected()
         {

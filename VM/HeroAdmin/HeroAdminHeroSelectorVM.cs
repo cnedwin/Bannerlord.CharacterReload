@@ -81,8 +81,8 @@ namespace CharacterReload.VM.HeroAdmin
             List<Hero> list = this.currentclan.Heroes.ToList();
             this.Heros.Clear();
             foreach (Hero hero in list)
-            { 
-                if (hero.Age >= Campaign.Current.Models.AgeModel.HeroComesOfAge )
+            {
+                if (hero.Age >= Campaign.Current.Models.AgeModel.HeroComesOfAge && hero.IsAlive)
                 {
                     this.Heros.Add(new HeroAdminHeroSelectorItemVM(hero, OnSelectedHero));
                 }

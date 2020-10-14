@@ -20,8 +20,10 @@
 		<string id="tips_cr_DoRefleshPerks" text="After reset the hero’s skill perk, you must save and reload the saves to take effect!" />
 		<string id="tips_cr_DoRefleshTrait" text="After upgrading the hero’s traits, you need to close the clan screen and reopen it to take effect!" />
 		<string id="tips_cr_DoRefleshTrait" text="After reset the hero’s Level, you need to close the clan screen and reopen it to take effect!" />
-
-		<string id="CharacterCreation_ModNameText" text="Detailed Character Creation"/>
+		<string id="tips_cr_Yes" text="Yes" />
+		<string id="tips_cr_No" text="No" />
+		
+		<string id="CharacterCreation_ModNameText" text="CharacterReload"/>
 
 		<string id="CharacterCreation_Section0" text="Section 0: Debug Mode"/>
 		<string id="CharacterCreation_DebugModeName" text="Enable debug output"/>
@@ -134,6 +136,7 @@
 		<string id="tips_cr_InputSaveName" text="Enter the saved name" />
 		<string id="tips_cr_MaxSaved" text="Can only save up to " />
 		<string id="tips_cr_ConfirmLoad" text="Confirm to load" />
+		<string id="tips_cr_IncloudBody" text="Does it contain physical characteristics" />
 		<string id="tips_cr_WarningToDelete" text="Warning: Confirm to Delete" />
 		<string id="tips_cr_WarningToDelete2" text="This operation will delete the data and cannot be undone" />
 

@@ -41,22 +41,32 @@ namespace CharacterReload.VM.HeroAdmin
 
         private void OnHeroSelected(Hero hero)
         {
-            this._heroAdminCharacter = HeroAdminCharacter.FromHero(hero);
             this._hero = hero;
+            this._heroAdminCharacter = HeroAdminCharacter.FromHero(hero);
             this._heroAdminCharacterVM.DisplayerHeroName = hero.Name.ToString();
             this._heroAdminCharacterVM.FillFrom(hero.BodyProperties, hero.CharacterObject.FirstCivilianEquipment, hero.Culture, hero.IsFemale);
+            this._heroAdminRecordVM.UpdateHeroAdminCharacter(this._heroAdminCharacter);
             ResetData();
             
         }
 
-        private void OnToLoadHeroCharacter(HeroAdminCharacter data)
+        private void OnToLoadHeroCharacter(HeroAdminCharacter data, bool include)
         {
-            this._heroAdminCharacter = data;
+            if (include)
+            {
+                this._heroAdminCharacter = data;
+            }
+            else
+            {
+                string tmp = this._heroAdminCharacter.BodyPropertiesString;
+                this._heroAdminCharacter = data;
+                this._heroAdminCharacter.BodyPropertiesString = tmp;
+            }
+
             //this._heroAdminCharacterVM.RefreshHeroData();
             BodyProperties bodyProperties = BodyProperties.Default;
             BodyProperties.FromString(data.BodyPropertiesString, out bodyProperties);
             this._heroAdminCharacterVM.FillFrom(bodyProperties, this._hero.CharacterObject.FirstCivilianEquipment, this._hero.Culture, this._hero.IsFemale);
-
             ResetData();
         }
 

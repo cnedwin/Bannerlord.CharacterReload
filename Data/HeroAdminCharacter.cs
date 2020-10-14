@@ -2,10 +2,12 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.Core;
+using TaleWorlds.Localization;
 using TaleWorlds.PlatformService;
 
 namespace CharacterReload.Data
@@ -37,14 +39,14 @@ namespace CharacterReload.Data
             Traits = new List<HeroAdminCharacterTrait>();
         }
 
-
         public static HeroAdminCharacter FromHero(Hero hero)
         {
             HeroAdminCharacter adminCharacter = new HeroAdminCharacter();
             adminCharacter.Level = hero.Level;
             adminCharacter.IsFemale = hero.IsFemale;
             adminCharacter.BodyPropertiesString = hero.BodyProperties.ToString();
-         
+            
+
             HeroAdminCharacterAttribute attr;
             for (int i = 0; i < 6; i++)
             {
@@ -81,6 +83,7 @@ namespace CharacterReload.Data
            /// hero.HeroDeveloper.ClearHero();
             BodyProperties bodyProperties = BodyProperties.Default;
             hero.Level = this.Level;
+            hero.CharacterObject.IsFemale = this.IsFemale;
             BodyProperties.FromString(this.BodyPropertiesString, out bodyProperties);
             HeroUtils.UpdateHeroCharacterBodyProperties(hero.CharacterObject, bodyProperties, this.IsFemale);
             HeroAdminCharacterAttribute attr;
@@ -101,6 +104,9 @@ namespace CharacterReload.Data
                 adminCharacterSkill = Skills.FirstOrDefault((obj) => obj.StringId.Equals(current.StringId));
                 if (null != adminCharacterSkill)
                 {
+                    // hero.SetSkillValue(current, adminCharacterSkill.SkillValue);
+                    int xpRequiredForSkillLevel = Campaign.Current.Models.CharacterDevelopmentModel.GetXpRequiredForSkillLevel(adminCharacterSkill.SkillValue);
+                    hero.HeroDeveloper.SetPropertyValue(current, (float)xpRequiredForSkillLevel);
                     hero.SetSkillValue(current, adminCharacterSkill.SkillValue);
                     ReflectUtils.ReflectMethodAndInvoke("SetFocus", hero.HeroDeveloper, new object[] { current, adminCharacterSkill.SkillFocus });
                     ///hero.HeroDeveloper.AddFocus(current, adminCharacterSkill.SkillFocus, false);
@@ -134,7 +140,6 @@ namespace CharacterReload.Data
             }
 
         }
-
 
         public void SetPerkValue(PerkObject perk, bool enable)
         {
@@ -189,8 +194,6 @@ namespace CharacterReload.Data
                 result.SkillFocus = 0;
             }
         }
-
-
 
         public int GetSkillValue(SkillObject current)
         {

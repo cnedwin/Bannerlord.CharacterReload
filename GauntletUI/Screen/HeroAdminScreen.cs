@@ -24,8 +24,8 @@ namespace CharacterReload.Screen
 	class HeroAdminScreen : ScreenBase, IGameStateListener
 	{
 		private GauntletLayer _gauntletLayer;
+		///private SpriteCategory _clanCategory;
 		private SpriteCategory _clanCategory;
-		private SpriteCategory _clanCategory2;
 
 		private SpriteCategory _characterdeveloper;
 
@@ -69,7 +69,8 @@ namespace CharacterReload.Screen
 				LoadingWindow.DisableGlobalLoadingWindow();
 			}
 
-
+			this._dataSource = null;
+			this._gauntletLayer = null;
 
 		}
 
@@ -81,11 +82,12 @@ namespace CharacterReload.Screen
 			ResourceDepot uIResourceDepot = UIResourceManager.UIResourceDepot;
 			this._characterdeveloper = spriteData.SpriteCategories["ui_characterdeveloper"];
 			this._characterdeveloper.Load(resourceContext, uIResourceDepot);
-			this._clanCategory = spriteData.SpriteCategories["ui_encyclopedia"];
-			this._clanCategory.Load(resourceContext, uIResourceDepot);
 
-			this._clanCategory2 = spriteData.SpriteCategories["ui_clan"];
-			this._clanCategory2.Load(resourceContext, uIResourceDepot);
+			//this._clanCategory = spriteData.SpriteCategories["ui_encyclopedia"];
+			//this._clanCategory.Load(resourceContext, uIResourceDepot);
+
+			this._clanCategory = spriteData.SpriteCategories["ui_clan"];
+			this._clanCategory.Load(resourceContext, uIResourceDepot);
 
 			this._gauntletLayer = new GauntletLayer(1, "GauntletLayer");
 			this._gauntletLayer.InputRestrictions.SetInputRestrictions(true, InputUsageMask.All);
@@ -111,11 +113,6 @@ namespace CharacterReload.Screen
 			base.OnDeactivate();
 			LoadingWindow.EnableGlobalLoadingWindow(false);
 			InformationManager.HideInformations();
-			//this._clanCategory.Unload();
-			//this._clanCategory2.Unload();
-			//this._characterdeveloper.Unload();
-			//this._dataSource = null;
-			//this._gauntletLayer = null;
 		}
 		private void CloseScreen()
 		{
