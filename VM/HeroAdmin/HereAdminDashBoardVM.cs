@@ -35,7 +35,7 @@ namespace CharacterReload.VM.HeroAdmin
             this._heroAdminRecordVM = new HeroAdminRecordVM(this._heroAdminCharacter, this.OnToLoadHeroCharacter);
             this._heroAdminDevelopVM = new HeroAdminDevelopVM(this._heroAdminCharacter);
 
-            this._heroAdminCharacterVM.FillFrom(hero.BodyProperties, hero.CharacterObject.FirstCivilianEquipment, hero.Culture, hero.IsFemale);
+            this._heroAdminCharacterVM.FillFrom(hero.BodyProperties, hero.CharacterObject.FirstBattleEquipment, hero.Culture, hero.IsFemale);
         }
 
 
@@ -44,7 +44,7 @@ namespace CharacterReload.VM.HeroAdmin
             this._hero = hero;
             this._heroAdminCharacter = HeroAdminCharacter.FromHero(hero);
             this._heroAdminCharacterVM.DisplayerHeroName = hero.Name.ToString();
-            this._heroAdminCharacterVM.FillFrom(hero.BodyProperties, hero.CharacterObject.FirstCivilianEquipment, hero.Culture, hero.IsFemale);
+            this._heroAdminCharacterVM.FillFrom(hero.BodyProperties, hero.CharacterObject.FirstBattleEquipment, hero.Culture, hero.IsFemale);
             this._heroAdminRecordVM.UpdateHeroAdminCharacter(this._heroAdminCharacter);
             ResetData();
             
@@ -59,14 +59,16 @@ namespace CharacterReload.VM.HeroAdmin
             else
             {
                 string tmp = this._heroAdminCharacter.BodyPropertiesString;
+                bool isFemale = this._heroAdminCharacter.IsFemale;
                 this._heroAdminCharacter = data;
                 this._heroAdminCharacter.BodyPropertiesString = tmp;
+                this._heroAdminCharacter.IsFemale = isFemale;
             }
 
             //this._heroAdminCharacterVM.RefreshHeroData();
             BodyProperties bodyProperties = BodyProperties.Default;
-            BodyProperties.FromString(data.BodyPropertiesString, out bodyProperties);
-            this._heroAdminCharacterVM.FillFrom(bodyProperties, this._hero.CharacterObject.FirstCivilianEquipment, this._hero.Culture, this._hero.IsFemale);
+            BodyProperties.FromString(this._heroAdminCharacter.BodyPropertiesString, out bodyProperties);
+            this._heroAdminCharacterVM.FillFrom(bodyProperties, this._hero.CharacterObject.FirstBattleEquipment, this._hero.Culture, this._heroAdminCharacter.IsFemale);
             ResetData();
         }
 

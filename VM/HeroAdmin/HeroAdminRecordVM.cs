@@ -169,10 +169,10 @@ namespace CharacterReload.VM.HeroAdmin
                 InformationUtils.ShowComfirInformation(new TextObject("{=tips_cr_ConfirmLoad}Confirm to load"), messageObject, () => {
 
                     HeroAdminCharacter data = this._lastSelectedItem.GetItemData();
-                    data = ReflectUtils.DeepCopy(data);//拷贝
+                    data = JsonUtils.DeepCopyByJson(data);//拷贝
                     String title = new TextObject("{=tips_cr_IncloudBody}Does it contain physical characteristics", null).ToString();
                     String message = new TextObject("", null).ToString();
-                    InformationManager.ShowInquiry(new InquiryData(title, message, true, true, "{=tips_cr_Yes}Yes", "{=tips_cr_No}No", () => {
+                    InformationManager.ShowInquiry(new InquiryData(title, message, true, true, new TextObject("{=tips_cr_Yes}Yes", null).ToString(), new TextObject("{=tips_cr_No}No", null).ToString(), () => {
                         //是的话
                         this._onToLoadHeroCharacter(data, true);
                     }, () => {
