@@ -26,8 +26,6 @@ namespace CharacterReload.VM.HeroAdmin
 			CharacterAttribute characterAttribute = CharacterAttributes.GetCharacterAttribute(attributesEnum);
 			this._nameText = characterAttribute.Abbreviation.ToString();
 
-
-
 		}
 
 		[DataSourceProperty]
@@ -75,15 +73,6 @@ namespace CharacterReload.VM.HeroAdmin
 				return this._attributeValue.ToString();
 			}
 			
-		}
-
-		[DataSourceProperty]
-		public string ResetLevelText
-		{
-			get
-			{
-				return new TextObject("{=bottom_ReLevelHero}Reset Level", null).ToString();
-			}
 		}
 
 	}

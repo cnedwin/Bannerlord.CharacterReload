@@ -3,7 +3,7 @@
         <ButtonWidget WidthSizePolicy="StretchToParent" HeightSizePolicy="Fixed"   SuggestedHeight="140" Brush="FaceDetaildCreator.HeroAdminRecord.Item.Tuple" Command.Click="OnRecordSelected" IsSelected="@IsSelected">
             <Children>
 
-              <Widget WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent" DoNotAcceptEvents="true"  RenderLate="true"  MarginBottom="10"  MarginTop="10" MarginLeft="10"  MarginRight="10">
+              <BrushWidget WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent" DoNotAcceptEvents="true"  RenderLate="true"  MarginBottom="10"  MarginTop="10" MarginLeft="10"  MarginRight="10">
                 <Children>
               
                 <ListPanel WidthSizePolicy="CoverChildren"  HorizontalAlignment="Left"  HeightSizePolicy="StretchToParent" DoNotAcceptEvents="true"  RenderLate="true"  LayoutImp.LayoutMethod="VerticalBottomToTop">
@@ -27,7 +27,7 @@
                 </ItemTemplate>
               </GridWidget>
                 </Children>
-              </Widget>
+              </BrushWidget>
 
             </Children>
         </ButtonWidget>

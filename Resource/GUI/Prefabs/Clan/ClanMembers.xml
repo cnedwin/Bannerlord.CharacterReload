@@ -20,28 +20,28 @@
   </Constants>
   
   <Window>
-    <Widget Id="ClanMembersWidget" WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent" IsVisible="@IsSelected">
+    <BrushWidget Id="ClanMembersWidget" WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent" IsVisible="@IsSelected">
       <Children>
         <ListPanel WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent" LayoutImp.LayoutMethod="HorizontalRightToLeft">
           <Children>
             
             <!--Right Panel-->
-            <Widget WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent" MarginLeft="10" MarginRight="290" IsVisible="@IsAnyValidMemberSelected">
+            <BrushWidget WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent" MarginLeft="10" MarginRight="290" IsVisible="@IsAnyValidMemberSelected">
               <Children>
-                <Widget DataSource="{CurrentSelectedMember}" WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent">
+                <BrushWidget DataSource="{CurrentSelectedMember}" WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent">
                   <Children>
 
                     <!--Lord Visual Model-->
-                    <Widget WidthSizePolicy="Fixed" HeightSizePolicy="StretchToParent" SuggestedWidth="465" SuggestedHeight="512">
+                    <BrushWidget WidthSizePolicy="Fixed" HeightSizePolicy="StretchToParent" SuggestedWidth="465" SuggestedHeight="512">
                       <Children>
                         <!--Selected Character Tableau-->
                         <CharacterTableauWidget DataSource="{HeroModel}" WidthSizePolicy="Fixed" HeightSizePolicy="Fixed" SuggestedWidth="600" SuggestedHeight="1000" VerticalAlignment="Bottom" PositionXOffset="-150" PositionYOffset="100" BannerCodeText="@BannerCodeText" BodyProperties="@BodyProperties" CharStringId="@CharStringId" ClipContents="false" EquipmentCode="@EquipmentCode" IsFemale="@IsFemale" MountCreationKey="@MountCreationKey" StanceIndex="@StanceIndex" ArmorColor1="@ArmorColor1" ArmorColor2="@ArmorColor2" />
-                        <Widget WidthSizePolicy="StretchToParent" HeightSizePolicy="Fixed" SuggestedHeight="123" VerticalAlignment="Bottom" PositionYOffset="20" Sprite="Clan\clan_portrait_shadow" IsEnabled="false" />
+                        <BrushWidget WidthSizePolicy="StretchToParent" HeightSizePolicy="Fixed" SuggestedHeight="123" VerticalAlignment="Bottom" PositionYOffset="20" Sprite="Clan\clan_portrait_shadow" IsEnabled="false" />
                       </Children>
-                    </Widget>
+                    </BrushWidget>
 
                     <!--Stats Vertical Container-->
-                    <Widget WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent" MarginLeft="300" >
+                    <BrushWidget WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent" MarginLeft="300" >
                       <Children>
                         <ListPanel WidthSizePolicy="StretchToParent" HeightSizePolicy="CoverChildren" MarginLeft="20" MarginRight="20" LayoutImp.LayoutMethod="VerticalBottomToTop">
                           <Children>
@@ -52,7 +52,7 @@
                                 <ListPanel WidthSizePolicy="CoverChildren" HeightSizePolicy="CoverChildren" MarginBottom="15" LayoutImp.LayoutMethod="HorizontalLeftToRight" UpdateChildrenStates="true">
                                   <Children>
                                     <TextWidget WidthSizePolicy="CoverChildren" HeightSizePolicy="CoverChildren" MarginRight="15" Brush="Clan.RightPanel.EditableName.Text" Text="@Name" ClipContents="false" />
-                                    <Widget WidthSizePolicy="Fixed" HeightSizePolicy="Fixed" SuggestedHeight="32" SuggestedWidth="32" Brush="SPClan.NameChange.Icon" IsVisible="@IsFamilyMember"/>
+									  <BrushWidget WidthSizePolicy="Fixed" HeightSizePolicy="Fixed" SuggestedHeight="32" SuggestedWidth="32" Brush="SPClan.NameChange.Icon" IsVisible="@IsFamilyMember"/>
                                   </Children>
                                 </ListPanel>
                               </Children>
@@ -69,7 +69,7 @@
                             <RichTextWidget IsHidden="@IsMainHero" WidthSizePolicy="CoverChildren" HeightSizePolicy="Fixed" SuggestedHeight="30" HorizontalAlignment="Center" Brush="Clan.RightPanel.SubName.Text" Command.LinkAlternateClick="ExecuteLocationLink" Command.LinkClick="ExecuteLocationLink" Text="@LocationText" ClipContents="false" />
 
                             <!--Margin If We Have Main Hero To Cover Up Last 3 Text Widgets Area, Giving Us Equal Height For Widgets Come After This-->
-                            <Widget MarginTop="90" IsVisible="@IsMainHero" />
+                            <BrushWidget MarginTop="90" IsVisible="@IsMainHero" />
                             <!--Traits Header-->
                             <TextWidget DataSource="{..}" WidthSizePolicy="CoverChildren" HeightSizePolicy="CoverChildren" HorizontalAlignment="Center" MarginTop="30" Brush="Kingdom.TitleSmall.Text" Text="@TraitsText"/>
 
@@ -85,7 +85,7 @@
                             </ListPanel>
 
                             <!--Divider Between Traits and Skills-->
-                            <Widget WidthSizePolicy="StretchToParent" HeightSizePolicy="Fixed" SuggestedHeight="4" PositionXOffset="-3" Sprite="Clan\divider_mid" MarginTop="25"/>
+							  <BrushWidget WidthSizePolicy="StretchToParent" HeightSizePolicy="Fixed" SuggestedHeight="4" PositionXOffset="-3" Sprite="Clan\divider_mid" MarginTop="25"/>
 
                             <!--Skills Header-->
                             <TextWidget DataSource="{..}" WidthSizePolicy="CoverChildren" HeightSizePolicy="CoverChildren" HorizontalAlignment="Center" Text="@SkillsText" Brush="Kingdom.TitleSmall.Text" MarginTop="15"/>
@@ -102,7 +102,7 @@
                               </ItemTemplate>
                             </GridWidget>
 
-                            <Widget WidthSizePolicy="StretchToParent" HeightSizePolicy="Fixed" SuggestedHeight="4" PositionXOffset="-3" Sprite="Clan\divider_mid"/>
+                            <BrushWidget WidthSizePolicy="StretchToParent" HeightSizePolicy="Fixed" SuggestedHeight="4" PositionXOffset="-3" Sprite="Clan\divider_mid"/>
 
                           </Children>
                         </ListPanel>
@@ -127,7 +127,7 @@
                         <ListPanel WidthSizePolicy="CoverChildren" HeightSizePolicy="CoverChildren" HorizontalAlignment="Center" VerticalAlignment="Bottom" MarginBottom="30">
                           <Children>
 
-                            <Widget DataSource="{..}" WidthSizePolicy="Fixed" HeightSizePolicy="Fixed" SuggestedWidth="251" SuggestedHeight="64" VerticalAlignment="Center">
+                            <BrushWidget DataSource="{..}" WidthSizePolicy="Fixed" HeightSizePolicy="Fixed" SuggestedWidth="251" SuggestedHeight="64" VerticalAlignment="Center">
                               <Children>
                                 <HintWidget DataSource="{KickFromClanActionHint}" DoNotAcceptEvents="true" WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent" Command.HoverBegin="ExecuteBeginHint" Command.HoverEnd="ExecuteEndHint" />
                                
@@ -138,7 +138,7 @@
 							   </ButtonWidget>
 							   
                               </Children>
-                            </Widget>
+                            </BrushWidget>
 							
 							   		
 
@@ -146,13 +146,13 @@
                         </ListPanel>
                         
                       </Children>
-                    </Widget>
+                    </BrushWidget>
 
                   </Children>
-                </Widget>
+                </BrushWidget>
 
               </Children>
-            </Widget>
+            </BrushWidget>
 
             <!--Left Panel-->
             <ListPanel WidthSizePolicy="CoverChildren" HeightSizePolicy="StretchToParent" VerticalAlignment="Bottom" MarginLeft="27" MarginTop="6" MarginBottom="9" Brush="Frame1Brush" LayoutImp.LayoutMethod="VerticalBottomToTop">
@@ -171,7 +171,7 @@
                       </Children>
                     </ListPanel>
 
-                    <Widget WidthSizePolicy="Fixed" HeightSizePolicy="Fixed" SuggestedWidth="!Scroll.Header.Width" SuggestedHeight="!Scroll.Header.Height" Brush="Scroll.Header" HorizontalAlignment="Right" />
+                    <BrushWidget WidthSizePolicy="Fixed" HeightSizePolicy="Fixed" SuggestedWidth="!Scroll.Header.Width" SuggestedHeight="!Scroll.Header.Height" Brush="Scroll.Header" HorizontalAlignment="Right" />
                   </Children>
                 </ListPanel>
 
@@ -182,7 +182,7 @@
                     <ScrollablePanel Id="ClanElementsScrollablePanel" WidthSizePolicy="CoverChildren" HeightSizePolicy="StretchToParent" MarginLeft="3" MarginBottom="3" AutoHideScrollBars="true" ClipRect="ClanElementsRect" InnerPanel="ClanElementsRect\ClanElementsListPanel" MouseScrollAxis="Vertical" VerticalScrollbar="..\ClanElementsScrollbar\Scrollbar">
                       <Children>
 
-                        <Widget Id="ClanElementsRect" WidthSizePolicy="CoverChildren" HeightSizePolicy="StretchToParent" ClipContents="true">
+                        <BrushWidget Id="ClanElementsRect" WidthSizePolicy="CoverChildren" HeightSizePolicy="StretchToParent" ClipContents="true">
                           <Children>
 
                             <ListPanel Id="ClanElementsListPanel" WidthSizePolicy="CoverChildren" HeightSizePolicy="CoverChildren" LayoutImp.LayoutMethod="VerticalBottomToTop">
@@ -220,7 +220,7 @@
                             </ListPanel>
 
                           </Children>
-                        </Widget>
+                        </BrushWidget>
 
                       </Children>
                     </ScrollablePanel>
@@ -236,6 +236,6 @@
         </ListPanel>
 
       </Children>
-    </Widget>
+    </BrushWidget>
   </Window>
 </Prefab>

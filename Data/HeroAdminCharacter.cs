@@ -19,6 +19,8 @@ namespace CharacterReload.Data
 
         public int Level { get; set; }
 
+        public string Name { get; set; }
+
         public bool IsFemale { get; set; }
 
         public string BodyPropertiesString { get; set; }
@@ -32,6 +34,18 @@ namespace CharacterReload.Data
         public List<HeroAdminCharacterTrait> Traits { set; get; }
 
         public HeroAdminCharacter()
+        {
+            init();
+        }
+
+        public void ReLevel()
+        {
+            this.Level = 0;
+            init();
+   
+        }
+
+        private void init()
         {
             Attributes = new List<HeroAdminCharacterAttribute>();
             Skills = new List<HeroAdminCharacterSkill>();

@@ -1,6 +1,6 @@
 ﻿<Prefab>
   <Window>
-    <Widget HeightSizePolicy="CoverChildren"   WidthSizePolicy="Fixed"  SuggestedWidth="480"  HorizontalAlignment="Right"  UpdateChildrenStates="true">
+    <BrushWidget HeightSizePolicy="CoverChildren"   WidthSizePolicy="Fixed"  SuggestedWidth="480"  HorizontalAlignment="Right"  UpdateChildrenStates="true">
       <Children>
 
         <ToggleWidget DoNotPassEventsToChildren="true" WidthSizePolicy="StretchToParent" MarginTop="8" HeightSizePolicy="Fixed" SuggestedHeight="40"  HorizontalAlignment="Left" VerticalAlignment="Top"  RenderLate="true" WidgetToClose="..\HeroList">
@@ -9,30 +9,30 @@
           </Children>
         </ToggleWidget>
 
-        <ListPanel Id="HeroList" IsVisible="@IsVisible" Brush="Frame1Brush" MarginBottom="50" WidthSizePolicy="StretchToParent"  HeightSizePolicy="StretchToParent"  MarginTop="60">
+        <ListPanel Id="HeroList" IsVisible="@IsVisible"  MarginBottom="50" WidthSizePolicy="StretchToParent"  HeightSizePolicy="StretchToParent"  MarginTop="60">
           <Children>
             <!--Clan List Scrollable Panel-->
             <ScrollablePanel WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent"  AutoHideScrollBars="true" ClipRect="ClanListClipRect" InnerPanel="ClanListClipRect\ClanList" VerticalScrollbar="..\SideListScrollbar\Scrollbar">
               <Children>
-                <Widget Id="ClanListClipRect" WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent" ClipContents="true">
+                <BrushWidget Id="ClanListClipRect" WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent" ClipContents="true">
                   <Children>
                     <GridWidget Id="ClanList" DataSource="{Heros}" HeightSizePolicy="CoverChildren" WidthSizePolicy="StretchToParent"
                              DefaultCellWidth="160" DefaultCellHeight="120" ColumnCount="3" >
                       <ItemTemplate>
                         <ButtonWidget  WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent" Brush="FaceDetaildCreator.HeroAdminRecord.Item.Tuple" Command.Click="ExecuteSelect" >
                           <Children>
-                            <Widget WidthSizePolicy="StretchToParent"  MarginTop="8"  HeightSizePolicy="StretchToParent" DoNotAcceptEvents="true"  RenderLate="true" >
+                            <BrushWidget WidthSizePolicy="StretchToParent"  MarginTop="8"  HeightSizePolicy="StretchToParent" DoNotAcceptEvents="true"  RenderLate="true" >
                             <Children>
                               <TextWidget WidthSizePolicy="Fixed"  SuggestedWidth="140" HorizontalAlignment="Center" VerticalAlignment="Top" HeightSizePolicy="CoverChildren" SuggestedHeight="30"  Brush.FontSize="20"  Brush="Clan.Tuple.Name.Text" Text="@DisplayName" DoNotAcceptEvents="true" />
                               <ImageIdentifierWidget DataSource="{Visual}" HorizontalAlignment="Center" VerticalAlignment="Bottom" WidthSizePolicy="Fixed" HeightSizePolicy="Fixed" SuggestedWidth="120" SuggestedHeight="80" MarginTop="30" AdditionalArgs="@AdditionalArgs" ImageId="@Id" ImageTypeCode="@ImageTypeCode" DoNotAcceptEvents="true"  RenderLate="true" />
                             </Children>
-                          </Widget>
+                          </BrushWidget>
                           </Children>
                         </ButtonWidget>
                       </ItemTemplate>
                     </GridWidget>
                   </Children>
-                </Widget>
+                </BrushWidget>
 
               </Children>
             </ScrollablePanel>
@@ -42,6 +42,6 @@
 
 
       </Children>
-    </Widget>
+    </BrushWidget>
   </Window>
 </Prefab>

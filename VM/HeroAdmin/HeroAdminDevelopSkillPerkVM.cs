@@ -24,13 +24,14 @@ namespace CharacterReload.VM.HeroAdmin
 
         HeroAdminCharacter _heroAdminCharacter;
         public const int MAX_SKILL_LEVEL = 300;
-    
-      
+
+        Action<int> _onResetLevelAction;
+
         private HeroAdminSkillVM _currentSkillVM;
-
-
-        public HeroAdminDevelopSkillPerkVM(HeroAdminCharacter heroAdminCharacter)
+      
+        public HeroAdminDevelopSkillPerkVM(HeroAdminCharacter heroAdminCharacter, Action<int> onResetLevelAction)
         {
+            this._onResetLevelAction = onResetLevelAction;
             this._heroAdminCharacter = heroAdminCharacter;
             this._skills = new MBBindingList<HeroAdminSkillVM>();
             RefreshHeroSkill();
@@ -55,7 +56,14 @@ namespace CharacterReload.VM.HeroAdmin
             }
         }
 
-
+        [DataSourceProperty]
+        public string ResetLevelText
+        {
+            get
+            {
+                return new TextObject("{=bottom_ReLevelHero}Reset Level", null).ToString();
+            }
+        }
 
         [DataSourceProperty]
         public MBBindingList<HeroAdminSkillVM> Skills
@@ -96,7 +104,7 @@ namespace CharacterReload.VM.HeroAdmin
 
         public void ExecuteResetSkill()
         {
-            
+           
             foreach (SkillObject current in SkillObject.All)
             {
                 this._heroAdminCharacter.SetSkillValue(current, 0);
@@ -114,6 +122,13 @@ namespace CharacterReload.VM.HeroAdmin
             RefreshHeroSkill();
         }
 
+        public void DoRefleshLevel()
+        {
+            this._heroAdminCharacter.ReLevel();
+            this._onResetLevelAction(this._heroAdminCharacter.Level);
+         
+            //InformationManager.DisplayMessage(new InformationMessage(new TextObject("{=tips_cr_DoRefleshLevel}After reset the hero’s Level, you need to close the clan screen and reopen it to take effect!", null).ToString()));
+        }
 
         public void RefreshHeroSkill()
         {
@@ -134,6 +149,12 @@ namespace CharacterReload.VM.HeroAdmin
                 this._currentSkillVM.IsInspected = false;
             }
             this.CurrentSkillView = adminSkillVM;
+        }
+
+        private void ShowComfirDialog(TextObject tip, Action action)
+        {
+            InformationManager.ShowInquiry(new InquiryData(tip.ToString(), string.Empty, true, true, GameTexts.FindText("str_done", null).ToString(), GameTexts.FindText("str_cancel", null).ToString(), action, () => { }), false);
+
         }
     }
 }

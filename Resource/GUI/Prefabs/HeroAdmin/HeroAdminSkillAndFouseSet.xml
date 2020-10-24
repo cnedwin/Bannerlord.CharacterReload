@@ -1,6 +1,6 @@
 ﻿<Prefab>
   <Window>
-    <Widget HeightSizePolicy="CoverChildren"  WidthSizePolicy="StretchToParent" VerticalAlignment="Top" HorizontalAlignment="Left"  UpdateChildrenStates="true">
+    <BrushWidget HeightSizePolicy="CoverChildren"  WidthSizePolicy="StretchToParent" VerticalAlignment="Top" HorizontalAlignment="Left"  UpdateChildrenStates="true">
       <Children>
 
         <ListPanel WidthSizePolicy="StretchToParent"   HeightSizePolicy="Fixed"  SuggestedHeight="50">
@@ -9,29 +9,29 @@
             <ListPanel WidthSizePolicy="StretchToParent"   HeightSizePolicy="Fixed"  SuggestedHeight="50">
               <Children>
 
-                <Widget HeightSizePolicy="CoverChildren" WidthSizePolicy="Fixed"  VerticalAlignment="Center" HorizontalAlignment="Left" SuggestedWidth="100">
+                <BrushWidget HeightSizePolicy="CoverChildren" WidthSizePolicy="Fixed"  VerticalAlignment="Center" HorizontalAlignment="Left" SuggestedWidth="100">
                   <Children>
                     <RichTextWidget HeightSizePolicy="CoverChildren" WidthSizePolicy="CoverChildren" HorizontalAlignment="Left"
                                     Brush="Recruitment.Popup.Title.Text" Text="@SkillLevelText">
                     </RichTextWidget>
                   </Children>
-                </Widget>
+                </BrushWidget>
 
                 <SliderWidget SuggestedWidth="338" SuggestedHeight="42" VerticalAlignment="Center" HorizontalAlignment="Center" MarginLeft="20"
                       Filler="Filler" Handle="SliderHandle" MaxValueInt="300" MinValueInt="0" ValueInt="@Level" DoNotUpdateHandleSize="true">
                   <Children>
-                    <Widget SuggestedWidth="362" SuggestedHeight="38" VerticalAlignment="Center" HorizontalAlignment="Center"
+                    <BrushWidget SuggestedWidth="362" SuggestedHeight="38" VerticalAlignment="Center" HorizontalAlignment="Center"
                             Sprite="SPOptions\standart_slider_canvas" IsEnabled="false" />
-                    <Widget Id="Filler" SuggestedWidth="345" SuggestedHeight="35" VerticalAlignment="Center" HorizontalAlignment="Center"
+                    <BrushWidget Id="Filler" SuggestedWidth="345" SuggestedHeight="35" VerticalAlignment="Center" HorizontalAlignment="Center"
                             Sprite="SPOptions\standart_slider_fill" ClipContents="true" >
                       <Children>
-                        <Widget SuggestedWidth="345" SuggestedHeight="35" VerticalAlignment="Center" HorizontalAlignment="Left"
+                        <BrushWidget SuggestedWidth="345" SuggestedHeight="35" VerticalAlignment="Center" HorizontalAlignment="Left"
                                 Sprite="SPOptions\standart_slider_fill"/>
                       </Children>
-                    </Widget>
-                    <Widget SuggestedWidth="400" SuggestedHeight="65" VerticalAlignment="Center" HorizontalAlignment="Center"
+                    </BrushWidget>
+                    <BrushWidget SuggestedWidth="400" SuggestedHeight="65" VerticalAlignment="Center" HorizontalAlignment="Center"
                             IsEnabled="false" Sprite="SPOptions\standart_slider_frame" />
-                    <Widget Id="SliderHandle" SuggestedWidth="14" SuggestedHeight="38" VerticalAlignment="Center" HorizontalAlignment="Left"
+					  <BrushWidget Id="SliderHandle" SuggestedWidth="14" SuggestedHeight="38" VerticalAlignment="Center" HorizontalAlignment="Left"
                              Brush="SPOptions.Slider.Handle" DoNotAcceptEvents="true" />
                   </Children>
                 </SliderWidget>
@@ -41,29 +41,29 @@
             <ListPanel WidthSizePolicy="StretchToParent"   HeightSizePolicy="Fixed" MarginLeft="50" SuggestedHeight="50">
               <Children>
 
-                <Widget HeightSizePolicy="CoverChildren" WidthSizePolicy="Fixed"  VerticalAlignment="Center" HorizontalAlignment="Left" SuggestedWidth="100">
+                <BrushWidget HeightSizePolicy="CoverChildren" WidthSizePolicy="Fixed"  VerticalAlignment="Center" HorizontalAlignment="Left" SuggestedWidth="100">
                   <Children>
                     <RichTextWidget HeightSizePolicy="StretchToParent" WidthSizePolicy="CoverChildren" HorizontalAlignment="Left"
                                     Brush="Recruitment.Popup.Title.Text" Text="@FocusText">
                     </RichTextWidget>
                   </Children>
-                </Widget>
+                </BrushWidget>
 
                 <SliderWidget SuggestedWidth="338" SuggestedHeight="42" VerticalAlignment="Center" HorizontalAlignment="Center" MarginLeft="20"
                       Filler="Filler" Handle="SliderHandle" MaxValueInt="5" MinValueInt="0" ValueInt="@CurrentFocusLevel" DoNotUpdateHandleSize="true">
                   <Children>
-                    <Widget SuggestedWidth="362" SuggestedHeight="38" VerticalAlignment="Center" HorizontalAlignment="Center"
+                    <BrushWidget SuggestedWidth="362" SuggestedHeight="38" VerticalAlignment="Center" HorizontalAlignment="Center"
                             Sprite="SPOptions\standart_slider_canvas" IsEnabled="false" />
-                    <Widget Id="Filler" SuggestedWidth="345" SuggestedHeight="35" VerticalAlignment="Center" HorizontalAlignment="Center"
+                    <BrushWidget Id="Filler" SuggestedWidth="345" SuggestedHeight="35" VerticalAlignment="Center" HorizontalAlignment="Center"
                             Sprite="SPOptions\standart_slider_fill" ClipContents="true" >
                       <Children>
-                        <Widget SuggestedWidth="345" SuggestedHeight="35" VerticalAlignment="Center" HorizontalAlignment="Left"
+                        <BrushWidget SuggestedWidth="345" SuggestedHeight="35" VerticalAlignment="Center" HorizontalAlignment="Left"
                                 Sprite="SPOptions\standart_slider_fill"/>
                       </Children>
-                    </Widget>
-                    <Widget SuggestedWidth="400" SuggestedHeight="65" VerticalAlignment="Center" HorizontalAlignment="Center"
+                    </BrushWidget>
+                    <BrushWidget SuggestedWidth="400" SuggestedHeight="65" VerticalAlignment="Center" HorizontalAlignment="Center"
                             IsEnabled="false" Sprite="SPOptions\standart_slider_frame" />
-                    <Widget Id="SliderHandle" SuggestedWidth="14" SuggestedHeight="38" VerticalAlignment="Center" HorizontalAlignment="Left"
+					  <BrushWidget Id="SliderHandle" SuggestedWidth="14" SuggestedHeight="38" VerticalAlignment="Center" HorizontalAlignment="Left"
                              Brush="SPOptions.Slider.Handle" DoNotAcceptEvents="true" />
                   </Children>
                 </SliderWidget>
@@ -74,6 +74,6 @@
 
         </ListPanel>
       </Children>
-    </Widget>
+    </BrushWidget>
   </Window>
 </Prefab>

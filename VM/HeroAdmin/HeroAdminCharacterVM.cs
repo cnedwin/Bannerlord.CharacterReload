@@ -18,12 +18,20 @@ namespace CharacterReload.VM.HeroAdmin
 
         HeroAdminDevelopCharacterPreviewVM _heroModel;
         private string _heroName;
+        private int _level = 0;
 
-        public HeroAdminCharacterVM(string heroName)
+        public HeroAdminCharacterVM(string heroName, int level)
         {
+            this._level = level;
             this._heroName = heroName;
             this.HeroModel = new HeroAdminDevelopCharacterPreviewVM();
 
+        }
+
+        public void RefreshHeroLevel(int level)
+        {
+            this._level = level;
+            base.OnPropertyChanged("DisplayerHeroName");
         }
 
         public void FillFrom(BodyProperties bodyProperties, Equipment equipment, CultureObject culture, bool isFemale = false)
@@ -36,7 +44,7 @@ namespace CharacterReload.VM.HeroAdmin
         {
             get
             {
-                return this._heroName;
+                return this._heroName + "\n" + "(Level=" + this._level + ")"; ;
             }
             set
             {

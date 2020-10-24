@@ -96,7 +96,6 @@ namespace CharacterReload.VM
 			this.ShowComfirDialog(textObject, () => ReLevel(GetHero()));
 			InformationManager.DisplayMessage(new InformationMessage(new TextObject("{=tips_cr_DoRefleshLevel}After reset the hero’s Level, you need to close the clan screen and reopen it to take effect!", null).ToString()));
 
-
 		}
 
 		public void ExecuteExport()
