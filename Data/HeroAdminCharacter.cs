@@ -40,7 +40,7 @@ namespace CharacterReload.Data
 
         public void ReLevel()
         {
-            this.Level = 0;
+            this.Level = 1;
             init();
    
         }

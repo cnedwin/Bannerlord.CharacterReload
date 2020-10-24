@@ -1,6 +1,6 @@
 ﻿<Prefab>
   <Window>
-    <BrushWidget HeightSizePolicy="StretchToParent"  
+    <Widget HeightSizePolicy="StretchToParent"  
          
             WithSizePolicy="Fixed"
             SuggestedWidth="450"
@@ -19,12 +19,12 @@
               </Children>
             </ToggleWidget>
 
-            <BrushWidget WidthSizePolicy="StretchToParent" HeightSizePolicy="Fixed" SuggestedHeight="4" PositionXOffset="-3" Sprite="Clan\divider_mid"/>
+            <Widget WidthSizePolicy="StretchToParent" HeightSizePolicy="Fixed" SuggestedHeight="4" PositionXOffset="-3" Sprite="Clan\divider_mid"/>
 
             <ListPanel Id="CompanionsList" IsVisible="false"  WidthSizePolicy="StretchToParent"   MarginTop="8" MarginBottom="8" HeightSizePolicy="StretchToParent"  HorizontalAlignment="Left" LayoutImp.LayoutMethod="VerticalBottomToTop" DoNotAcceptEvents="true"  RenderLate="true" >
               <Children>
 
-                <BrushWidget  WidthSizePolicy="StretchToParent"  HeightSizePolicy="CoverChildren"   MarginRight="16"  MarginLeft="16"    DoNotAcceptEvents="true"  RenderLate="true" >
+                <Widget  WidthSizePolicy="StretchToParent"  HeightSizePolicy="CoverChildren"   MarginRight="16"  MarginLeft="16"    DoNotAcceptEvents="true"  RenderLate="true" >
                   <Children>
                     
                 <ButtonWidget WidthSizePolicy="Fixed" HeightSizePolicy="Fixed" SuggestedWidth="100" SuggestedHeight="40" DoNotPassEventsToChildren="true" VerticalAlignment="Center" Command.Click="ExecuteSaveSelected" Brush="ButtonBrush4" UpdateChildrenStates="true" IsEnabled="true">
@@ -45,7 +45,7 @@
                   </Children>
                 </ButtonWidget>
                   </Children>
-                </BrushWidget>
+                </Widget>
 
              
 
@@ -55,7 +55,7 @@
                     <!--Clan List Scrollable Panel-->
                     <ScrollablePanel WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent"  AutoHideScrollBars="true" ClipRect="ClanListClipRect" InnerPanel="ClanListClipRect\ClanList" VerticalScrollbar="..\SideListScrollbar\Scrollbar">
                       <Children>
-                        <BrushWidget Id="ClanListClipRect" WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent" ClipContents="true">
+                        <Widget Id="ClanListClipRect" WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent" ClipContents="true">
                           <Children>
                             <ListPanel Id="ClanList" DataSource="{RecordItems}" HeightSizePolicy="CoverChildren" WidthSizePolicy="StretchToParent"
                                         LayoutImp.LayoutMethod="VerticalBottomToTop"  >
@@ -64,7 +64,7 @@
                               </ItemTemplate>
                             </ListPanel>
                           </Children>
-                        </BrushWidget>
+                        </Widget>
 
                       </Children>
                     </ScrollablePanel>
@@ -79,6 +79,6 @@
         </ListPanel>
 
       </Children>
-    </BrushWidget>
+    </Widget>
   </Window>
 </Prefab>

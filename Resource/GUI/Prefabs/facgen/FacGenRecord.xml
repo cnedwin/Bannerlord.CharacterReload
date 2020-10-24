@@ -1,6 +1,6 @@
 ﻿<Prefab>
   <Window>
-    <BrushWidget HeightSizePolicy="StretchToParent"  WidthSizePolicy="Fixed" SuggestedWidth="200"   UpdateChildrenStates="true" >
+    <Widget HeightSizePolicy="StretchToParent"  WidthSizePolicy="Fixed" SuggestedWidth="200"   UpdateChildrenStates="true" >
       <Children>
         <ListPanel Id="ClanElementsListPanel" WidthSizePolicy="CoverChildren" HeightSizePolicy="CoverChildren" LayoutImp.LayoutMethod="VerticalBottomToTop">
           <Children>
@@ -43,7 +43,7 @@
                     <!--Clan List Scrollable Panel-->
                     <ScrollablePanel WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent"  AutoHideScrollBars="true" ClipRect="ClanListClipRect" InnerPanel="ClanListClipRect\ClanList" VerticalScrollbar="..\SideListScrollbar\Scrollbar">
                       <Children>
-                        <BrushWidget Id="ClanListClipRect" WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent" ClipContents="true">
+                        <Widget Id="ClanListClipRect" WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent" ClipContents="true">
                           <Children>
                             <ListPanel Id="ClanList" DataSource="{RecordItems}" HeightSizePolicy="CoverChildren" WidthSizePolicy="StretchToParent"
                                         LayoutImp.LayoutMethod="VerticalBottomToTop" HorizontalAlignment="Left" >
@@ -52,7 +52,7 @@
                               </ItemTemplate>
                             </ListPanel>
                           </Children>
-                        </BrushWidget>
+                        </Widget>
 
                       </Children>
                     </ScrollablePanel>
@@ -66,6 +66,6 @@
           </Children>
         </ListPanel>
       </Children>
-    </BrushWidget>
+    </Widget>
   </Window>
 </Prefab>

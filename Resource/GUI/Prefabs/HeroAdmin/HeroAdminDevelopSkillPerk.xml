@@ -1,6 +1,6 @@
 ﻿<Prefab>
   <Window>
-    <BrushWidget HeightSizePolicy="StretchToParent"
+    <Widget HeightSizePolicy="StretchToParent"
             WidthSizePolicy="StretchToParent"
             VerticalAlignment="Bottom"
             HorizontalAlignment="Left"
@@ -34,38 +34,37 @@
 						  <TextWidget WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent" MarginTop="3"  Brush="Popup.Button.Text"  Text="@ResetLevelText" />
 					  </Children>
 				  </ButtonWidget>
-
               </Children>
             </ListPanel>
             
-            <BrushWidget Id="PerkSelectionBarContainer"  DataSource="{CurrentSkillView}"  MarginTop="100" WidthSizePolicy="Fixed" HeightSizePolicy="Fixed" SuggestedWidth="1000" SuggestedHeight="185" HorizontalAlignment="Left" VerticalAlignment="Center"  >
+            <Widget Id="PerkSelectionBarContainer"  DataSource="{CurrentSkillView}"  MarginTop="100" WidthSizePolicy="Fixed" HeightSizePolicy="Fixed" SuggestedWidth="1000" SuggestedHeight="185" HorizontalAlignment="Left" VerticalAlignment="Center"  >
               <Children>
 
                 <PerkSelectionBarWidget Id="PerkSelectionBarWidget"  WidthSizePolicy="StretchToParent" HeightSizePolicy="Fixed"  SuggestedHeight="185" FullLearningRateClip="FullLearningRateClipParent" FullLearningRateClipInnerContent="FullLearningRateClipParent\FullLearningRateClip\FullLearningRateClipInnerContent" FullLearningRateLevel="@FullLearningRateLevel" Level="@Level" MaxLevel="@MaxLevel" PercentageIndicatorTextWidget="PercentageIndicatorWidget\PercentageIndicatorTextWidget" PercentageIndicatorWidget="PercentageIndicatorWidget" PerksList="PerksList" ProgressClip="ProgressClip" >
                   <Children>
 
                     <!--Empty Progress Sprite-->
-                    <BrushWidget WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent" Sprite="CharacterDeveloper\progress_bar_empty" IsEnabled="false"/>
+                    <Widget WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent" Sprite="CharacterDeveloper\progress_bar_empty" IsEnabled="false"/>
 
                     <!--Full Progress Sprite-->
-					  <BrushWidget Id="ProgressClip" WidthSizePolicy="Fixed" HeightSizePolicy="StretchToParent" SuggestedWidth="1000" ClipContents="true" IsEnabled="false">
+                    <Widget Id="ProgressClip" WidthSizePolicy="Fixed" HeightSizePolicy="StretchToParent" SuggestedWidth="1000" ClipContents="true" IsEnabled="false">
                       <Children>
-                        <BrushWidget WidthSizePolicy="Fixed" HeightSizePolicy="StretchToParent" SuggestedWidth="1000" Brush="ProgressBarFillBrush" />
+                        <Widget WidthSizePolicy="Fixed" HeightSizePolicy="StretchToParent" SuggestedWidth="1000" Brush="ProgressBarFillBrush" />
                       </Children>
-                    </BrushWidget>
+                    </Widget>
 
                     <!--Full Learning Rate Sprite-->
-                    <BrushWidget Id="FullLearningRateClipParent" WidthSizePolicy="Fixed" HeightSizePolicy="StretchToParent" IsEnabled="false">
+                    <Widget Id="FullLearningRateClipParent" WidthSizePolicy="Fixed" HeightSizePolicy="StretchToParent" IsEnabled="false">
                       <Children>
-                        <BrushWidget Id="FullLearningRateClip" WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent"  ClipContents="true">
+                        <Widget Id="FullLearningRateClip" WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent"  ClipContents="true">
                           <Children>
-                            <BrushWidget Id="FullLearningRateClipInnerContent" WidthSizePolicy="Fixed" HeightSizePolicy="StretchToParent" SuggestedWidth="1000" Brush="ProgressBar.LearningRate.FillBrush" />
+                            <Widget Id="FullLearningRateClipInnerContent" WidthSizePolicy="Fixed" HeightSizePolicy="StretchToParent" SuggestedWidth="1000" Brush="ProgressBar.LearningRate.FillBrush" />
                           </Children>
-                        </BrushWidget>
+                        </Widget>
 
                         <ValueBasedVisibilityWidget WidthSizePolicy="Fixed" HeightSizePolicy="Fixed" SuggestedWidth="40" SuggestedHeight="70" Sprite="CharacterDeveloper\indicator" Brush.Color="#ADAD49FF" IndexToBeVisibleFloat="1" WatchType="BiggerThanEqual" IndexToWatchFloat="@LearningRate"  PositionXOffset="19" PositionYOffset="46" HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
                       </Children>
-                    </BrushWidget>
+                    </Widget>
 
                     <ListPanel Id="PercentageIndicatorWidget"   WidthSizePolicy="CoverChildren" HeightSizePolicy="CoverChildren" PositionYOffset="-97" IsEnabled="false" LayoutImp.LayoutMethod="VerticalBottomToTop">
                       <Children>
@@ -73,39 +72,39 @@
                         <TextWidget Id="PercentageIndicatorTextWidget" WidthSizePolicy="CoverChildren" HeightSizePolicy="CoverChildren" HorizontalAlignment="Center" VerticalAlignment="Top" PositionYOffset="10" Brush="CharacterDeveloper.CurrentSkill.Value.Text" IntText="@Level" IsEnabled="@CanLearnSkill"/>
 
                         <!--Perk Level Vertical Line-->
-                        <BrushWidget WidthSizePolicy="Fixed" HeightSizePolicy="Fixed" SuggestedWidth="31" SuggestedHeight="240" HorizontalAlignment="Center" VerticalAlignment="Center" Sprite="CharacterDeveloper\progress_bar_stick" Brush.ColorFactor="1.5" />
+                        <Widget WidthSizePolicy="Fixed" HeightSizePolicy="Fixed" SuggestedWidth="31" SuggestedHeight="240" HorizontalAlignment="Center" VerticalAlignment="Center" Sprite="CharacterDeveloper\progress_bar_stick" Brush.ColorFactor="1.5" />
                       </Children>
                     </ListPanel>
 
                     <ListPanel WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent" LayoutImp.LayoutMethod="HorizontalSpaced" IsEnabled="false" MarginLeft="30" MarginRight="30">
                       <Children>
-						  <BrushWidget WidthSizePolicy="Fixed" HeightSizePolicy="StretchToParent" SuggestedWidth="1" Sprite="BlankWhiteSquare" Brush.AlphaFactor="0.0" />
-						  <BrushWidget WidthSizePolicy="Fixed" HeightSizePolicy="StretchToParent" SuggestedWidth="1" Sprite="BlankWhiteSquare" Brush.AlphaFactor="0.2" />
-						  <BrushWidget WidthSizePolicy="Fixed" HeightSizePolicy="StretchToParent" SuggestedWidth="1" Sprite="BlankWhiteSquare" Brush.AlphaFactor="0.2" />
-                          <BrushWidget WidthSizePolicy="Fixed" HeightSizePolicy="StretchToParent" SuggestedWidth="1" Sprite="BlankWhiteSquare" Brush.AlphaFactor="0.0" />
+                        <Widget WidthSizePolicy="Fixed" HeightSizePolicy="StretchToParent" SuggestedWidth="1" Sprite="BlankWhiteSquare" Brush.AlphaFactor="0.0" />
+                        <Widget WidthSizePolicy="Fixed" HeightSizePolicy="StretchToParent" SuggestedWidth="1" Sprite="BlankWhiteSquare" Brush.AlphaFactor="0.2" />
+                        <Widget WidthSizePolicy="Fixed" HeightSizePolicy="StretchToParent" SuggestedWidth="1" Sprite="BlankWhiteSquare" Brush.AlphaFactor="0.2" />
+                        <Widget WidthSizePolicy="Fixed" HeightSizePolicy="StretchToParent" SuggestedWidth="1" Sprite="BlankWhiteSquare" Brush.AlphaFactor="0.0" />
                       </Children>
                     </ListPanel>
 
-					  <BrushWidget Id="PerksList" DataSource="{Perks}" WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent" DoNotAcceptEvents="true" >
+                    <Widget Id="PerksList" DataSource="{Perks}" WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent" DoNotAcceptEvents="true" >
                       <ItemTemplate>
                         <PerkItemWidget DoNotPassEventsToChildren="true" WidthSizePolicy="Fixed" HeightSizePolicy="Fixed" SuggestedWidth="30" SuggestedHeight="86" AlternativeType="@AlternativeType" Command.Click="ExecuteStartSelection" Command.AlternateClick="ExecuteShowPerkConcept" PerkState="@PerkState" Level="@Level" PerkVisualWidgetParent="PerkVisualWidgetParent" PerkVisualWidget="PerkVisualWidgetParent\PerkVisualWidget" NotEarnedPerkBrush="CharacterDeveloper.NotEarnedPerkBrush" EarnedNotSelectedPerkBrush="CharacterDeveloper.EarnedNotSelectedPerkBrush" InSelectionPerkBrush="CharacterDeveloper.InSelectionPerkBrush" EarnedActivePerkBrush="CharacterDeveloper.EarnedActivePerkBrush" EarnedNotActivePerkBrush="CharacterDeveloper.EarnedNotActivePerkBrush" EarnedPreviousPerkNotSelectedPerkBrush="CharacterDeveloper.EarnedNotSelectedFollowingPerk.Brush" UpdateChildrenStates="true">
                           <Children>
 
-                            <BrushWidget Id="PerkVisualWidgetParent" WidthSizePolicy="Fixed" HeightSizePolicy="Fixed" SuggestedWidth="80" SuggestedHeight="86" HorizontalAlignment="Center" VerticalAlignment="Center" >
+                            <Widget Id="PerkVisualWidgetParent" WidthSizePolicy="Fixed" HeightSizePolicy="Fixed" SuggestedWidth="80" SuggestedHeight="86" HorizontalAlignment="Center" VerticalAlignment="Center" >
                               <Children>
-                                <BrushWidget Id="PerkVisualWidget" WidthSizePolicy="Fixed" HeightSizePolicy="Fixed" SuggestedWidth="30" SuggestedHeight="30" HorizontalAlignment="Center" MarginTop="23"  Sprite="@PerkId" Brush.ValueFactor="-100" />
+                                <Widget Id="PerkVisualWidget" WidthSizePolicy="Fixed" HeightSizePolicy="Fixed" SuggestedWidth="30" SuggestedHeight="30" HorizontalAlignment="Center" MarginTop="23"  Sprite="@PerkId" Brush.ValueFactor="-100" />
                               </Children>
-                            </BrushWidget>
+                            </Widget>
 
                             <HintWidget DataSource="{Hint}" WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent" Command.HoverBegin="ExecuteBeginHint" Command.HoverEnd="ExecuteEndHint" />
                           </Children>
                         </PerkItemWidget>
                       </ItemTemplate>
-                    </BrushWidget>
+                    </Widget>
                   </Children>
                 </PerkSelectionBarWidget>
               </Children>
-            </BrushWidget>
+            </Widget>
 
             <HeroAdminSkillAndFouseSet DataSource="{CurrentSkillView}"  MarginTop="30"/>
 
@@ -123,6 +122,6 @@
 
 
       </Children>
-    </BrushWidget>
+    </Widget>
   </Window>
 </Prefab>

@@ -12,7 +12,7 @@
 
   </Constants>
   <Window>
-	  <BrushWidget HeightSizePolicy="StretchToParent"   WithSizePolicy="Fixed"
+    <Widget HeightSizePolicy="StretchToParent"   WithSizePolicy="Fixed"
             SuggestedWidth="1090"    UpdateChildrenStates="true">
       <Children>
 
@@ -47,9 +47,9 @@
               </Children>
             </ListPanel>
 
-            <BrushWidget WidthSizePolicy="StretchToParent" HeightSizePolicy="Fixed" SuggestedHeight="4" PositionXOffset="-3" Sprite="Clan\divider_mid"/>
+            <Widget WidthSizePolicy="StretchToParent" HeightSizePolicy="Fixed" SuggestedHeight="4" PositionXOffset="-3" Sprite="Clan\divider_mid"/>
 
-            <BrushWidget WidthSizePolicy="StretchToParent"  HeightSizePolicy="StretchToParent" MarginTop="2" >
+            <Widget WidthSizePolicy="StretchToParent"  HeightSizePolicy="StretchToParent" MarginTop="2" >
               <Children>
 
                 <HeroAdminDevelopSkillPerk  IsVisible="true" />
@@ -57,13 +57,13 @@
                 <HeroAdminDevelopTraits    IsVisible="false" />
 
               </Children>
-            </BrushWidget>
+            </Widget>
 
           </Children>
         </ListPanel>
 
 
       </Children>
-    </BrushWidget>
+    </Widget>
   </Window>
 </Prefab>

@@ -1,9 +1,9 @@
 ﻿<Prefab>
   <Window>
-    <BrushWidget HeightSizePolicy="CoverChildren"   IsVisible="@IsAttributeTableSelected" WidthSizePolicy="StretchToParent" VerticalAlignment="Top" HorizontalAlignment="Left"  UpdateChildrenStates="true">
+    <Widget HeightSizePolicy="CoverChildren"   IsVisible="@IsAttributeTableSelected" WidthSizePolicy="StretchToParent" VerticalAlignment="Top" HorizontalAlignment="Left"  UpdateChildrenStates="true">
       <Children>
 
-        <BrushWidget  DataSource="{AttributeView}"  WidthSizePolicy="StretchToParent"    HeightSizePolicy="StretchToParent" >
+        <Widget  DataSource="{AttributeView}"  WidthSizePolicy="StretchToParent"    HeightSizePolicy="StretchToParent" >
           <Children>
 
 			  
@@ -16,10 +16,10 @@
 
           </Children>
           
-        </BrushWidget>
+        </Widget>
       
 
       </Children>
-    </BrushWidget>
+    </Widget>
   </Window>
 </Prefab>

@@ -5,18 +5,18 @@
 		</VisualDefinition>
 	</VisualDefinitions>
 	<Window>
-		<BrushWidget HeightSizePolicy="StretchToParent"   WidthSizePolicy="StretchToParent" VerticalAlignment="Top"   HorizontalAlignment="Left"  UpdateChildrenStates="true"
+		<Widget HeightSizePolicy="StretchToParent"   WidthSizePolicy="StretchToParent" VerticalAlignment="Top"   HorizontalAlignment="Left"  UpdateChildrenStates="true"
 				Brush="Encyclopedia.SoundBrush"
 				MarginRight="-10"
 				MarginLeft="-10"
 					Sprite="highscore_bar_9" Brush.AlphaFactor="0.55">
 			<Children>
 
-				<BrushWidget HeightSizePolicy="StretchToParent"   WidthSizePolicy="StretchToParent" VerticalAlignment="Top" MarginLeft="10"  MarginRight="10"  HorizontalAlignment="Left"  UpdateChildrenStates="true"
+				<Widget HeightSizePolicy="StretchToParent"   WidthSizePolicy="StretchToParent" VerticalAlignment="Top" MarginLeft="10"  MarginRight="10"  HorizontalAlignment="Left"  UpdateChildrenStates="true"
            >
 					<Children>
 
-						<BrushWidget  HeightSizePolicy="Fixed" SuggestedHeight="150"  WidthSizePolicy="Fixed" SuggestedWidth="500"
+						<Widget  HeightSizePolicy="Fixed" SuggestedHeight="150"  WidthSizePolicy="Fixed" SuggestedWidth="500"
 										PositionYOffset="-5" HorizontalAlignment="Center" Sprite="StdAssets\tabbar_popup"
 										DoNotAcceptEvents="true"  >
 							<Children>
@@ -26,11 +26,11 @@
 												PositionYOffset="-25"
 								   Text="@HeroAdminText" Brush.FontSize="40" />
 							</Children>
-						</BrushWidget>
+						</Widget>
 
 
 
-						<BrushWidget  WidthSizePolicy="StretchToParent"   HeightSizePolicy="StretchToParent"  HorizontalAlignment="Center"   VerticalAlignment="Top" MarginTop="100">
+						<Widget  WidthSizePolicy="StretchToParent"   HeightSizePolicy="StretchToParent"  HorizontalAlignment="Center"   VerticalAlignment="Top" MarginTop="100">
 							<Children>
 
 								<HeroAdminRecord  DataSource="{HeroAdminRecord}"  HorizontalAlignment="Left" />
@@ -41,13 +41,13 @@
 
 
 							</Children>
-						</BrushWidget>
+						</Widget>
 
 						<HeroAdminHeroSelector DataSource="{HeroSelector}"  HorizontalAlignment="Right" MarginRight="10" MarginTop="10"/>
 					</Children>
-				</BrushWidget>
+				</Widget>
 
 			</Children>
-		</BrushWidget>
+		</Widget>
 	</Window>
 </Prefab>

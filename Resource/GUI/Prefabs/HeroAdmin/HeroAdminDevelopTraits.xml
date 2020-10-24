@@ -1,10 +1,10 @@
 ﻿<Prefab>
   <Window>
-    <BrushWidget HeightSizePolicy="CoverChildren"   IsVisible="@IsTraitTableSelected" WidthSizePolicy="StretchToParent" VerticalAlignment="Top" HorizontalAlignment="Left"  UpdateChildrenStates="true">
+    <Widget HeightSizePolicy="CoverChildren"   IsVisible="@IsTraitTableSelected" WidthSizePolicy="StretchToParent" VerticalAlignment="Top" HorizontalAlignment="Left"  UpdateChildrenStates="true">
       <Children>
 
        
-        <BrushWidget  DataSource="{TraitView}"  WidthSizePolicy="StretchToParent"    HeightSizePolicy="StretchToParent" >
+        <Widget  DataSource="{TraitView}"  WidthSizePolicy="StretchToParent"    HeightSizePolicy="StretchToParent" >
           <Children>
             <ListPanel DataSource="{Traits}" WidthSizePolicy="Fixed"  SuggestedWidth="500" MarginTop="50"   HorizontalAlignment="Center"  HeightSizePolicy="StretchToParent"  LayoutImp.LayoutMethod="VerticalBottomToTop">
               <ItemTemplate>
@@ -13,10 +13,10 @@
             </ListPanel>
           </Children>
           
-        </BrushWidget>
+        </Widget>
       
 
       </Children>
-    </BrushWidget>
+    </Widget>
   </Window>
 </Prefab>
