@@ -31,7 +31,7 @@
                     </Widget>
                     <Widget SuggestedWidth="400" SuggestedHeight="65" VerticalAlignment="Center" HorizontalAlignment="Center"
                             IsEnabled="false" Sprite="SPOptions\standart_slider_frame" />
-                    <Widget Id="SliderHandle" SuggestedWidth="14" SuggestedHeight="38" VerticalAlignment="Center" HorizontalAlignment="Left"
+					  <BrushWidget Id="SliderHandle" SuggestedWidth="14" SuggestedHeight="38" VerticalAlignment="Center" HorizontalAlignment="Left"
                              Brush="SPOptions.Slider.Handle" DoNotAcceptEvents="true" />
                   </Children>
                 </SliderWidget>
@@ -63,7 +63,7 @@
                     </Widget>
                     <Widget SuggestedWidth="400" SuggestedHeight="65" VerticalAlignment="Center" HorizontalAlignment="Center"
                             IsEnabled="false" Sprite="SPOptions\standart_slider_frame" />
-                    <Widget Id="SliderHandle" SuggestedWidth="14" SuggestedHeight="38" VerticalAlignment="Center" HorizontalAlignment="Left"
+					  <BrushWidget Id="SliderHandle" SuggestedWidth="14" SuggestedHeight="38" VerticalAlignment="Center" HorizontalAlignment="Left"
                              Brush="SPOptions.Slider.Handle" DoNotAcceptEvents="true" />
                   </Children>
                 </SliderWidget>

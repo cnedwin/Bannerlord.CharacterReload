@@ -193,6 +193,7 @@ namespace CharacterReload.VM.HeroAdmin
         private void ResetData()
         {
             this._heroAdminDevelopVM = new HeroAdminDevelopVM(_heroAdminCharacter, OnResetLevelAction);
+            this._heroAdminCharacterVM.RefreshHeroLevel(_heroAdminCharacter.Level);
             base.OnPropertyChanged("HeronDevelop");
         }
 
