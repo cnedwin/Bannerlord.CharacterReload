@@ -40,7 +40,7 @@ namespace CharacterReload
 
 			if (!(game.GameType is Campaign))
 			{
-				Helper.Log("GameType is not Campaign. CharacterTrainer disabled.");
+				InformationManager.DisplayMessage(new InformationMessage(new TextObject("GameType is not Campaign. CharacterReload disabled.", null).ToString(), Color.FromUint(ModuleColors.green)));
 				return;
 			}
 			if (!(gameStarterObject is CampaignGameStarter))
@@ -48,29 +48,12 @@ namespace CharacterReload
 				return;
 		    }
 
-			if (!Directory.Exists(Helper.SavePath))
-			{
-				Directory.CreateDirectory(Helper.SavePath);
-			}
-			Helper.ClearLog();
-			Helper.Log("Set character stats model");
-
-			//gameStarterObject.AddModel(CharacterTrainerStatsModel.Instance());
-
 			LoadXMLFiles(gameStarterObject as CampaignGameStarter);
 			EncyclopediaPageChangedHandle handle = new EncyclopediaPageChangedHandle();
 			game.EventManager.RegisterEvent<EncyclopediaPageChangedEvent>(handle.OnEncyclopediaPageChanged);
 
 		}
 
-		//protected override void OnApplicationTick(float dt)
-		//{
-		//	base.OnApplicationTick(dt);
-		//	if (Campaign.Current != null && Campaign.Current.GameStarted && !CharacterTrainerStatsModel.Instance().IsInitialized)
-		//	{
-		//		CharacterTrainerStatsModel.Instance().Initialize();
-		//	}
-		//}
 
 		private void LoadXMLFiles(CampaignGameStarter gameInitializer)
 		{

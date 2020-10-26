@@ -23,19 +23,7 @@ namespace CharacterReload.Pathes
             List<string> xsltList = new List<string>();
 
             List<MbObjectXmlInformation> mbprojXmlList = XmlResource.MbprojXmls.Where(x => x.Id == "soln_skins").ToList();
-            //mbprojXmlList = mbprojXmlList.Reverse();
-
-            for (int i = 0; i < mbprojXmlList.Count; i++)
-            {
-                var mbproj = mbprojXmlList[i];
-
-                if (mbproj.ModuleName == "Native")
-                {
-                    mbprojXmlList.RemoveAt(i);
-                    mbprojXmlList.Add(mbproj);
-                    break;
-                }
-            }
+            mbprojXmlList.Reverse();
 
             foreach (MbObjectXmlInformation mbprojXml in mbprojXmlList)
             {
@@ -45,12 +33,10 @@ namespace CharacterReload.Pathes
                     toBeMerged.Add(Tuple.Create(ModuleInfo.GetXmlPathForNative(mbprojXml.ModuleName, mbprojXml.Name), string.Empty));
                 }
                 string xsltPathForNative = ModuleInfo.GetXsltPathForNative(mbprojXml.ModuleName, mbprojXml.Name);
-                if (File.Exists(xsltPathForNative))
-                    xsltList.Add(xsltPathForNative);
-                else
-                    xsltList.Add("");
+
+                xsltList.Add(File.Exists(xsltPathForNative) ? xsltPathForNative : string.Empty);
             }
-            System.Xml.XmlDocument mergedXmlForNative = MBObjectManager.CreateMergedXmlFile(toBeMerged, xsltList, true);
+            XmlDocument mergedXmlForNative = MBObjectManager.CreateMergedXmlFile(toBeMerged, xsltList, true);
 
             System.IO.StringWriter stringWriter = new System.IO.StringWriter();
             XmlTextWriter xmlTextWriter = new XmlTextWriter(stringWriter);
