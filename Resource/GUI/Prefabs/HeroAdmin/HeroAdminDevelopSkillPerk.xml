@@ -29,6 +29,12 @@
                   </Children>
                 </ButtonWidget>
 
+				  <ButtonWidget DoNotPassEventsToChildren="true" WidthSizePolicy="Fixed" Brush="ButtonBrush4" HeightSizePolicy="Fixed" MarginLeft="50" SuggestedWidth="120" SuggestedHeight="50" Command.Click="DoRefleshLevel"   UpdateChildrenStates="true">
+					  <Children>
+						  <TextWidget WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent" MarginTop="3"  Brush="Popup.Button.Text"  Text="@ResetLevelText" />
+					  </Children>
+				  </ButtonWidget>
+
               </Children>
             </ListPanel>
             
@@ -73,10 +79,16 @@
 
                     <ListPanel WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent" LayoutImp.LayoutMethod="HorizontalSpaced" IsEnabled="false" MarginLeft="30" MarginRight="30">
                       <Children>
-                        <Widget WidthSizePolicy="Fixed" HeightSizePolicy="StretchToParent" SuggestedWidth="1" Sprite="BlankWhiteSquare" Brush.AlphaFactor="0.0" />
-                        <Widget WidthSizePolicy="Fixed" HeightSizePolicy="StretchToParent" SuggestedWidth="1" Sprite="BlankWhiteSquare" Brush.AlphaFactor="0.2" />
-                        <Widget WidthSizePolicy="Fixed" HeightSizePolicy="StretchToParent" SuggestedWidth="1" Sprite="BlankWhiteSquare" Brush.AlphaFactor="0.2" />
-                        <Widget WidthSizePolicy="Fixed" HeightSizePolicy="StretchToParent" SuggestedWidth="1" Sprite="BlankWhiteSquare" Brush.AlphaFactor="0.0" />
+						  <Widget Id="SeperatorContainer" WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent" IsEnabled="false">
+							  <Children>
+								  <CharacterDeveloperSkillVerticalSeperatorWidget WidthSizePolicy="Fixed" HeightSizePolicy="StretchToParent" SuggestedWidth="1" Sprite="BlankWhiteSquare" AlphaFactor="0.2" SkillValue="50" />
+								  <CharacterDeveloperSkillVerticalSeperatorWidget WidthSizePolicy="Fixed" HeightSizePolicy="StretchToParent" SuggestedWidth="1" Sprite="BlankWhiteSquare" AlphaFactor="0.2" SkillValue="100" />
+								  <CharacterDeveloperSkillVerticalSeperatorWidget WidthSizePolicy="Fixed" HeightSizePolicy="StretchToParent" SuggestedWidth="1" Sprite="BlankWhiteSquare" AlphaFactor="0.2" SkillValue="150" />
+								  <CharacterDeveloperSkillVerticalSeperatorWidget WidthSizePolicy="Fixed" HeightSizePolicy="StretchToParent" SuggestedWidth="1" Sprite="BlankWhiteSquare" AlphaFactor="0.2" SkillValue="200" />
+								  <CharacterDeveloperSkillVerticalSeperatorWidget WidthSizePolicy="Fixed" HeightSizePolicy="StretchToParent" SuggestedWidth="1" Sprite="BlankWhiteSquare" AlphaFactor="0.2" SkillValue="250" />
+								  <CharacterDeveloperSkillVerticalSeperatorWidget WidthSizePolicy="Fixed" HeightSizePolicy="StretchToParent" SuggestedWidth="1" Sprite="BlankWhiteSquare" AlphaFactor="0.2" SkillValue="300" />
+							  </Children>
+						  </Widget>
                       </Children>
                     </ListPanel>
 

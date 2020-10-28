@@ -19,10 +19,10 @@ namespace CharacterReload.VM.HeroAdmin
         private HeroAdminDevelopTraitsVM _traitVM;
         private HeroAdminDevelopAttributeVM _attributeVM;
 
-        public HeroAdminDevelopVM(HeroAdminCharacter heroAdminCharacter)
+        public HeroAdminDevelopVM(HeroAdminCharacter heroAdminCharacter, Action<int> onResetLevelAction)
         {
             _heroAdminCharacter = heroAdminCharacter;
-            this._skillVM = new HeroAdminDevelopSkillPerkVM(heroAdminCharacter);
+            this._skillVM = new HeroAdminDevelopSkillPerkVM(heroAdminCharacter, onResetLevelAction);
             this._traitVM = new HeroAdminDevelopTraitsVM(heroAdminCharacter);
             this._attributeVM = new HeroAdminDevelopAttributeVM(heroAdminCharacter);
         }

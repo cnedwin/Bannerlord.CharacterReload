@@ -1,5 +1,6 @@
 ﻿using CharacterReload;
 using HarmonyLib;
+using Helpers;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -15,11 +16,26 @@ using TaleWorlds.Localization;
 
 namespace CharacterReload.VM
 {
+	[HarmonyPatch(typeof(ClanLordItemVM))]
+	class ClanLordItemVMPatch
+	{
+		[HarmonyPatch("OnNamingHeroOver")]
+		[HarmonyPostfix]
+		public static void OnNamingHeroOverPostfix(ClanLordItemVM __instance, string suggestedName)
+		{
+			if (!CampaignUIHelper.IsStringApplicableForHeroName(suggestedName)) return;
+			Hero selectedHero = __instance.GetHero();
+			selectedHero.FirstName = selectedHero.Name;
+			if (selectedHero.IsPartyLeader)
+				selectedHero.PartyBelongedTo.Name = MobilePartyHelper.GeneratePartyName(selectedHero.CharacterObject);
+		}
+	}
+
 	public class MyClanLordItemVM : ClanLordItemVM
 	{
 		Action<ClanLordItemVM> _characterSelect;
 
-        public MyClanLordItemVM(Hero hero, Action<ClanLordItemVM> onCharacterSelect) : base(hero, onCharacterSelect)
+		public MyClanLordItemVM(Hero hero, Action<ClanLordItemVM> onCharacterSelect) : base(hero, onCharacterSelect)
 		{
 			this._characterSelect = onCharacterSelect;
 		}
@@ -96,7 +112,6 @@ namespace CharacterReload.VM
 			this.ShowComfirDialog(textObject, () => ReLevel(GetHero()));
 			InformationManager.DisplayMessage(new InformationMessage(new TextObject("{=tips_cr_DoRefleshLevel}After reset the hero’s Level, you need to close the clan screen and reopen it to take effect!", null).ToString()));
 
-
 		}
 
 		public void ExecuteExport()
@@ -113,63 +128,63 @@ namespace CharacterReload.VM
 			TextObject textObject = new TextObject("{=misc_cr_ExecuteImport}Import the hero", null);
 			bool flag = InputKey.LeftShift.IsDown() || InputKey.RightShift.IsDown();
 			//this.ShowComfirDialog(textObject, () => CharacterTrainerStatsModel.Instance().Import(GetHero(), flag));
-			InformationManager.DisplayMessage(new InformationMessage(new TextObject("{=tips_cr_DoExport}Character imported from " + Helper.GetFilename(GetHero()),null).ToString()));
+			InformationManager.DisplayMessage(new InformationMessage(new TextObject("{=tips_cr_DoExport}Character imported from " + Helper.GetFilename(GetHero()), null).ToString()));
 
 
 		}
 
 
 		private void ShowComfirDialog(TextObject tip, Action action)
-        {
-            InformationManager.ShowInquiry(new InquiryData(tip.ToString(), string.Empty, true, true, GameTexts.FindText("str_done", null).ToString(), GameTexts.FindText("str_cancel", null).ToString(), action, () => { }), false);
+		{
+			InformationManager.ShowInquiry(new InquiryData(tip.ToString(), string.Empty, true, true, GameTexts.FindText("str_done", null).ToString(), GameTexts.FindText("str_cancel", null).ToString(), action, () => { }), false);
 
-        }
+		}
 
 
-        [DataSourceProperty]
-        public string ResetAttributeText
-        {
-            get
-            {
-                return new TextObject("{=bottom_ReAttHero}ResetAttribute", null).ToString();
-            }
-        }
+		[DataSourceProperty]
+		public string ResetAttributeText
+		{
+			get
+			{
+				return new TextObject("{=bottom_ReAttHero}ResetAttribute", null).ToString();
+			}
+		}
 
-        [DataSourceProperty]
-        public string ResetFocusText
-        {
-            get
-            {
-                return new TextObject("{=bottom_RefocusHero}ResetFocus", null).ToString();
-            }
-        }
+		[DataSourceProperty]
+		public string ResetFocusText
+		{
+			get
+			{
+				return new TextObject("{=bottom_RefocusHero}ResetFocus", null).ToString();
+			}
+		}
 
-        [DataSourceProperty]
-        public string ResetPerkText
-        {
-            get
-            {
-                return new TextObject("{=bottom_RePerksHero}ResetPerk", null).ToString();
-            }
-        }
+		[DataSourceProperty]
+		public string ResetPerkText
+		{
+			get
+			{
+				return new TextObject("{=bottom_RePerksHero}ResetPerk", null).ToString();
+			}
+		}
 
-        [DataSourceProperty]
-        public string ResetTraitsText
-        {
-            get
-            {
-                return new TextObject("{=bottom_ReTraitsHero}ImproveTraits", null).ToString();
-            }
-        }
+		[DataSourceProperty]
+		public string ResetTraitsText
+		{
+			get
+			{
+				return new TextObject("{=bottom_ReTraitsHero}ImproveTraits", null).ToString();
+			}
+		}
 
-        [DataSourceProperty]
-        public string ResetLevelText
-        {
-            get
-            {
-                return new TextObject("{=bottom_ReLevelHero}ResetLevel", null).ToString();
-            }
-        }
+		[DataSourceProperty]
+		public string ResetLevelText
+		{
+			get
+			{
+				return new TextObject("{=bottom_ReLevelHero}ResetLevel", null).ToString();
+			}
+		}
 
 		[DataSourceProperty]
 		public string ExecuteImportText
@@ -190,77 +205,77 @@ namespace CharacterReload.VM
 		}
 
 		private void RePerksHero(Hero hero)
-        {
-            foreach (SkillObject skill in DefaultSkills.GetAllSkills())
-            {
-                hero.HeroDeveloper.TakeAllPerks(skill);
-            }
-            hero.ClearPerks();
-        }
+		{
+			foreach (SkillObject skill in DefaultSkills.GetAllSkills())
+			{
+				hero.HeroDeveloper.TakeAllPerks(skill);
+			}
+			hero.ClearPerks();
+		}
 
-        public void RefocusHero(Hero hero)
-        {
-            int num = 0;
-            int num2 = 0;
-            foreach (SkillObject skill in DefaultSkills.GetAllSkills())
-            {
-                int focus = hero.HeroDeveloper.GetFocus(skill);
-                if (focus > 0)
-                {
-                    num += focus;
-                    hero.HeroDeveloper.AddFocus(skill, num2 - focus, false);
-                }
-            }
-            hero.HeroDeveloper.UnspentFocusPoints += MBMath.ClampInt(num, 0, 999);
+		public void RefocusHero(Hero hero)
+		{
+			int num = 0;
+			int num2 = 0;
+			foreach (SkillObject skill in DefaultSkills.GetAllSkills())
+			{
+				int focus = hero.HeroDeveloper.GetFocus(skill);
+				if (focus > 0)
+				{
+					num += focus;
+					hero.HeroDeveloper.AddFocus(skill, num2 - focus, false);
+				}
+			}
+			hero.HeroDeveloper.UnspentFocusPoints += MBMath.ClampInt(num, 0, 999);
 
-        }
+		}
 
 
-        public void ReAttHero(Hero hero)
-        {
-            int num = 0;
-            for (CharacterAttributesEnum characterAttributesEnum = CharacterAttributesEnum.Vigor; characterAttributesEnum < CharacterAttributesEnum.NumCharacterAttributes; characterAttributesEnum++)
-            {
-                int attributeValue = hero.GetAttributeValue(characterAttributesEnum);
-                num += attributeValue;
-                hero.SetAttributeValue(characterAttributesEnum, 0);
-            }
-            hero.HeroDeveloper.UnspentAttributePoints += MBMath.ClampInt(num, 0, 999);
-        }
+		public void ReAttHero(Hero hero)
+		{
+			int num = 0;
+			for (CharacterAttributesEnum characterAttributesEnum = CharacterAttributesEnum.Vigor; characterAttributesEnum < CharacterAttributesEnum.NumCharacterAttributes; characterAttributesEnum++)
+			{
+				int attributeValue = hero.GetAttributeValue(characterAttributesEnum);
+				num += attributeValue;
+				hero.SetAttributeValue(characterAttributesEnum, 0);
+			}
+			hero.HeroDeveloper.UnspentAttributePoints += MBMath.ClampInt(num, 0, 999);
+		}
 
-        public void ReTraits(Hero hero)
-        {
-            int num = 2;
-            hero.ClearTraits();
-            hero.SetTraitLevel(DefaultTraits.Honor, num);
-            hero.SetTraitLevel(DefaultTraits.Valor, num);
-            hero.SetTraitLevel(DefaultTraits.Mercy, num);
-            hero.SetTraitLevel(DefaultTraits.Generosity, num);
-            hero.SetTraitLevel(DefaultTraits.Calculating, num);
-            }
+		public void ReTraits(Hero hero)
+		{
+			int num = 2;
+			hero.ClearTraits();
+			hero.SetTraitLevel(DefaultTraits.Honor, num);
+			hero.SetTraitLevel(DefaultTraits.Valor, num);
+			hero.SetTraitLevel(DefaultTraits.Mercy, num);
+			hero.SetTraitLevel(DefaultTraits.Generosity, num);
+			hero.SetTraitLevel(DefaultTraits.Calculating, num);
+		}
 
-        public void ReLevel(Hero hero)
-        {
-            hero.HeroDeveloper.ClearDeveloper();
-            hero.ClearSkills();
-            this.AddSkillLevel(hero, DefaultSkills.Bow, (int)60);
-            this.AddSkillLevel(hero, DefaultSkills.Riding, (int)60);
-            this.AddSkillLevel(hero, DefaultSkills.Trade, (int)60);
-            this.AddSkillLevel(hero, DefaultSkills.Steward, (int)60);
-            hero.Initialize();
-        }
+		public void ReLevel(Hero hero)
+		{
+			hero.HeroDeveloper.ClearDeveloper();
+			hero.ClearSkills();
+			this.AddSkillLevel(hero, DefaultSkills.Bow, (int)60);
+			this.AddSkillLevel(hero, DefaultSkills.Riding, (int)60);
+			this.AddSkillLevel(hero, DefaultSkills.Trade, (int)60);
+			this.AddSkillLevel(hero, DefaultSkills.Steward, (int)60);
+			hero.Initialize();
+		}
 
-        private void AddSkillLevel(Hero hero, SkillObject defaultSkills, int value)
-        {
-            hero.HeroDeveloper.SetInitialSkillLevel(defaultSkills, value);
-            hero.HeroDeveloper.InitializeSkillXp(defaultSkills);
-            bool flag = hero.HeroDeveloper.GetSkillXpProgress(defaultSkills) < 0;
-            bool flag2 = flag;
-            if (flag2)
-            {
-                hero.HeroDeveloper.AddSkillXp(defaultSkills, (float)(hero.HeroDeveloper.GetSkillXpProgress(defaultSkills) * -1 + 1), false, false);
-            }
-        }
+		private void AddSkillLevel(Hero hero, SkillObject defaultSkills, int value)
+		{
+			hero.HeroDeveloper.SetInitialSkillLevel(defaultSkills, value);
+			hero.HeroDeveloper.InitializeSkillXp(defaultSkills);
+			bool flag = hero.HeroDeveloper.GetSkillXpProgress(defaultSkills) < 0;
+			bool flag2 = flag;
+			if (flag2)
+			{
+				hero.HeroDeveloper.AddSkillXp(defaultSkills, (float)(hero.HeroDeveloper.GetSkillXpProgress(defaultSkills) * -1 + 1), false, false);
+			}
+		}
 
 
 
@@ -301,10 +316,7 @@ namespace CharacterReload.VM
 			return null;
 		}
 
-	
+
 
 	}
 }
-
-
-

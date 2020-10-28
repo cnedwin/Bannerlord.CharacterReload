@@ -10,9 +10,9 @@ using System.IO;
 
 namespace CharacterReload
 {
-    public class SubModule : MBSubModuleBase
-    {
-	
+	public class SubModule : MBSubModuleBase
+	{
+
 		protected override void OnSubModuleLoad()
 		{
 			try
@@ -40,22 +40,13 @@ namespace CharacterReload
 
 			if (!(game.GameType is Campaign))
 			{
-				Helper.Log("GameType is not Campaign. CharacterTrainer disabled.");
+				InformationManager.DisplayMessage(new InformationMessage(new TextObject("GameType is not Campaign. CharacterReload disabled.", null).ToString(), Color.FromUint(ModuleColors.green)));
 				return;
 			}
 			if (!(gameStarterObject is CampaignGameStarter))
-			{ 
-				return;
-		    }
-
-			if (!Directory.Exists(Helper.SavePath))
 			{
-				Directory.CreateDirectory(Helper.SavePath);
+				return;
 			}
-			Helper.ClearLog();
-			Helper.Log("Set character stats model");
-
-			//gameStarterObject.AddModel(CharacterTrainerStatsModel.Instance());
 
 			LoadXMLFiles(gameStarterObject as CampaignGameStarter);
 			EncyclopediaPageChangedHandle handle = new EncyclopediaPageChangedHandle();
@@ -63,23 +54,14 @@ namespace CharacterReload
 
 		}
 
-		//protected override void OnApplicationTick(float dt)
-		//{
-		//	base.OnApplicationTick(dt);
-		//	if (Campaign.Current != null && Campaign.Current.GameStarted && !CharacterTrainerStatsModel.Instance().IsInitialized)
-		//	{
-		//		CharacterTrainerStatsModel.Instance().Initialize();
-		//	}
-		//}
 
 		private void LoadXMLFiles(CampaignGameStarter gameInitializer)
 		{
-			// Load our additional strings
 			gameInitializer.LoadGameTexts(BasePath.Name + "Modules/CharacterReload/ModuleData/strings.xml");
 
 		}
 	}
-	
+
 
 	public static class ModuleColors
 	{

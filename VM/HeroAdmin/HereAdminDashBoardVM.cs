@@ -1,5 +1,4 @@
-﻿
-using CharacterReload.Data;
+﻿using CharacterReload.Data;
 using CharacterReload.VM.HeroAdmin;
 using System;
 using System.Collections.Generic;
@@ -31,23 +30,29 @@ namespace CharacterReload.VM.HeroAdmin
             this._closeHereAdminDashBoard = closeHereAdminDashBoard;
             this._hero = hero;
             this._heroAdminCharacter = HeroAdminCharacter.FromHero(hero);
-            this._heroAdminCharacterVM = new HeroAdminCharacterVM(hero.Name.ToString());
+            this._heroAdminCharacterVM = new HeroAdminCharacterVM(hero.Name.ToString(), hero.Level);
             this._heroAdminRecordVM = new HeroAdminRecordVM(this._heroAdminCharacter, this.OnToLoadHeroCharacter);
-            this._heroAdminDevelopVM = new HeroAdminDevelopVM(this._heroAdminCharacter);
+            this._heroAdminDevelopVM = new HeroAdminDevelopVM(this._heroAdminCharacter, OnResetLevelAction);
 
             this._heroAdminCharacterVM.FillFrom(hero.BodyProperties, hero.CharacterObject.FirstBattleEquipment, hero.Culture, hero.IsFemale);
         }
 
+
+        private void OnResetLevelAction(int level)
+        {
+            this._heroAdminCharacterVM.RefreshHeroLevel(level);
+        }
 
         private void OnHeroSelected(Hero hero)
         {
             this._hero = hero;
             this._heroAdminCharacter = HeroAdminCharacter.FromHero(hero);
             this._heroAdminCharacterVM.DisplayerHeroName = hero.Name.ToString();
+            this._heroAdminCharacterVM.RefreshHeroLevel(this._heroAdminCharacter.Level);
             this._heroAdminCharacterVM.FillFrom(hero.BodyProperties, hero.CharacterObject.FirstBattleEquipment, hero.Culture, hero.IsFemale);
             this._heroAdminRecordVM.UpdateHeroAdminCharacter(this._heroAdminCharacter);
             ResetData();
-            
+
         }
 
         private void OnToLoadHeroCharacter(HeroAdminCharacter data, bool include)
@@ -181,12 +186,21 @@ namespace CharacterReload.VM.HeroAdmin
             ResetData();
         }
 
+
+
+
         private void ResetData()
         {
-            this._heroAdminDevelopVM = new HeroAdminDevelopVM(_heroAdminCharacter);
+            this._heroAdminDevelopVM = new HeroAdminDevelopVM(_heroAdminCharacter, OnResetLevelAction);
+            this._heroAdminCharacterVM.RefreshHeroLevel(_heroAdminCharacter.Level);
             base.OnPropertyChanged("HeronDevelop");
         }
 
+        private void ShowComfirDialog(TextObject tip, Action action)
+        {
+            InformationManager.ShowInquiry(new InquiryData(tip.ToString(), string.Empty, true, true, GameTexts.FindText("str_done", null).ToString(), GameTexts.FindText("str_cancel", null).ToString(), action, () => { }), false);
+
+        }
 
     }
 }
