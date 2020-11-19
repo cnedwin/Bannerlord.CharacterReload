@@ -5,7 +5,7 @@
 		</VisualDefinition>
 	</VisualDefinitions>
 	<Window>
-		<Widget HeightSizePolicy="StretchToParent"   WidthSizePolicy="StretchToParent" VerticalAlignment="Top"   HorizontalAlignment="Left"  UpdateChildrenStates="true"
+		<BrushWidget HeightSizePolicy="StretchToParent"   WidthSizePolicy="StretchToParent" VerticalAlignment="Top"   HorizontalAlignment="Left"  UpdateChildrenStates="true"
 				Brush="Encyclopedia.SoundBrush"
 				MarginRight="-10"
 				MarginLeft="-10"
@@ -48,6 +48,6 @@
 				</Widget>
 
 			</Children>
-		</Widget>
+		</BrushWidget>
 	</Window>
 </Prefab>

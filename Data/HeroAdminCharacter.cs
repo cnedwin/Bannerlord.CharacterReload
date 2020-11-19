@@ -42,7 +42,7 @@ namespace CharacterReload.Data
         {
             this.Level = 1;
             init();
-
+   
         }
 
         private void init()
@@ -59,7 +59,7 @@ namespace CharacterReload.Data
             adminCharacter.Level = hero.Level;
             adminCharacter.IsFemale = hero.IsFemale;
             adminCharacter.BodyPropertiesString = hero.BodyProperties.ToString();
-
+            
 
             HeroAdminCharacterAttribute attr;
             for (int i = 0; i < 6; i++)
@@ -77,7 +77,7 @@ namespace CharacterReload.Data
             {
                 if (hero.GetPerkValue(current))
                 {
-                    adminCharacter.Perks.Add(new HeroAdminCharacterPerk(current.StringId, current.Skill.StringId, true));
+                    adminCharacter.Perks.Add(new HeroAdminCharacterPerk(current.StringId, current.Skill.StringId, true)); 
                 }
             }
 
@@ -89,12 +89,12 @@ namespace CharacterReload.Data
             }
 
 
-            return adminCharacter;
+                return adminCharacter;
         }
 
-        public void ToHero(Hero hero)
+        public  void ToHero(Hero hero)
         {
-            /// hero.HeroDeveloper.ClearHero();
+           /// hero.HeroDeveloper.ClearHero();
             BodyProperties bodyProperties = BodyProperties.Default;
             hero.Level = this.Level;
             BodyProperties.FromString(this.BodyPropertiesString, out bodyProperties);
@@ -107,7 +107,7 @@ namespace CharacterReload.Data
                 if (null != attr)
                 {
                     hero.SetAttributeValue((CharacterAttributesEnum)i, attr.AttributeValue);
-                    // hero.HeroDeveloper.AddAttribute((CharacterAttributesEnum)i, attr.AttributeValue, false);
+                   // hero.HeroDeveloper.AddAttribute((CharacterAttributesEnum)i, attr.AttributeValue, false);
                 }
             }
             HeroAdminCharacterSkill adminCharacterSkill;
@@ -128,7 +128,7 @@ namespace CharacterReload.Data
             hero.ClearPerks();
             foreach (PerkObject perk in PerkObject.All)
             {
-                HeroAdminCharacterPerk result = this.Perks.FirstOrDefault(cp => cp.StringId.Equals(perk.StringId));
+                HeroAdminCharacterPerk  result  = this.Perks.FirstOrDefault(cp => cp.StringId.Equals(perk.StringId));
                 if (null != result)
                 {
                     // hero.SetPerkValue(current, true); 
@@ -136,7 +136,7 @@ namespace CharacterReload.Data
                     CharacterPerks heroPerks = ReflectUtils.ReflectField<CharacterPerks>("_heroPerks", hero);
                     if (null != heroPerks)
                     {
-                        heroPerks.SetPropertyValue(perk, result.Enable ? 1 : 0);
+                        heroPerks.SetPropertyValue(perk, result.Enable ? 1: 0);
                     }
                 }
             }
@@ -147,7 +147,7 @@ namespace CharacterReload.Data
                 HeroAdminCharacterTrait characterTrait = Traits.FirstOrDefault((obj) => obj.StringId.Equals(trait.StringId));
                 if (null != characterTrait)
                 {
-                    hero.SetTraitLevel(trait, characterTrait.Level);
+                    hero.SetTraitLevel(trait, characterTrait.Level) ;
                 }
 
             }
@@ -165,11 +165,11 @@ namespace CharacterReload.Data
             {
                 this.Perks.Add(new HeroAdminCharacterPerk(perk.StringId, perk.Skill.StringId, enable));
             }
-            /* CharacterPerks heroPerks = ReflectUtils.ReflectField<CharacterPerks>("_heroPerks", this._hero);
-             if (null != heroPerks)
-             {
-                 heroPerks.SetPropertyValue(perk, selected ? 1 : 0);
-             }*/
+           /* CharacterPerks heroPerks = ReflectUtils.ReflectField<CharacterPerks>("_heroPerks", this._hero);
+            if (null != heroPerks)
+            {
+                heroPerks.SetPropertyValue(perk, selected ? 1 : 0);
+            }*/
         }
 
         public bool GetPerkValue(PerkObject perk)
@@ -237,11 +237,10 @@ namespace CharacterReload.Data
         public int GetAttributeValue(CharacterAttributesEnum attributesEnum)
         {
             HeroAdminCharacterAttribute result = Attributes.FirstOrDefault((obj) => obj.AttributeName.Equals(Enum.GetName(typeof(CharacterAttributesEnum), attributesEnum)));
-            if (null != result)
+            if(null != result)
             {
                 return result.AttributeValue;
-            }
-            else
+            }else
             {
                 return 0;
             }
@@ -267,8 +266,7 @@ namespace CharacterReload.Data
             return 0;
         }
 
-        public void SetTraitLevel(TraitObject traitObject, int newLevel)
-        {
+        public void SetTraitLevel(TraitObject traitObject, int newLevel) {
             HeroAdminCharacterTrait result = Traits.FirstOrDefault(tr => tr.StringId.Equals(traitObject.StringId));
             if (null != result)
             {

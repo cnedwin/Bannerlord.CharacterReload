@@ -1,4 +1,5 @@
-﻿using CharacterReload.Data;
+﻿
+using CharacterReload.Data;
 using CharacterReload.Utils;
 using System;
 using System.Collections.Generic;
@@ -15,7 +16,7 @@ using TaleWorlds.Localization;
 
 namespace CharacterReload.VM.HeroAdmin
 {
-    class HeroAdminDevelopSkillPerkVM : ViewModel
+    class HeroAdminDevelopSkillPerkVM: ViewModel
     {
 
         MBBindingList<HeroAdminSkillVM> _skills;
@@ -27,7 +28,7 @@ namespace CharacterReload.VM.HeroAdmin
         Action<int> _onResetLevelAction;
 
         private HeroAdminSkillVM _currentSkillVM;
-
+      
         public HeroAdminDevelopSkillPerkVM(HeroAdminCharacter heroAdminCharacter, Action<int> onResetLevelAction)
         {
             this._onResetLevelAction = onResetLevelAction;
@@ -87,7 +88,7 @@ namespace CharacterReload.VM.HeroAdmin
         {
             get
             {
-                return this._currentSkillVM;
+                return this._currentSkillVM ;
             }
             set
             {
@@ -103,13 +104,13 @@ namespace CharacterReload.VM.HeroAdmin
 
         public void ExecuteResetSkill()
         {
-
+           
             foreach (SkillObject current in SkillObject.All)
             {
                 this._heroAdminCharacter.SetSkillValue(current, 0);
             }
 
-            this._heroAdminCharacter.ClearPerks();
+           this._heroAdminCharacter.ClearPerks();
             RefreshHeroSkill();
         }
 
@@ -125,7 +126,7 @@ namespace CharacterReload.VM.HeroAdmin
         {
             this._heroAdminCharacter.ReLevel();
             this._onResetLevelAction(this._heroAdminCharacter.Level);
-
+         
             //InformationManager.DisplayMessage(new InformationMessage(new TextObject("{=tips_cr_DoRefleshLevel}After reset the hero’s Level, you need to close the clan screen and reopen it to take effect!", null).ToString()));
         }
 

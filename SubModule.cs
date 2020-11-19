@@ -10,9 +10,9 @@ using System.IO;
 
 namespace CharacterReload
 {
-	public class SubModule : MBSubModuleBase
-	{
-
+    public class SubModule : MBSubModuleBase
+    {
+	
 		protected override void OnSubModuleLoad()
 		{
 			try
@@ -44,9 +44,9 @@ namespace CharacterReload
 				return;
 			}
 			if (!(gameStarterObject is CampaignGameStarter))
-			{
+			{ 
 				return;
-			}
+		    }
 
 			LoadXMLFiles(gameStarterObject as CampaignGameStarter);
 			EncyclopediaPageChangedHandle handle = new EncyclopediaPageChangedHandle();
@@ -57,11 +57,12 @@ namespace CharacterReload
 
 		private void LoadXMLFiles(CampaignGameStarter gameInitializer)
 		{
+			// Load our additional strings
 			gameInitializer.LoadGameTexts(BasePath.Name + "Modules/CharacterReload/ModuleData/strings.xml");
 
 		}
 	}
-
+	
 
 	public static class ModuleColors
 	{

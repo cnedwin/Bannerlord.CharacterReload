@@ -6603,7 +6603,7 @@
 				<tattoo_color_gradient_point point="0.33, 0.33, 0.33" />
 				<tattoo_color_gradient_point point="0.05, 0.05, 0.05" />
 			</tattoo_color_gradient_points>
-
+			
 			<hair_color_gradient_points>
 				<hair_color_gradient_point point="0.90, 0.80, 0.60" />
 				<hair_color_gradient_point point="0.69, 0.55, 0.40" />

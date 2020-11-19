@@ -14,18 +14,6 @@
               </ItemTemplate>
             </ListPanel>
 
-			  <ListPanel WidthSizePolicy="CoverChildren"  HeightSizePolicy="CoverChildren"  HorizontalAlignment="Center"  MarginLeft="100 " MarginTop="50">
-				  <Children>
-
-
-					  <!--<ButtonWidget DoNotPassEventsToChildren="true" WidthSizePolicy="Fixed" Brush="ButtonBrush4" HeightSizePolicy="Fixed" MarginLeft="50" SuggestedWidth="120" SuggestedHeight="50" Command.Click="DoRefleshLevel"   UpdateChildrenStates="true">
-						  <Children>
-							  <TextWidget WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent" MarginTop="3"  Brush="Popup.Button.Text"  Text="@ResetLevelText" />
-						  </Children>
-					  </ButtonWidget>-->
-
-				  </Children>
-			  </ListPanel>
           </Children>
           
         </Widget>

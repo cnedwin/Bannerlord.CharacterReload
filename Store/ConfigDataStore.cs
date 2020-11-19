@@ -33,7 +33,7 @@ namespace CharacterReload.Data
                 }
                 catch (JsonException e)
                 {
-                    //InformationManager.DisplayMessage(new InformationMessage("FaceDetailsCreator load FacGenRecordData failed" + e.Message));
+                    //InformationManager.DisplayMessage(new InformationMessage("CharacterReload load FacGenRecordData failed" + e.Message));
                     return null;
                 }
             }
@@ -57,7 +57,7 @@ namespace CharacterReload.Data
             }
             catch (JsonException e)
             {
-                //InformationManager.DisplayMessage(new InformationMessage("FaceDetailsCreator save FacGenRecordData failed" + e.Message));
+                //InformationManager.DisplayMessage(new InformationMessage("CharacterReload save FacGenRecordData failed" + e.Message));
             }
         }
     }

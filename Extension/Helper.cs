@@ -27,7 +27,7 @@ namespace CharacterReload
 		{
 			get
 			{
-				return Environment.GetFolderPath(Environment.SpecialFolder.Personal) + "\\Mount and Blade II Bannerlord\\CharacterReload\\";
+				return Environment.GetFolderPath(Environment.SpecialFolder.Personal) + "\\Mount and Blade II Bannerlord\\Config\\CharacterReload\\";
 			}
 		}
 

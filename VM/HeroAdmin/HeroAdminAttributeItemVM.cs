@@ -10,17 +10,17 @@ using TaleWorlds.Localization;
 
 namespace CharacterReload.VM.HeroAdmin
 {
-	class HeroAdminAttributeItemVM : ViewModel
-	{
-		private CharacterAttributesEnum _attributesEnum;
+    class HeroAdminAttributeItemVM: ViewModel
+    {
+        private CharacterAttributesEnum _attributesEnum;
 
 		private string _nameText;
 		private int _attributeValue;
-		private Action<CharacterAttributesEnum, int> _onAttributeChange;
+		private Action<CharacterAttributesEnum,int> _onAttributeChange;
 
-		public HeroAdminAttributeItemVM(CharacterAttributesEnum attributesEnum, int value, Action<CharacterAttributesEnum, int> onAttributeChange)
-		{
-			this._attributesEnum = attributesEnum;
+		public HeroAdminAttributeItemVM(CharacterAttributesEnum attributesEnum, int value,  Action<CharacterAttributesEnum, int> onAttributeChange)
+        {
+            this._attributesEnum = attributesEnum;
 			this._attributeValue = value;
 			this._onAttributeChange = onAttributeChange;
 			CharacterAttribute characterAttribute = CharacterAttributes.GetCharacterAttribute(attributesEnum);
@@ -72,7 +72,7 @@ namespace CharacterReload.VM.HeroAdmin
 			{
 				return this._attributeValue.ToString();
 			}
-
+			
 		}
 
 	}
