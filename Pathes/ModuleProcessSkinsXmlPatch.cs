@@ -28,7 +28,7 @@ namespace CharacterReload.Pathes
             {
                 if (File.Exists(ModuleInfo.GetXmlPathForNative(mbprojXml.ModuleName, mbprojXml.Name)))
                 {
-                    elementNameList.Add(mbprojXml.Name);
+                    elementNameList.Add(ModuleInfo.GetXmlPathForNativeWBase(mbprojXml.ModuleName, mbprojXml.Name));
                     toBeMerged.Add(Tuple.Create(ModuleInfo.GetXmlPathForNative(mbprojXml.ModuleName, mbprojXml.Name), string.Empty));
                 }
                 string xsltPathForNative = ModuleInfo.GetXsltPathForNative(mbprojXml.ModuleName, mbprojXml.Name);

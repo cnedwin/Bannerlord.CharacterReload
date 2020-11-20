@@ -20,7 +20,7 @@ namespace CharacterReload.Utils
                 ReflectUtils.ReflectPropertyAndSetValue("StaticBodyProperties", properties.StaticProperties, hero);
                 hero.Weight = properties.Weight;
                 hero.Build = properties.Build;
-                hero.BirthDay = HeroHelper.GetRandomBirthDayForAge((int)properties.Age);
+                hero.SetBirthDay(HeroHelper.GetRandomBirthDayForAge((int)properties.Age));
                 hero.UpdatePlayerGender(isFemale);
             }
         }

@@ -23,7 +23,7 @@ namespace CharacterReload.Pathes
             {
                 if (__instance.IsPlayerCharacter && __instance.IsHero)
                 {
-                    __instance.HeroObject.BirthDay = HeroHelper.GetRandomBirthDayForAge((int)properties.Age);
+                    __instance.HeroObject.SetBirthDay(HeroHelper.GetRandomBirthDayForAge((int)properties.Age));
                 }
 
                 if (!__instance.IsPlayerCharacter && __instance.IsHero)
@@ -32,7 +32,7 @@ namespace CharacterReload.Pathes
                     ReflectUtils.ReflectPropertyAndSetValue("StaticBodyProperties", properties.StaticProperties, hero);
                     hero.Weight = properties.Weight;
                     hero.Build = properties.Build;
-                    hero.BirthDay = HeroHelper.GetRandomBirthDayForAge((int)properties.Age);
+                    hero.SetBirthDay(HeroHelper.GetRandomBirthDayForAge((int)properties.Age));
                     hero.UpdatePlayerGender(isFemale);
                 }
             }
