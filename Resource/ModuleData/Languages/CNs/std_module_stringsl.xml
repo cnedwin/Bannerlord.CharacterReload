@@ -104,6 +104,7 @@
 
 	<string id="cr_edit_appearance" text="编辑外貌" />
 	<string id="cr_change_name" text="编辑姓名" />
+	<string id="cr_hero_grow" text="快速长大" />
 	<string id="str_facegen_skin_TorsoBelly" text="腹部" />
 	<string id="str_facegen_skin_TorsoHips" text="臀部" />
 	<string id="str_facegen_skin_TorsoButt" text="髋关节" />

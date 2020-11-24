@@ -1,6 +1,8 @@
 ﻿using System;
 using System.IO;
+using System.Diagnostics;
 using TaleWorlds.CampaignSystem;
+using TaleWorlds.Library;
 using TaleWorlds.Core;
 
 namespace CharacterReload
@@ -124,5 +126,34 @@ namespace CharacterReload
 			}
 			File.WriteAllText(filename, contents);
 		}
+		// Jiros added for easier debug/messaging. 
+		[Conditional("DEBUG")]
+		public static void DebugMessage(string message)
+		{
+			Message(message);
+		}
+
+		public static void Message(string message)
+		{
+			InformationManager.DisplayMessage(new InformationMessage(message));
+		}
+
+		public static void ColorRedMessage(string message)
+		{
+			InformationManager.DisplayMessage(new InformationMessage(message, Color.ConvertStringToColor("#FF0042FF")));
+		}
+
+		public static void ColorGreenMessage(string message)
+		{
+			InformationManager.DisplayMessage(new InformationMessage(message, Color.ConvertStringToColor("#42FF00FF")));
+		}
+
+		public static void ColorBlueMessage(string message)
+		{
+			InformationManager.DisplayMessage(new InformationMessage(message, Color.ConvertStringToColor("#0042FFFF")));
+		}
+
+		// -- End Jiros Added
+
 	}
 }

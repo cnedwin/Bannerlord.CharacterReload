@@ -27,7 +27,19 @@
 							<Children>
 								<TextWidget WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent" Brush="Popup.Button.Text" Text="@HeroAdminText" />
 							</Children>
+					    </ButtonWidget>
+
+						<BrushWidget WidthSizePolicy="Fixed" HeightSizePolicy="StretchToParent" SuggestedWidth="50" />
+
+						<!-- Jiros Add for Grow-up Button -->
+						<!-- ToDo: Disable the button if the hero is already 18+ -->
+						<ButtonWidget WidthSizePolicy="Fixed" HeightSizePolicy="Fixed" SuggestedWidth="170" SuggestedHeight="40" DoNotPassEventsToChildren="true" VerticalAlignment="Center" Command.Click="ExecuteGrowUp" Brush="ButtonBrush4" UpdateChildrenStates="true" IsEnabled="true">
+							<Children>
+								<TextWidget WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent" Brush="Popup.Button.Text" Text="@HeroGrowText" />
+							</Children>
 						</ButtonWidget>
+						<!-- End Jiros Add for Grow-up Button -->
+						
 					</Children>
 				</ListPanel>
 

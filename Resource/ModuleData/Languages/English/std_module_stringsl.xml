@@ -104,6 +104,7 @@
 
 		<string id="cr_edit_appearance" text="Edit Appearance" />
 		<string id="cr_change_name" text="Change Name" />
+		<string id="cr_hero_grow" text="Grow Up" />
 		<string id="str_facegen_skin_TorsoBelly" text="Belly Girth" />
 		<string id="str_facegen_skin_TorsoHips" text="Hip Size" />
 		<string id="str_facegen_skin_TorsoButt" text="Butt Size" />
