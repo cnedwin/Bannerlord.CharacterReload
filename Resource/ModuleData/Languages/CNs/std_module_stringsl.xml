@@ -21,6 +21,7 @@
     <string id="tips_cr_DoRefleshPerks" text="重置英雄的技能后，您必须保存并重新加载存档才能生效！" />
 	<string id="tips_cr_DoRefleshTrait" text="升级英雄的特质后，您需要关闭氏族屏幕并重新打开以生效！" />
 	<string id="tips_cr_DoRefleshLevel" text="重置英雄的等级后，您需要关闭氏族屏幕并重新打开以生效！" />
+	<string id="tips_cr_HeroGrowAdult" text="您的孩子已经成长为一个合格的英雄！" />
 	<string id="tips_cr_Yes" text="是" />
 	<string id="tips_cr_No" text="否" />
 

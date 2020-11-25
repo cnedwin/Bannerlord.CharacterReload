@@ -19,7 +19,7 @@ namespace CharacterReload.VM.HeroAdmin
         HeroAdminDevelopCharacterPreviewVM _heroModel;
         private string _heroName;
         private string _displayName;
-        private int _level = 0;
+        private int _level = 1;
 
         public HeroAdminCharacterVM(string heroName, int level)
         {

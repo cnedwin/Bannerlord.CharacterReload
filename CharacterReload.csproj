@@ -71,14 +71,6 @@
       <HintPath>packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
-    <Reference Include="System.IO.FileSystem.Primitives, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>packages\System.IO.FileSystem.Primitives.4.3.0\lib\net46\System.IO.FileSystem.Primitives.dll</HintPath>
-      <Private>True</Private>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="System.IO.Packaging, Version=4.0.5.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>packages\System.IO.Packaging.4.7.0\lib\net46\System.IO.Packaging.dll</HintPath>
-    </Reference>
     <Reference Include="System.Runtime.InteropServices.RuntimeInformation" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq" />
@@ -103,7 +95,7 @@
     <Compile Include="Extension\StringBuilderExtension.cs" />
     <Compile Include="GauntletUI\Screen\HeroAdminScreen.cs" />
     <Compile Include="GauntletUI\Screen\State\HeroAdminState.cs" />
-    <Compile Include="MBBindingLordItemListInterceptor.cs" />
+    <Compile Include="VM\Clan\MBBindingLordItemListInterceptor.cs" />
     <Compile Include="Pathes\BodyGeneratorViewPath.cs" />
     <Compile Include="Pathes\CharacterObjectPath.cs" />
     <Compile Include="Pathes\ClanMemberPath.cs" />
@@ -136,7 +128,7 @@
     <Compile Include="VM\HeroAdmin\HeroAdminRecordVM.cs" />
     <Compile Include="VM\HeroAdmin\HeroAdminSkillVM.cs" />
     <Compile Include="VM\HeroBuilderVM.cs" />
-    <Compile Include="VM\MyClanLordItemVM.cs" />
+    <Compile Include="VM\Clan\MyClanLordItemVM.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

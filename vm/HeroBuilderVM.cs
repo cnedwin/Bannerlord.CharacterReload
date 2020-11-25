@@ -17,7 +17,6 @@ using Helpers;
 namespace CharacterReload.VM
 {
 
-    // Fixed 固定宽高， CoverChildren 自适应（以子控件） StretchToParent（以父控件做参考）
     public partial class HeroBuilderVM : ViewModel
     {
 
@@ -30,6 +29,7 @@ namespace CharacterReload.VM
         {
             this.editCallback = editCallback;
         }
+
 
         [DataSourceProperty]
         public string EditAppearanceText
@@ -58,6 +58,7 @@ namespace CharacterReload.VM
             }
         }
 
+
         // Jiros Add for Grow-Up code -- 
         [DataSourceProperty]
         public string HeroGrowText
@@ -72,6 +73,8 @@ namespace CharacterReload.VM
         public void ExecuteEdit()
         {
             if (selectedHero == null)
+                return;
+            if (selectedHero.IsChild)
                 return;
 
             Edit(selectedHero);
@@ -88,7 +91,7 @@ namespace CharacterReload.VM
                 return;
 
             Name(selectedHero);
-            Action<Hero> action = nameCallback;
+            Action<Hero> action = this.nameCallback;
 
             if (action == null)
                 return;
@@ -122,6 +125,9 @@ namespace CharacterReload.VM
         public void ExecuteGrowUp()
         {
             if (selectedHero == null)
+                return;
+
+            if (!selectedHero.IsChild)
                 return;
             GrowUp(selectedHero);
         }
@@ -167,7 +173,8 @@ namespace CharacterReload.VM
                 SendHeroComesOfAgeEvent(hero);
                 Helper.DebugMessage("Come of age event sent.");
                 hero.SetBirthDay(CampaignTime.YearsFromNow((float)adult * -1));
-                StringHelpers.SetCharacterProperties("CR_HERO", hero.CharacterObject, null, textObject);
+                var adulttextObject = new TextObject("{=tips_cr_HeroGrowAdult}Your child is now a qualified hero");
+                StringHelpers.SetCharacterProperties("CR_HERO", hero.CharacterObject, null, adulttextObject);
 
             }
 
