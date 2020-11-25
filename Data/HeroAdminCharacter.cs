@@ -97,7 +97,6 @@ namespace CharacterReload.Data
            /// hero.HeroDeveloper.ClearHero();
             BodyProperties bodyProperties = BodyProperties.Default;
             hero.Level = this.Level;
-            hero.SetCharacterObject
             BodyProperties.FromString(this.BodyPropertiesString, out bodyProperties);
             HeroUtils.UpdateHeroCharacterBodyProperties(hero.CharacterObject, bodyProperties, this.IsFemale);
             HeroAdminCharacterAttribute attr;
