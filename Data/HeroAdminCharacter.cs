@@ -19,8 +19,6 @@ namespace CharacterReload.Data
 
         public int Level { get; set; }
 
-        public string Name { get; set; }
-
         public bool IsFemale { get; set; }
 
         public string BodyPropertiesString { get; set; }

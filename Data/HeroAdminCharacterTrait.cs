@@ -11,7 +11,6 @@ namespace CharacterReload.Data
 
         public string StringId { set; get; }
 
-
         public int Level { set; get; }
 
         public HeroAdminCharacterTrait(string stringId, int level)

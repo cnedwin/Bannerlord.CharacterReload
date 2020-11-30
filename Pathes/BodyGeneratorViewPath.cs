@@ -49,7 +49,6 @@ namespace CharacterReload.Pathes
             FacGenRecordVM facGenRecord = new FacGenRecordVM(__instance, GlobalDataProvider.Instance.FacGenRecordData());
             GauntletMovie movie  = __instance.GauntletLayer.LoadMovie("FacGenRecord", facGenRecord);
             //movie.BrushFactory.LoadBrushFile("FacGenRecord");
-            IEnumerable<Brush> brushes =  movie.BrushFactory.Brushes.Where(obj => obj.Name.Contains("Clan"));
         }
     }
 

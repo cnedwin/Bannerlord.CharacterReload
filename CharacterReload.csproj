@@ -20,7 +20,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>$(GamePath)\Modules\CharacterReload\bin\Win64_Shipping_Client\</OutputPath>
+    <OutputPath>D:\Steam\steamapps\common\Mount &amp; Blade II Bannerlord\Modules\CharacterReload\bin\Win64_Shipping_Client\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -95,6 +95,8 @@
     <Compile Include="Extension\StringBuilderExtension.cs" />
     <Compile Include="GauntletUI\Screen\HeroAdminScreen.cs" />
     <Compile Include="GauntletUI\Screen\State\HeroAdminState.cs" />
+    <Compile Include="Pathes\Class1.cs" />
+    <Compile Include="Pathes\DynamicBodyPatch.cs" />
     <Compile Include="VM\Clan\MBBindingLordItemListInterceptor.cs" />
     <Compile Include="Pathes\BodyGeneratorViewPath.cs" />
     <Compile Include="Pathes\CharacterObjectPath.cs" />
