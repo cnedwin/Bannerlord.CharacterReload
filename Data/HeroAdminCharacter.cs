@@ -92,7 +92,7 @@ namespace CharacterReload.Data
 
         public  void ToHero(Hero hero)
         {
-           /// hero.HeroDeveloper.ClearHero();
+            hero.HeroDeveloper.ClearHero();
             BodyProperties bodyProperties = BodyProperties.Default;
             hero.Level = this.Level;
             BodyProperties.FromString(this.BodyPropertiesString, out bodyProperties);

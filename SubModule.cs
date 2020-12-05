@@ -12,7 +12,14 @@ namespace CharacterReload
 {
     public class SubModule : MBSubModuleBase
     {
-	
+		public static CampaignTime TimeSinceLastSave { get; private set; }
+
+		public static CampaignTime GetDeltaTime(bool update = false)
+		{
+			CampaignTime deltaTime = CampaignTime.Now - TimeSinceLastSave;
+			if (update) TimeSinceLastSave = CampaignTime.Now;
+			return deltaTime;
+		}
 		protected override void OnSubModuleLoad()
 		{
 			try

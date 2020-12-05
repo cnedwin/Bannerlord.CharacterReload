@@ -47,16 +47,16 @@
                           <Children>
 
                             <!--Name-->
-                            <ButtonWidget DoNotPassEventsToChildren="true" WidthSizePolicy="CoverChildren" HorizontalAlignment="Center" HeightSizePolicy="CoverChildren" Command.Click="ExecuteRename" IsEnabled="@IsFamilyMember" UpdateChildrenStates="true">
-                              <Children>
-                                <ListPanel WidthSizePolicy="CoverChildren" HeightSizePolicy="CoverChildren" MarginBottom="15" LayoutImp.LayoutMethod="HorizontalLeftToRight" UpdateChildrenStates="true">
-                                  <Children>
-                                    <TextWidget WidthSizePolicy="CoverChildren" HeightSizePolicy="CoverChildren" MarginRight="15" Brush="Clan.RightPanel.EditableName.Text" Text="@Name" ClipContents="false" />
-                                    <Widget WidthSizePolicy="Fixed" HeightSizePolicy="Fixed" SuggestedHeight="32" SuggestedWidth="32" Brush="SPClan.NameChange.Icon" IsVisible="@IsFamilyMember"/>
-                                  </Children>
-                                </ListPanel>
-                              </Children>
-                            </ButtonWidget>
+							  <ButtonWidget DoNotPassEventsToChildren="true" WidthSizePolicy="CoverChildren" HorizontalAlignment="Center" HeightSizePolicy="CoverChildren" Command.Click="ExecuteRename" IsEnabled="@IsFamilyMember" UpdateChildrenStates="true">
+								  <Children>
+									  <ListPanel WidthSizePolicy="CoverChildren" HeightSizePolicy="CoverChildren" MarginBottom="15" LayoutImp.LayoutMethod="HorizontalLeftToRight" UpdateChildrenStates="true">
+										  <Children>
+											  <TextWidget WidthSizePolicy="CoverChildren" HeightSizePolicy="CoverChildren" MarginRight="15" Brush="Clan.RightPanel.EditableName.Text" Text="@Name" ClipContents="false" />
+											  <BrushWidget WidthSizePolicy="Fixed" HeightSizePolicy="Fixed" SuggestedHeight="32" SuggestedWidth="32" Brush="SPClan.NameChange.Icon" IsVisible="@IsFamilyMember"/>
+										  </Children>
+									  </ListPanel>
+								  </Children>
+							  </ButtonWidget>
                               
 
                             <!--Relation-->

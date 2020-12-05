@@ -58,16 +58,22 @@ namespace CharacterReload.VM
 
 		private void ExecuteRename()
 		{
-			InformationManager.ShowTextInquiry(new TextInquiryData(new TextObject("{=2lFwF07j}Change Name", null).ToString(), string.Empty, true, true, GameTexts.FindText("str_done", null).ToString(), GameTexts.FindText("str_cancel", null).ToString(), new Action<string>(this.OnNamingHeroOver), null, false, new Func<string, bool>(CampaignUIHelper.IsStringApplicableForHeroName), ""), false);
+			InformationManager.ShowTextInquiry(new TextInquiryData(new TextObject("{=2lFwF07j}Change Name", null).ToString(), string.Empty, true, true, GameTexts.FindText("str_done", null).ToString(), GameTexts.FindText("str_cancel", null).ToString(), new Action<string>(this.OnNamingHeroOver), null, false, new Func<string, bool>(CampaignUIHelper.IsStringApplicableForHeroName), "", ""), false);
 		}
 
 		private void OnNamingHeroOver(string suggestedName)
 		{
 			if (CampaignUIHelper.IsStringApplicableForHeroName(suggestedName))
 			{
-				this.GetHero().CharacterObject.Name = new TextObject(suggestedName, null);
+				var currentHero = this.GetHero();
+				currentHero.CharacterObject.Name = new TextObject(suggestedName, null);
 				this.Name = suggestedName;
+				currentHero.FirstName = currentHero.Name;
+				if (currentHero.IsPartyLeader)
+					currentHero.PartyBelongedTo.Name = MobilePartyHelper.GeneratePartyName(currentHero.CharacterObject);
+
 			}
+
 		}
 
 

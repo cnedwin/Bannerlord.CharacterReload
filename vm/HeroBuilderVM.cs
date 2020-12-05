@@ -238,7 +238,11 @@ namespace CharacterReload.VM
 
             if (!string.IsNullOrEmpty(heroName))
             {
-                selectedHero.Name = new TextObject(heroName);
+                var newName = new TextObject(heroName);
+                selectedHero.Name = newName;
+                selectedHero.FirstName = newName;
+                if (selectedHero.IsPartyLeader)
+                    selectedHero.PartyBelongedTo.Name = MobilePartyHelper.GeneratePartyName(selectedHero.CharacterObject);
                 ClosePage();
             }
             else

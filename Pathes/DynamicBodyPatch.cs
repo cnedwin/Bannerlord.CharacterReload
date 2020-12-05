@@ -23,24 +23,31 @@ namespace CharacterCreation.Patches
         static bool Prefix(DynamicBodyCampaignBehavior __instance)
         {
 
-                IDictionary dictionary = (IDictionary)AccessTools.Field(typeof(DynamicBodyCampaignBehavior), "_heroBehaviorsDictionary").GetValue(__instance);
+            IDictionary dictionary = (IDictionary)AccessTools.Field(typeof(DynamicBodyCampaignBehavior), "_heroBehaviorsDictionary").GetValue(__instance);
                 foreach (var hero in dictionary.Keys.Cast<Hero>())
                 {
                     if (hero.IsChild  && hero.MapFaction.IsBanditFaction)
                     {
-                        int banditAge = 21;
-                        var bandit = new DynamicBodyProperties(hero.Age, hero.Weight, hero.Build)
-                        {
-                            Age = banditAge
-                        };
+                        float banditAge = 21;
+                        DynamicBodyProperties bandit = new DynamicBodyProperties(banditAge, hero.Weight, hero.Build);
                         hero.BodyProperties.DynamicProperties.Equals(bandit);
                         BodyProperties heroBodyProperties = new BodyProperties(bandit, hero.BodyProperties.StaticProperties);
                         hero.CharacterObject.UpdatePlayerCharacterBodyProperties(heroBodyProperties, hero.IsFemale);
                     }
 
+                    if (!hero.IsChild  && (hero.IsHumanPlayerCharacter || hero.IsPlayerCompanion))
+                    {
+
+                    CampaignTime deltaTime = CharacterReload.SubModule.GetDeltaTime(true);
+                    double yearsElapsed = deltaTime.ToYears;
+
+                    DynamicBodyProperties dynamicBodyProperties = new DynamicBodyProperties(hero.Age, hero.Weight, hero.Build);
+                    BodyProperties heroBodyProperties = new BodyProperties(hero.BodyProperties.DynamicProperties, hero.BodyProperties.StaticProperties);
+                    hero.CharacterObject.UpdatePlayerCharacterBodyProperties(heroBodyProperties, hero.IsFemale);
+                    }
                 }
 
-            return true;
+            return false;
         }
     }
 }
