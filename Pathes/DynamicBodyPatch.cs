@@ -27,7 +27,8 @@ namespace CharacterReload.Patch
             IDictionary dictionary = (IDictionary)AccessTools.Field(typeof(DynamicBodyCampaignBehavior), "_heroBehaviorsDictionary").GetValue(__instance);
                 foreach (var hero in dictionary.Keys.Cast<Hero>())
                 {
-                    if (hero.IsChild  && hero.MapFaction.IsBanditFaction)
+                //This is probably invalid because the bandit soldier is not a hero object
+                if (hero.IsChild  && hero.MapFaction.IsBanditFaction)
                     {
                         float banditAge = 21;
                         hero.SetBirthDay(HeroHelper.GetRandomBirthDayForAge((int)banditAge));
@@ -38,11 +39,10 @@ namespace CharacterReload.Patch
 
                     if (!hero.IsChild && (hero.IsHumanPlayerCharacter || hero.IsPlayerCompanion))
                     {
-                    float day = 0.0119047f;
-                    float heroAge = hero.Age + day;
-                    DynamicBodyProperties dynamicBodyProperties = new DynamicBodyProperties(heroAge, hero.Weight, hero.Build);
-                    BodyProperties heroBodyProperties = new BodyProperties(dynamicBodyProperties, hero.BodyProperties.StaticProperties);
-                    hero.CharacterObject.UpdatePlayerCharacterBodyProperties(heroBodyProperties, hero.IsFemale);
+                        float heroAge = hero.Age + 0.0119047f;
+                        DynamicBodyProperties dynamicBodyProperties = new DynamicBodyProperties(heroAge, hero.Weight, hero.Build);
+                        BodyProperties heroBodyProperties = new BodyProperties(dynamicBodyProperties, hero.BodyProperties.StaticProperties);
+                        hero.CharacterObject.UpdatePlayerCharacterBodyProperties(heroBodyProperties, hero.IsFemale);
 
                     }
                 }

@@ -95,13 +95,13 @@
     <Compile Include="Extension\StringBuilderExtension.cs" />
     <Compile Include="GauntletUI\Screen\HeroAdminScreen.cs" />
     <Compile Include="GauntletUI\Screen\State\HeroAdminState.cs" />
+    <Compile Include="Pathes\BodyGeneratorPatch.cs" />
     <Compile Include="Pathes\DynamicBodyPatch.cs" />
     <Compile Include="VM\Clan\MBBindingLordItemListInterceptor.cs" />
     <Compile Include="Pathes\BodyGeneratorViewPath.cs" />
     <Compile Include="Pathes\CharacterObjectPath.cs" />
     <Compile Include="Pathes\ClanMemberPath.cs" />
     <Compile Include="Pathes\FaceGenPropertyVMPath.cs" />
-    <Compile Include="Pathes\LocationPath.cs" />
     <Compile Include="Pathes\ModuleProcessSkinsXmlPatch.cs" />
     <Compile Include="Store\ConfigDataStore.cs" />
     <Compile Include="Store\GlobalConfigData.cs" />

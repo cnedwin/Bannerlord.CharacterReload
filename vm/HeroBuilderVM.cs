@@ -135,7 +135,6 @@ namespace CharacterReload.VM
         public void GrowUp(Hero hero)
         {
             float age = hero.Age;
-            //float new_age = 0;
             int infant = Campaign.Current.Models.AgeModel.BecomeInfantAge;
             //int child = Campaign.Current.Models.AgeModel.BecomeChildAge;
             int teen = Campaign.Current.Models.AgeModel.BecomeTeenagerAge;
@@ -143,7 +142,7 @@ namespace CharacterReload.VM
 
             if (age >= adult)
             {
-                Helper.ColorRedMessage("Use this command to grow a child to adulthood without skipping critical 'hero growth' functions that happen over time. This hero is already an adult.");
+                Helper.ColorRedMessage("This hero is already an adult.");
                 return;
             }
 
@@ -179,17 +178,8 @@ namespace CharacterReload.VM
             }
 
 
-            /* Was trying to mimic how TW does the age change in AgingCampaignBehavior.ChangeMainHeroAgeCheat() code, but scrapped it. 
-             * 
-            float num = (float)CampaignTime.Now.GetYear - age;
-            float num2 = (float)CampaignTime.Now.GetDayOfYear + 2;
-            CampaignTime newage = CampaignTime.Years(num) + CampaignTime.Days(num2);
-            int daysFromBirth = (int)hero.BirthDay.ElapsedDaysUntilNow;
-            hero.SetBirthDay(CampaignTime.DaysFromNow(1-(float)heroAgeInDays));
-            */
-
             //Helper.ColorGreenMessage("Grew "+hero.Name+" to Adulthood. Wait a day or two to assure they go through the Come-of-Age process and get stats.");
-            Helper.ColorGreenMessage("Grew " + hero.Name + " to next stage of development. Wait a day or two to assure they go through the growth process and get added stats/development.");
+            Helper.ColorGreenMessage("Grew " + hero.Name + " Wait a day or two to assure they go through the growth process and get added stats/development.");
             Helper.DebugMessage("Hero: " + hero.Name + " | Old Age = " + age + " | New age = " + hero.Age);
         }
 
