@@ -19,7 +19,7 @@ using TaleWorlds.Localization;
 using TaleWorlds.MountAndBlade.GauntletUI;
 using TaleWorlds.TwoDimension;
 
-namespace CharacterReload.Pathes
+namespace CharacterReload.Patch
 {
     [HarmonyPatch(typeof(BodyGeneratorView), MethodType.Constructor, new Type[] {
      typeof(ControlCharacterCreationStage),

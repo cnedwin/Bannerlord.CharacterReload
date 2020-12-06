@@ -291,7 +291,7 @@ namespace CharacterReload.VM
                 return;
 
             ClosePage();
-            TaleWorlds.Core.FaceGen.ShowDebugValues = true;
+            FaceGen.ShowDebugValues = true;
             ScreenManager.PushScreen(ViewCreator.CreateMBFaceGeneratorScreen(hero.CharacterObject, false));
         }
 

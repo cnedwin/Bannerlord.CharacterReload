@@ -1,7 +1,7 @@
 ﻿using HarmonyLib;
 using TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.Categories;
 
-namespace CharacterReload.path
+namespace CharacterReload.Patch
 {
     [HarmonyPatch(typeof(ClanMembersVM), "RefreshMembersList")]
     public class PatchClanMembersVM

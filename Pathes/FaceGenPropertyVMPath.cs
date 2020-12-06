@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using TaleWorlds.Localization;
 using TaleWorlds.MountAndBlade.ViewModelCollection;
 
-namespace CharacterReload.Pathes
+namespace CharacterReload.Patch
 {
     [HarmonyPatch(typeof(FaceGenPropertyVM), "Name", MethodType.Getter)]
      class FaceGenPropertyVMNamePath

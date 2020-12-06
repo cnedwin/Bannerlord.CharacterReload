@@ -1,4 +1,5 @@
 ﻿using HarmonyLib;
+using Helpers;
 using System;
 using System.Collections;
 using System.Linq;
@@ -6,9 +7,9 @@ using System.Reflection;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.SandBox.CampaignBehaviors;
 using TaleWorlds.Core;
+using TaleWorlds.MountAndBlade;
 
-
-namespace CharacterCreation.Patches
+namespace CharacterReload.Patch
 {
     [HarmonyPatch(typeof(DynamicBodyCampaignBehavior), "OnDailyTick")]
     public static class DynamicBodyPatch
@@ -29,25 +30,27 @@ namespace CharacterCreation.Patches
                     if (hero.IsChild  && hero.MapFaction.IsBanditFaction)
                     {
                         float banditAge = 21;
-                        DynamicBodyProperties bandit = new DynamicBodyProperties(banditAge, hero.Weight, hero.Build);
-                        hero.BodyProperties.DynamicProperties.Equals(bandit);
-                        BodyProperties heroBodyProperties = new BodyProperties(bandit, hero.BodyProperties.StaticProperties);
-                        hero.CharacterObject.UpdatePlayerCharacterBodyProperties(heroBodyProperties, hero.IsFemale);
+                        hero.SetBirthDay(HeroHelper.GetRandomBirthDayForAge((int)banditAge));
+                        DynamicBodyProperties banditDynamicBodyProperties = new DynamicBodyProperties(hero.Age, hero.Weight, hero.Build);
+                        BodyProperties banditBodyProperties = new BodyProperties(banditDynamicBodyProperties, hero.BodyProperties.StaticProperties);
+                        hero.CharacterObject.UpdatePlayerCharacterBodyProperties(banditBodyProperties, hero.IsFemale);
                     }
 
-                    if (!hero.IsChild  && (hero.IsHumanPlayerCharacter || hero.IsPlayerCompanion))
+                    if (!hero.IsChild && (hero.IsHumanPlayerCharacter || hero.IsPlayerCompanion))
                     {
-
-                    CampaignTime deltaTime = CharacterReload.SubModule.GetDeltaTime(true);
-                    double yearsElapsed = deltaTime.ToYears;
-
-                    DynamicBodyProperties dynamicBodyProperties = new DynamicBodyProperties(hero.Age, hero.Weight, hero.Build);
-                    BodyProperties heroBodyProperties = new BodyProperties(hero.BodyProperties.DynamicProperties, hero.BodyProperties.StaticProperties);
+                    float day = 0.0119047f;
+                    float heroAge = hero.Age + day;
+                    DynamicBodyProperties dynamicBodyProperties = new DynamicBodyProperties(heroAge, hero.Weight, hero.Build);
+                    BodyProperties heroBodyProperties = new BodyProperties(dynamicBodyProperties, hero.BodyProperties.StaticProperties);
                     hero.CharacterObject.UpdatePlayerCharacterBodyProperties(heroBodyProperties, hero.IsFemale);
+
                     }
                 }
 
             return false;
         }
+
     }
+
+
 }

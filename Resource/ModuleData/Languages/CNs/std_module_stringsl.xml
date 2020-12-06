@@ -26,7 +26,7 @@
 	<string id="tips_cr_No" text="否" />
 
 	<!-- Settings entries -->
-	<string id="CharacterCration_ModNameText" text="角色重建1.5.3 (cnedwin)"/>
+	<string id="CharacterCration_ModNameText" text="角色重建1.5.5 (cnedwin)"/>
 
 	<string id="CharacterCreation_Section0" text="第0节:调试模式"/>
 	<string id="CharacterCreation_DebugModeName" text="启用调试模式"/>
@@ -92,7 +92,7 @@
 	<string id="CharacterCreation_DebugResultMsg" text="[调试] 结果: "/>
 
 	<!-- Commands entries -->
-	<string id="CharacterCreation_DccDisabledMsg" text="禁用详细角色创建。"/>
+	<string id="CharacterCreation_DccDisabledMsg" text="禁用角色重建。"/>
 	<string id="CharacterCreation_DccEnabledMsg" text="您已启用详细角色创建。按V进入。"/>
 	<string id="CharacterCreation_FormatMsgHeader" text="格式: "/>
 	<string id="CharacterCreation_HeroNameText" text="角色名称"/>
@@ -126,10 +126,10 @@
 	<string id="str_facegen_skin_UpperarmSize" text="二头肌" />
 	<string id="str_facegen_skin_ForearmSize" text="前臂" />
 	<string id="str_facegen_skin_HandSize" text="手掌" />
-	<string id="str_facegen_skin_weight" text="肌肉张力" />
-	<string id="str_facegen_skin_build" text="忽略" />
+	<string id="str_facegen_skin_weight" text="体重" />
+	<string id="str_facegen_skin_build" text="强壮" />
 	<string id="str_facegen_skin_Weight2" text="体重" />
-	<string id="str_facegen_skin_Build2" text="躯干肌肉" />
+	<string id="str_facegen_skin_Build2" text="肌肉" />
 
 	<string id="bottom_SavedList" text="形象仓库" />
 	<string id="bottom_SaveCurrent" text="保存该项" />

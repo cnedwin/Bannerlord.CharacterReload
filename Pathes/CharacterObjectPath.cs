@@ -11,7 +11,7 @@ using TaleWorlds.CampaignSystem;
 using TaleWorlds.Core;
 using TaleWorlds.Localization;
 
-namespace CharacterReload.Pathes
+namespace CharacterReload.Patch
 {
     class CharacterObjectPath
     {
