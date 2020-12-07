@@ -171,6 +171,7 @@ namespace CharacterReload.VM
             {
                 SendHeroComesOfAgeEvent(hero);
                 Helper.DebugMessage("Come of age event sent.");
+                GrowUpForFixSkill(hero);
                 hero.SetBirthDay(CampaignTime.YearsFromNow((float)adult * -1));
                 var adulttextObject = new TextObject("{=tips_cr_HeroGrowAdult}Your child is now a qualified hero");
                 StringHelpers.SetCharacterProperties("CR_HERO", hero.CharacterObject, null, adulttextObject);
@@ -208,7 +209,69 @@ namespace CharacterReload.VM
             typeof(CampaignEventDispatcher), "OnHeroGrowsOutOfInfancy");
 
         /* ---- End Jiros Adds ---- */
+        private static void GrowUpForFixSkill(Hero hero)
+        {
 
+            // InformationManager.DisplayMessage(new InformationMessage("MoreSpouse GrowUpForFixSkill " + hero.Name));
+            if (hero == Hero.MainHero)
+            {
+                return;
+            }
+
+            hero.ClearSkills();
+
+            // hero.HeroDeveloper.ClearHeroLevel();
+            float fatherInheritDivider = 0;
+            float motherInheritDivider = 0;
+            if (hero.IsFemale == true)
+            {
+                fatherInheritDivider = 0.4f;
+                motherInheritDivider = 0.6f;
+            }
+            else
+            {
+                fatherInheritDivider = 0.6f;
+                motherInheritDivider = 0.4f;
+            }
+
+            Hero InheritFather = hero.Father != null ? hero.Father : hero;
+            Hero InheritMother = hero.Mother != null ? hero.Mother : hero;
+
+            float skillTimes = (new Random().Next(2) == 1) ? 1.5f : 1f;
+
+            if (Hero.MainHero.Children.Contains(hero) || Hero.MainHero.Father.Children.Contains(hero))
+            {
+
+                int randomTims = new Random().Next(5);
+                if (randomTims == 1)
+                {
+                    skillTimes = skillTimes * 1.5f;
+                    InformationManager.AddQuickInformation(new TextObject($"Your children {hero.Name} get more power"),
+                    0, null, "event:/ui/notification/quest_finished");
+                }
+
+            }
+
+
+            foreach (SkillObject skillIT in DefaultSkills.GetAllSkills())
+            {
+                int sikillValue = (int)(InheritFather.GetSkillValue(skillIT) * fatherInheritDivider + InheritMother.GetSkillValue(skillIT) * motherInheritDivider);
+                hero.HeroDeveloper.ChangeSkillLevel(skillIT, (int)(sikillValue * skillTimes), false);
+                hero.HeroDeveloper.TakeAllPerks(skillIT);
+            }
+
+            hero.ClearTraits();
+            hero.SetTraitLevel(DefaultTraits.Honor, InheritMother.GetTraitLevel(DefaultTraits.Honor));
+            hero.SetTraitLevel(DefaultTraits.Valor, InheritMother.GetTraitLevel(DefaultTraits.Valor));
+            hero.SetTraitLevel(DefaultTraits.Mercy, InheritMother.GetTraitLevel(DefaultTraits.Mercy));
+            hero.SetTraitLevel(DefaultTraits.Generosity, InheritMother.GetTraitLevel(DefaultTraits.Generosity));
+            hero.SetTraitLevel(DefaultTraits.Calculating, InheritMother.GetTraitLevel(DefaultTraits.Calculating));
+
+            hero.Level = 0;
+            hero.HeroDeveloper.UnspentFocusPoints = 20;
+            hero.HeroDeveloper.UnspentAttributePoints = 20;
+
+        }
 
         public void Name(Hero hero)
         {
