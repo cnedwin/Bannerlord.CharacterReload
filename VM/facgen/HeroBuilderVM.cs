@@ -345,7 +345,7 @@ namespace CharacterReload.VM
 
             ClosePage();
             FaceGen.ShowDebugValues = true;
-            ScreenManager.PushScreen(ViewCreator.CreateMBFaceGeneratorScreen(hero.CharacterObject, false));
+            ScreenManager.PushScreen(ViewCreator.CreateMBFaceGeneratorScreen(hero.CharacterObject, false, null));
         }
 
         private Hero selectedHero;

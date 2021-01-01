@@ -20,7 +20,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>D:\Steam\steamapps\common\Mount &amp; Blade II Bannerlord\Modules\CharacterReload\bin\Win64_Shipping_Client\</OutputPath>
+    <OutputPath>E:\Steam\steamapps\common\Mount &amp; Blade II Bannerlord\Modules\CharacterReload\bin\Win64_Shipping_Client\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -90,13 +90,12 @@
     <Compile Include="Data\HeroAdminCharacterPerk.cs" />
     <Compile Include="Data\HeroAdminCharacterSkill.cs" />
     <Compile Include="Data\HeroAdminCharacterTrait.cs" />
-    <Compile Include="EncyclopediaPageChangedHandle.cs" />
+    <Compile Include="VM\Facgen\EncyclopediaPageChangedHandle.cs" />
     <Compile Include="Extension\Helper.cs" />
     <Compile Include="Extension\StringBuilderExtension.cs" />
     <Compile Include="GauntletUI\Screen\HeroAdminScreen.cs" />
     <Compile Include="GauntletUI\Screen\State\HeroAdminState.cs" />
     <Compile Include="Pathes\BodyGeneratorPatch.cs" />
-    <Compile Include="Pathes\DynamicBodyPatch.cs" />
     <Compile Include="VM\Clan\MBBindingLordItemListInterceptor.cs" />
     <Compile Include="Pathes\BodyGeneratorViewPath.cs" />
     <Compile Include="Pathes\CharacterObjectPath.cs" />
@@ -128,7 +127,7 @@
     <Compile Include="VM\HeroAdmin\HeroAdminRecordItemVM.cs" />
     <Compile Include="VM\HeroAdmin\HeroAdminRecordVM.cs" />
     <Compile Include="VM\HeroAdmin\HeroAdminSkillVM.cs" />
-    <Compile Include="VM\HeroBuilderVM.cs" />
+    <Compile Include="VM\Facgen\HeroBuilderVM.cs" />
     <Compile Include="VM\Clan\MyClanLordItemVM.cs" />
   </ItemGroup>
   <ItemGroup>

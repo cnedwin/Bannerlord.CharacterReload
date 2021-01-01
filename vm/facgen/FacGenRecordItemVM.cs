@@ -43,7 +43,7 @@ namespace CharacterReload.VM.Facgen
             characterCode.BodyProperties = bodyProperties;
             string text = new Equipment().CalculateEquipmentCode();
             ReflectUtils.ReflectPropertyAndSetValue("EquipmentCode", text, characterCode);
-            ReflectUtils.ReflectPropertyAndSetValue("IsHero", true, characterCode);
+            ReflectUtils.ReflectPropertyAndSetValue("IsHero", true, characterCode); //这个属性影响，如是英雄只会显示头， 不是则显示半身
             MBStringBuilder mBStringBuilder = default(MBStringBuilder);
             mBStringBuilder.Initialize(16, "CreateFrom");
             mBStringBuilder.Append<string>("@---@");
@@ -56,6 +56,10 @@ namespace CharacterReload.VM.Facgen
             mBStringBuilder.Append<string>(characterCode.IsHero ? "1" : "0");
             mBStringBuilder.Append<string>("@---@");
             mBStringBuilder.Append<string>(((int)characterCode.FormationClass).ToString());
+            mBStringBuilder.Append<string>("@---@");
+            mBStringBuilder.Append<string>(characterCode.Color1.ToString());
+            mBStringBuilder.Append<string>("@---@");
+            mBStringBuilder.Append<string>(characterCode.Color2.ToString());
             mBStringBuilder.Append<string>("@---@");
             ReflectUtils.ReflectPropertyAndSetValue("Code", mBStringBuilder.ToStringAndRelease(), characterCode);
             return characterCode;

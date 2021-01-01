@@ -142,6 +142,10 @@ namespace CharacterReload.VM.HeroAdmin
             mBStringBuilder.Append<string>("@---@");
             mBStringBuilder.Append<string>(((int)characterCode.FormationClass).ToString());
             mBStringBuilder.Append<string>("@---@");
+            mBStringBuilder.Append<string>(characterCode.Color1.ToString());
+            mBStringBuilder.Append<string>("@---@");
+            mBStringBuilder.Append<string>(characterCode.Color2.ToString());
+            mBStringBuilder.Append<string>("@---@");
             ReflectUtils.ReflectPropertyAndSetValue("Code", mBStringBuilder.ToStringAndRelease(), characterCode);
             return characterCode;
         }
