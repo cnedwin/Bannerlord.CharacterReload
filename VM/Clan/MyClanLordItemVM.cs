@@ -1,4 +1,5 @@
 ﻿using CharacterReload;
+using CharacterReload.Utils;
 using HarmonyLib;
 using Helpers;
 using System;
@@ -27,7 +28,8 @@ namespace CharacterReload.VM
 			Hero selectedHero = __instance.GetHero();
 			selectedHero.FirstName = selectedHero.Name;
 			if (selectedHero.IsPartyLeader)
-				selectedHero.PartyBelongedTo.Name = MobilePartyHelper.GeneratePartyName(selectedHero.CharacterObject);
+			    ReflectUtils.ReflectMethodAndInvoke("Name", selectedHero.PartyBelongedTo, new object[] { MobilePartyHelper.GeneratePartyName(selectedHero.CharacterObject) });
+
 		}
 	}
 
@@ -70,7 +72,8 @@ namespace CharacterReload.VM
 				this.Name = suggestedName;
 				currentHero.FirstName = currentHero.Name;
 				if (currentHero.IsPartyLeader)
-					currentHero.PartyBelongedTo.Name = MobilePartyHelper.GeneratePartyName(currentHero.CharacterObject);
+				    ReflectUtils.ReflectMethodAndInvoke("Name", currentHero.PartyBelongedTo, new object[] { MobilePartyHelper.GeneratePartyName(currentHero.CharacterObject) });
+
 
 			}
 

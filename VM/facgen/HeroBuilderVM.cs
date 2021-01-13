@@ -13,6 +13,7 @@ using TaleWorlds.MountAndBlade.LegacyGUI.Missions;
 using CharacterReload.Screen.State;
 using TaleWorlds.CampaignSystem.SandBox.CampaignBehaviors;
 using Helpers;
+using CharacterReload.Utils;
 
 namespace CharacterReload.VM
 {
@@ -295,7 +296,8 @@ namespace CharacterReload.VM
                 selectedHero.Name = newName;
                 selectedHero.FirstName = newName;
                 if (selectedHero.IsPartyLeader)
-                    selectedHero.PartyBelongedTo.Name = MobilePartyHelper.GeneratePartyName(selectedHero.CharacterObject);
+                    ReflectUtils.ReflectMethodAndInvoke("Name", selectedHero.PartyBelongedTo, new object[] { MobilePartyHelper.GeneratePartyName(selectedHero.CharacterObject) });
+
                 ClosePage();
             }
             else
