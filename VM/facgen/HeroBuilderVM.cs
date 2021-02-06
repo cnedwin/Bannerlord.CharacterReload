@@ -296,7 +296,7 @@ namespace CharacterReload.VM
                 selectedHero.Name = newName;
                 selectedHero.FirstName = newName;
                 if (selectedHero.IsPartyLeader)
-                    ReflectUtils.ReflectMethodAndInvoke("Name", selectedHero.PartyBelongedTo, new object[] { MobilePartyHelper.GeneratePartyName(selectedHero.CharacterObject) });
+                    ReflectUtils.ReflectMethodAndInvoke("Name", selectedHero.PartyBelongedTo, new object[] { selectedHero.CharacterObject.Name });
 
                 ClosePage();
             }

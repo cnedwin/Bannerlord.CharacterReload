@@ -148,7 +148,7 @@ namespace CharacterReload.VM.HeroAdmin
         {
             get
             {
-                return new HintViewModel(GameTexts.FindText("str_reset", null).ToString(), null); ;
+                return new HintViewModel(GameTexts.FindText("str_reset", null), null);
             }
 
         }
