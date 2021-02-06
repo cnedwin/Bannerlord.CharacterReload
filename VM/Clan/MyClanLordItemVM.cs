@@ -28,7 +28,7 @@ namespace CharacterReload.VM
 			Hero selectedHero = __instance.GetHero();
 			selectedHero.FirstName = selectedHero.Name;
             if (selectedHero.IsPartyLeader)
-                ReflectUtils.ReflectMethodAndInvoke("Name", selectedHero.PartyBelongedTo, new object[] { selectedHero.CharacterObject.Name });
+                ReflectUtils.ReflectMethodAndInvoke("Name", selectedHero.PartyBelongedTo, new object[] { selectedHero.CharacterObject.GetName() });
 
         }
 	}
