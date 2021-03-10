@@ -47,7 +47,7 @@ namespace CharacterReload.Patch
             clanCategory.Load(resourceContext, uIResourceDepot);
 
             FacGenRecordVM facGenRecord = new FacGenRecordVM(__instance, GlobalDataProvider.Instance.FacGenRecordData());
-            GauntletMovie movie  = __instance.GauntletLayer.LoadMovie("FacGenRecord", facGenRecord);
+            IGauntletMovie moviename  = __instance.GauntletLayer.LoadMovie("FacGenRecord", facGenRecord);
             //movie.BrushFactory.LoadBrushFile("FacGenRecord");
         }
     }

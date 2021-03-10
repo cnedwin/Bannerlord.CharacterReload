@@ -22,7 +22,7 @@ namespace CharacterReload
         private Hero selectedHero;
         private ScreenBase gauntletLayerTopScreen;
         private GauntletLayer gauntletLayer;
-        private GauntletMovie gauntletMovie;
+        private IGauntletMovie gauntletMovie;
 
         public void OnEncyclopediaPageChanged(EncyclopediaPageChangedEvent e)
         {
