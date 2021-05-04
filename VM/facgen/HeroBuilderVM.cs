@@ -175,7 +175,7 @@ namespace CharacterReload.VM
                 GrowUpForFixSkill(hero);
                 hero.SetBirthDay(CampaignTime.YearsFromNow((float)adult * -1));
                 var adulttextObject = new TextObject("{=tips_cr_HeroGrowAdult}Your child is now a qualified hero");
-                StringHelpers.SetCharacterProperties("CR_HERO", hero.CharacterObject, null, adulttextObject);
+                StringHelpers.SetCharacterProperties("CR_HERO", hero.CharacterObject, adulttextObject);
 
             }
 
