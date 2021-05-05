@@ -21,7 +21,7 @@ namespace CharacterReload.Data
 
         public object LoadDataFromConfig(String key, Type type)
         {
-            string path = System.IO.Path.Combine(_configRootPath, _configRootPath, key + ".json");
+            string path = System.IO.Path.Combine(_configRootPath, key + ".json");
             PlatformFilePath filePath = new PlatformFilePath(EngineFilePaths.ConfigsPath, path);
             if (platformFileHelper.FileExists(filePath))
             {
@@ -51,7 +51,7 @@ namespace CharacterReload.Data
 
                 PlatformFilePath filePath = new PlatformFilePath(EngineFilePaths.ConfigsPath, path);
                 string json = JsonConvert.SerializeObject(objectValue, Newtonsoft.Json.Formatting.Indented);
-                File.WriteAllText(path, json);
+                Common.PlatformFileHelper.SaveFileString(filePath, json);
                 // StreamWriter streamWriter = new StreamWriter(path, false);
                 // streamWriter.Write(json);
                 // streamWriter.Flush();// 清空缓存
