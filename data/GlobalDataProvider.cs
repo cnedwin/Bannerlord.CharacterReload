@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TaleWorlds.Core;
 using TaleWorlds.Engine;
+using TaleWorlds.Library;
 
 namespace CharacterReload.Data
 {
@@ -16,6 +17,9 @@ namespace CharacterReload.Data
         private static GlobalDataProvider _instance;
 
         private List<FacGenRecordData> _facGenRecordData;
+
+        PlatformDirectoryPath directory = EngineFilePaths.ConfigsPath;
+        IPlatformFileHelper platformFileHelper = Common.PlatformFileHelper;
 
         public static GlobalDataProvider Instance
         {
@@ -47,21 +51,20 @@ namespace CharacterReload.Data
 
         public void LoadFacGenData()
         {
-            string path = System.IO.Path.Combine(Utilities.GetConfigsPath(), "CharacterReload", "CharacterReload.json");
-            FileInfo fileInfo = new FileInfo(path);
-            if (fileInfo.Exists)
+            string path = System.IO.Path.Combine("CharacterReload", "CharacterReload.json");
+            PlatformFilePath filePath = new PlatformFilePath(EngineFilePaths.ConfigsPath,path);
+            if (platformFileHelper.FileExists(filePath))
             {
                 try
                 {
-                    using (StreamReader streamReader = fileInfo.OpenText())
-                    {
-                        string json = streamReader.ReadToEnd();
+                    
+                        string json = Common.PlatformFileHelper.GetFileContentString(filePath);
                         if (json != null)
                         {
                             this._facGenRecordData = (List<FacGenRecordData>)JsonConvert.DeserializeObject(json, typeof(List<FacGenRecordData>));
                         }
 
-                    }
+                    
                 }
                 catch (JsonException e)
                 {
@@ -74,13 +77,12 @@ namespace CharacterReload.Data
         {
             try
             {
-                string dic = System.IO.Path.Combine(Utilities.GetConfigsPath(), "CharacterReload");
-                string path = System.IO.Path.Combine(dic, "CharacterReload.json");
 
-                System.IO.Directory.CreateDirectory(dic);
+                string path = System.IO.Path.Combine("CharacterReload", "CharacterReload.json");
+                PlatformFilePath filePath = new PlatformFilePath(EngineFilePaths.ConfigsPath, path);
 
                 string json = JsonConvert.SerializeObject(this._facGenRecordData , Newtonsoft.Json.Formatting.Indented);
-                File.WriteAllText(path, json);
+                Common.PlatformFileHelper.SaveFileString(filePath,json);
                // StreamWriter streamWriter = new StreamWriter(path, false);
                // streamWriter.Write(json);
                // streamWriter.Flush();// 清空缓存

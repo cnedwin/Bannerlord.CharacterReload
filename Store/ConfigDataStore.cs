@@ -6,6 +6,8 @@ using System.Text;
 using System.Threading.Tasks;
 using TaleWorlds.Engine;
 using Newtonsoft.Json;
+using TaleWorlds.Library;
+using TaleWorlds.Core;
 
 namespace CharacterReload.Data
 {
@@ -14,26 +16,27 @@ namespace CharacterReload.Data
 
         private string _configRootPath = "CharacterReload";
 
+        PlatformDirectoryPath directory = EngineFilePaths.ConfigsPath;
+        IPlatformFileHelper platformFileHelper = Common.PlatformFileHelper;
+
         public object LoadDataFromConfig(String key, Type type)
         {
-            string path = System.IO.Path.Combine(Utilities.GetConfigsPath(), _configRootPath, key + ".json");
-            FileInfo fileInfo = new FileInfo(path);
-            if (fileInfo.Exists)
+            string path = System.IO.Path.Combine(_configRootPath, _configRootPath, key + ".json");
+            PlatformFilePath filePath = new PlatformFilePath(EngineFilePaths.ConfigsPath, path);
+            if (platformFileHelper.FileExists(filePath))
             {
                 try
                 {
-                    using (StreamReader streamReader = fileInfo.OpenText())
-                    {
-                        string json = streamReader.ReadToEnd();
-                        if (json != null)
+
+                    string json = Common.PlatformFileHelper.GetFileContentString(filePath);
+                    if (json != null)
                         {
                             return JsonConvert.DeserializeObject(json, type);
                         }
-                    }
                 }
                 catch (JsonException e)
                 {
-                    //InformationManager.DisplayMessage(new InformationMessage("CharacterReload load FacGenRecordData failed" + e.Message));
+                    InformationManager.DisplayMessage(new InformationMessage("CharacterReload load FacGenRecordData failed" + e.Message));
                     return null;
                 }
             }
@@ -44,10 +47,9 @@ namespace CharacterReload.Data
         {
             try
             {
-                string dic = System.IO.Path.Combine(Utilities.GetConfigsPath(), _configRootPath);
-                string path = System.IO.Path.Combine(dic, key  + ".json");
+                string path = System.IO.Path.Combine(_configRootPath, key  + ".json");
 
-                System.IO.Directory.CreateDirectory(dic);
+                PlatformFilePath filePath = new PlatformFilePath(EngineFilePaths.ConfigsPath, path);
                 string json = JsonConvert.SerializeObject(objectValue, Newtonsoft.Json.Formatting.Indented);
                 File.WriteAllText(path, json);
                 // StreamWriter streamWriter = new StreamWriter(path, false);
