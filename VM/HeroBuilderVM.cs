@@ -13,7 +13,6 @@ using TaleWorlds.MountAndBlade.LegacyGUI.Missions;
 using CharacterReload.Screen.State;
 using TaleWorlds.CampaignSystem.SandBox.CampaignBehaviors;
 using Helpers;
-using CharacterReload.Utils;
 
 namespace CharacterReload.VM
 {
@@ -175,7 +174,7 @@ namespace CharacterReload.VM
                 GrowUpForFixSkill(hero);
                 hero.SetBirthDay(CampaignTime.YearsFromNow((float)adult * -1));
                 var adulttextObject = new TextObject("{=tips_cr_HeroGrowAdult}Your child is now a qualified hero");
-                StringHelpers.SetCharacterProperties("CR_HERO", hero.CharacterObject, adulttextObject);
+                StringHelpers.SetCharacterProperties("CR_HERO", hero.CharacterObject, null, adulttextObject);
 
             }
 
@@ -296,8 +295,7 @@ namespace CharacterReload.VM
                 selectedHero.Name = newName;
                 selectedHero.FirstName = newName;
                 if (selectedHero.IsPartyLeader)
-                    ReflectUtils.ReflectMethodAndInvoke("Name", selectedHero.PartyBelongedTo, new object[] { selectedHero.CharacterObject.GetName() });
-
+                    selectedHero.PartyBelongedTo.Name = MobilePartyHelper.GeneratePartyName(selectedHero.CharacterObject);
                 ClosePage();
             }
             else
@@ -347,7 +345,7 @@ namespace CharacterReload.VM
 
             ClosePage();
             FaceGen.ShowDebugValues = true;
-            ScreenManager.PushScreen(ViewCreator.CreateMBFaceGeneratorScreen(hero.CharacterObject, false, null));
+            ScreenManager.PushScreen(ViewCreator.CreateMBFaceGeneratorScreen(hero.CharacterObject, false));
         }
 
         private Hero selectedHero;

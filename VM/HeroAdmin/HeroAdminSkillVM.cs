@@ -51,10 +51,10 @@ namespace CharacterReload.VM.HeroAdmin
 			this.CurrentFocusLevel = hero.GetFocusValue(this.Skill);
 			int boundAttributeCurrentValue = hero.GetAttributeValue(this.Skill.CharacterAttributeEnum);
 			TextObject boundAttributeName = CharacterAttributes.GetCharacterAttribute(this.Skill.CharacterAttributeEnum).Name;
-			float num = Campaign.Current.Models.CharacterDevelopmentModel.CalculateLearningRate(boundAttributeCurrentValue, this.CurrentFocusLevel, this.Level, this._hero.Level, boundAttributeName, null);
+			float num = Campaign.Current.Models.CharacterDevelopmentModel.CalculateLearningRate(boundAttributeCurrentValue, this.CurrentFocusLevel, this.Level, this._hero.Level, boundAttributeName, false).ResultNumber;
 			this.LearningRate = num;
 			this.CanLearnSkill = (num > 0f);
-			this.FullLearningRateLevel = Campaign.Current.Models.CharacterDevelopmentModel.CalculateLearningLimit(boundAttributeCurrentValue, this.CurrentFocusLevel, boundAttributeName, null);
+			this.FullLearningRateLevel = MBMath.Round(Campaign.Current.Models.CharacterDevelopmentModel.CalculateLearningLimit(boundAttributeCurrentValue, this.CurrentFocusLevel, boundAttributeName, false).ResultNumber);
 			this.Level = hero.GetSkillValue(this._skillObject);
 			RefreshPerks();
 		}

@@ -22,6 +22,7 @@ namespace CharacterReload.Pathes
                     if (__instance.Character is CharacterObject characterObject)
                     {
                         float bodyAge = __instance.CurrentBodyProperties.DynamicProperties.Age;
+                        if (bodyAge < 18) { bodyAge = 18; };
                         characterObject.HeroObject.SetBirthDay(HeroHelper.GetRandomBirthDayForAge((int)bodyAge));
                     }
                     return false;

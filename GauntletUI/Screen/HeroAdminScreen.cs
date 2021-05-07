@@ -35,7 +35,7 @@ namespace CharacterReload.Screen
 
 		public HeroAdminScreen(HeroAdminState heroAdminState)
 		{
-			LoadingWindow.EnableGlobalLoadingWindow(false);
+			LoadingWindow.EnableGlobalLoadingWindow();
 			this._heroAdminState = heroAdminState;
 		}
 
@@ -57,7 +57,7 @@ namespace CharacterReload.Screen
 		protected override void OnInitialize()
 		{
 			base.OnInitialize();
-			LoadingWindow.EnableGlobalLoadingWindow(true);
+			LoadingWindow.EnableGlobalLoadingWindow();
 
 		}
 
@@ -111,7 +111,7 @@ namespace CharacterReload.Screen
 		protected override void OnDeactivate()
 		{
 			base.OnDeactivate();
-			LoadingWindow.EnableGlobalLoadingWindow(false);
+			LoadingWindow.EnableGlobalLoadingWindow();
 			InformationManager.HideInformations();
 		}
 		private void CloseScreen()

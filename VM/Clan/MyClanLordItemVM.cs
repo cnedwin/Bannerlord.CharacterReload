@@ -1,4 +1,5 @@
 ﻿using CharacterReload;
+using CharacterReload.Utils;
 using HarmonyLib;
 using Helpers;
 using System;
@@ -26,9 +27,10 @@ namespace CharacterReload.VM
 			if (!CampaignUIHelper.IsStringApplicableForHeroName(suggestedName)) return;
 			Hero selectedHero = __instance.GetHero();
 			selectedHero.FirstName = selectedHero.Name;
-			if (selectedHero.IsPartyLeader)
-				selectedHero.PartyBelongedTo.Name = MobilePartyHelper.GeneratePartyName(selectedHero.CharacterObject);
-		}
+            if (selectedHero.IsPartyLeader)
+                ReflectUtils.ReflectMethodAndInvoke("Name", selectedHero.PartyBelongedTo, new object[] { selectedHero.CharacterObject.GetName() });
+
+        }
 	}
 
 	public class MyClanLordItemVM : ClanLordItemVM
@@ -69,8 +71,9 @@ namespace CharacterReload.VM
 				currentHero.CharacterObject.Name = new TextObject(suggestedName, null);
 				this.Name = suggestedName;
 				currentHero.FirstName = currentHero.Name;
-				if (currentHero.IsPartyLeader)
-					currentHero.PartyBelongedTo.Name = MobilePartyHelper.GeneratePartyName(currentHero.CharacterObject);
+				//if (currentHero.IsPartyLeader)
+				    //ReflectUtils.ReflectMethodAndInvoke("Name", currentHero.PartyBelongedTo, new object[] { MobilePartyHelper.GeneratePartyName(currentHero.CharacterObject) });
+
 
 			}
 
