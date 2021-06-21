@@ -63,15 +63,18 @@ namespace CharacterReload.VM.HeroAdmin
         public void RefreshAttribute()
         {
             this.Attributes.Clear();
-            for (int i = 0; i < 6; i++)
-            {
-                this.Attributes.Add(new HeroAdminAttributeItemVM((CharacterAttributesEnum)i, this.hero.GetAttributeValue((CharacterAttributesEnum)i), this.OnAttributeChange));
-            }
+            this.Attributes.Add(new HeroAdminAttributeItemVM(DefaultCharacterAttributes.Vigor, this.hero.GetAttributeValue(DefaultCharacterAttributes.Vigor), this.OnAttributeChange));
+            this.Attributes.Add(new HeroAdminAttributeItemVM(DefaultCharacterAttributes.Control, this.hero.GetAttributeValue(DefaultCharacterAttributes.Control), this.OnAttributeChange));
+            this.Attributes.Add(new HeroAdminAttributeItemVM(DefaultCharacterAttributes.Endurance, this.hero.GetAttributeValue(DefaultCharacterAttributes.Endurance), this.OnAttributeChange));
+
+            this.Attributes.Add(new HeroAdminAttributeItemVM(DefaultCharacterAttributes.Cunning, this.hero.GetAttributeValue(DefaultCharacterAttributes.Cunning), this.OnAttributeChange));
+            this.Attributes.Add(new HeroAdminAttributeItemVM(DefaultCharacterAttributes.Social, this.hero.GetAttributeValue(DefaultCharacterAttributes.Social), this.OnAttributeChange));
+            this.Attributes.Add(new HeroAdminAttributeItemVM(DefaultCharacterAttributes.Intelligence, this.hero.GetAttributeValue(DefaultCharacterAttributes.Intelligence), this.OnAttributeChange));
         }
 
 
 
-        public void OnAttributeChange(CharacterAttributesEnum attribute, int newValue)
+        public void OnAttributeChange(CharacterAttribute attribute, int newValue)
         {
             this.hero.SetAttributeValue(attribute, newValue);
         }

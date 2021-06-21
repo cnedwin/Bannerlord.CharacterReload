@@ -49,8 +49,8 @@ namespace CharacterReload.VM.HeroAdmin
         {
 			this._hero = hero;
 			this.CurrentFocusLevel = hero.GetFocusValue(this.Skill);
-			int boundAttributeCurrentValue = hero.GetAttributeValue(this.Skill.CharacterAttributeEnum);
-			TextObject boundAttributeName = CharacterAttributes.GetCharacterAttribute(this.Skill.CharacterAttributeEnum).Name;
+			int boundAttributeCurrentValue = hero.GetAttributeValue(this.Skill.CharacterAttribute);
+			TextObject boundAttributeName = this.Skill.CharacterAttribute.Name;
 			float num = Campaign.Current.Models.CharacterDevelopmentModel.CalculateLearningRate(boundAttributeCurrentValue, this.CurrentFocusLevel, this.Level, this._hero.Level, boundAttributeName, false).ResultNumber;
 			this.LearningRate = num;
 			this.CanLearnSkill = (num > 0f);

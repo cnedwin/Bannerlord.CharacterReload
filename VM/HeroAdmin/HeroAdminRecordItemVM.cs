@@ -103,7 +103,7 @@ namespace CharacterReload.VM.HeroAdmin
         public void RefreshHeroSkill()
         {
             this.Skills.Clear();
-            foreach (SkillObject current in SkillObject.All)
+            foreach (SkillObject current in TaleWorlds.CampaignSystem.Skills.All)
             {
                 this.Skills.Add(new EncyclopediaSkillVM(current, this._heroAdminCharacter.GetSkillValue(current)));
             }

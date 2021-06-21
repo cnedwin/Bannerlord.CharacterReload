@@ -43,31 +43,31 @@
   </PropertyGroup>
   <!-- Bannerlord Native Assemblies -->
   <ItemGroup>
-		  <Reference Include="$(GamePath)\bin\Win64_Shipping_Client\TaleWorlds*.dll">
-			  <HintPath>%(Identity)</HintPath>
-			  <Private>False</Private>
-		  </Reference>
-		  <Reference Include="$(GamePath)\bin\Win64_Shipping_Client\Newtonsoft.Json.dll">
-			  <HintPath>%(Identity)</HintPath>
-			  <Private>False</Private>
-		  </Reference>
-		  <!-- Bannerlord Module Assemblies  -->
-		  <Reference Include="$(GamePath)\Modules\Native\bin\Win64_Shipping_Client\TaleWorlds*.dll">
-			  <HintPath>%(Identity)</HintPath>
-			  <Private>False</Private>
-		  </Reference>
-		  <Reference Include="$(GamePath)\Modules\SandBox\bin\Win64_Shipping_Client\SandBox*.dll">
-			  <HintPath>%(Identity)</HintPath>
-			  <Private>False</Private>
-		  </Reference>
-		  <Reference Include="$(GamePath)\Modules\StoryMode\bin\Win64_Shipping_Client\StoryMode*.dll">
-			  <HintPath>%(Identity)</HintPath>
-			  <Private>False</Private>
-		  </Reference>
-		  <Reference Include="$(GamePath)\Modules\CustomBattle\bin\Win64_Shipping_Client\TaleWorlds*.dll">
-			  <HintPath>%(Identity)</HintPath>
-			  <Private>False</Private>
-		  </Reference>
+    <Reference Include="$(GamePath)\bin\Win64_Shipping_Client\TaleWorlds*.dll">
+      <HintPath>%(Identity)</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="$(GamePath)\bin\Win64_Shipping_Client\Newtonsoft.Json.dll">
+      <HintPath>%(Identity)</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <!-- Bannerlord Module Assemblies  -->
+    <Reference Include="$(GamePath)\Modules\Native\bin\Win64_Shipping_Client\TaleWorlds*.dll">
+      <HintPath>%(Identity)</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="$(GamePath)\Modules\SandBox\bin\Win64_Shipping_Client\SandBox*.dll">
+      <HintPath>%(Identity)</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="$(GamePath)\Modules\StoryMode\bin\Win64_Shipping_Client\StoryMode*.dll">
+      <HintPath>%(Identity)</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="$(GamePath)\Modules\CustomBattle\bin\Win64_Shipping_Client\TaleWorlds*.dll">
+      <HintPath>%(Identity)</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="0Harmony, Version=2.0.4.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>packages\Lib.Harmony.2.0.4\lib\net472\0Harmony.dll</HintPath>
     </Reference>
@@ -100,10 +100,8 @@
     <Compile Include="GauntletUI\Screen\HeroAdminScreen.cs" />
     <Compile Include="GauntletUI\Screen\State\HeroAdminState.cs" />
     <Compile Include="Pathes\BodyGeneratorPatch.cs" />
-    <Compile Include="VM\Clan\MBBindingLordItemListInterceptor.cs" />
     <Compile Include="Pathes\BodyGeneratorViewPath.cs" />
     <Compile Include="Pathes\CharacterObjectPath.cs" />
-    <Compile Include="Pathes\ClanMemberPath.cs" />
     <Compile Include="Pathes\FaceGenPropertyVMPath.cs" />
     <Compile Include="Pathes\ModuleProcessSkinsXmlPatch.cs" />
     <Compile Include="Store\ConfigDataStore.cs" />
@@ -132,7 +130,6 @@
     <Compile Include="VM\HeroAdmin\HeroAdminRecordVM.cs" />
     <Compile Include="VM\HeroAdmin\HeroAdminSkillVM.cs" />
     <Compile Include="VM\Facgen\HeroBuilderVM.cs" />
-    <Compile Include="VM\Clan\MyClanLordItemVM.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

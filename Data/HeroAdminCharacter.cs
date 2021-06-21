@@ -57,19 +57,17 @@ namespace CharacterReload.Data
             adminCharacter.Level = hero.Level;
             adminCharacter.IsFemale = hero.IsFemale;
             adminCharacter.BodyPropertiesString = hero.BodyProperties.ToString();
-            
 
-            HeroAdminCharacterAttribute attr;
-            for (int i = 0; i < 6; i++)
-            {
-                attr = new HeroAdminCharacterAttribute(Enum.GetName(typeof(CharacterAttributesEnum), i), hero.GetAttributeValue((CharacterAttributesEnum)i));
-                adminCharacter.Attributes.Add(attr);
-            }
 
-            foreach (SkillObject current in SkillObject.All)
-            {
-                adminCharacter.Skills.Add(new HeroAdminCharacterSkill(current.StringId, hero.GetSkillValue(current), hero.HeroDeveloper.GetFocus(current)));
-            }
+            //一个成长属性包含3个技能
+            LoadCharacterAttributeAndSkills(adminCharacter, hero, DefaultCharacterAttributes.Vigor);
+            LoadCharacterAttributeAndSkills(adminCharacter, hero, DefaultCharacterAttributes.Control);
+            LoadCharacterAttributeAndSkills(adminCharacter, hero, DefaultCharacterAttributes.Endurance);
+
+            LoadCharacterAttributeAndSkills(adminCharacter, hero, DefaultCharacterAttributes.Cunning);
+            LoadCharacterAttributeAndSkills(adminCharacter, hero, DefaultCharacterAttributes.Social);
+            LoadCharacterAttributeAndSkills(adminCharacter, hero, DefaultCharacterAttributes.Intelligence);
+
 
             foreach (PerkObject current in PerkObject.All)
             {
@@ -90,6 +88,18 @@ namespace CharacterReload.Data
                 return adminCharacter;
         }
 
+
+        private static void LoadCharacterAttributeAndSkills(HeroAdminCharacter adminCharacter, Hero hero,  CharacterAttribute characterAttribute)
+        {
+            HeroAdminCharacterAttribute attr;
+            attr = new HeroAdminCharacterAttribute(characterAttribute.StringId, hero.GetAttributeValue(characterAttribute));
+            adminCharacter.Attributes.Add(attr);
+            foreach (SkillObject skill in characterAttribute.Skills)
+            {
+                adminCharacter.Skills.Add(new HeroAdminCharacterSkill(skill.StringId, hero.GetSkillValue(skill), hero.HeroDeveloper.GetFocus(skill)));
+            }
+        }
+
         public  void ToHero(Hero hero)
         {
             hero.HeroDeveloper.ClearHero();
@@ -99,30 +109,16 @@ namespace CharacterReload.Data
             HeroUtils.UpdateHeroCharacterBodyProperties(hero.CharacterObject, bodyProperties, this.IsFemale);
             HeroAdminCharacterAttribute attr;
             hero.ClearAttributes();
-            for (int i = 0; i < 6; i++)
-            {
-                attr = this.Attributes.FirstOrDefault((obj) => obj.AttributeName == Enum.GetName(typeof(CharacterAttributesEnum), i));
-                if (null != attr)
-                {
-                    hero.SetAttributeValue((CharacterAttributesEnum)i, attr.AttributeValue);
-                   // hero.HeroDeveloper.AddAttribute((CharacterAttributesEnum)i, attr.AttributeValue, false);
-                }
-            }
-            HeroAdminCharacterSkill adminCharacterSkill;
             hero.ClearSkills();
-            foreach (SkillObject current in SkillObject.All)
-            {
-                adminCharacterSkill = Skills.FirstOrDefault((obj) => obj.StringId.Equals(current.StringId));
-                if (null != adminCharacterSkill)
-                {
-                    // hero.SetSkillValue(current, adminCharacterSkill.SkillValue);
-                    int xpRequiredForSkillLevel = Campaign.Current.Models.CharacterDevelopmentModel.GetXpRequiredForSkillLevel(adminCharacterSkill.SkillValue);
-                    hero.HeroDeveloper.SetPropertyValue(current, (float)xpRequiredForSkillLevel);
-                    hero.SetSkillValue(current, adminCharacterSkill.SkillValue);
-                    ReflectUtils.ReflectMethodAndInvoke("SetFocus", hero.HeroDeveloper, new object[] { current, adminCharacterSkill.SkillFocus });
-                    ///hero.HeroDeveloper.AddFocus(current, adminCharacterSkill.SkillFocus, false);
-                }
-            }
+            SetCharacterAttributeAndSkills(hero, DefaultCharacterAttributes.Vigor);
+            SetCharacterAttributeAndSkills(hero, DefaultCharacterAttributes.Control);
+            SetCharacterAttributeAndSkills(hero, DefaultCharacterAttributes.Endurance);
+
+            SetCharacterAttributeAndSkills(hero, DefaultCharacterAttributes.Cunning);
+            SetCharacterAttributeAndSkills(hero, DefaultCharacterAttributes.Social);
+            SetCharacterAttributeAndSkills(hero, DefaultCharacterAttributes.Intelligence);
+
+
             hero.ClearPerks();
             foreach (PerkObject perk in PerkObject.All)
             {
@@ -145,11 +141,34 @@ namespace CharacterReload.Data
                 HeroAdminCharacterTrait characterTrait = Traits.FirstOrDefault((obj) => obj.StringId.Equals(trait.StringId));
                 if (null != characterTrait)
                 {
-                    hero.SetTraitLevel(trait, characterTrait.Level) ;
+                    hero.SetTraitLevelInternal(trait, characterTrait.Level) ;
                 }
 
             }
 
+        }
+
+        private  void SetCharacterAttributeAndSkills( Hero hero, CharacterAttribute characterAttribute)
+        {
+            HeroAdminCharacterAttribute attr;
+            HeroAdminCharacterSkill adminCharacterSkill;
+            attr = this.Attributes.FirstOrDefault((obj) => obj.AttributeName == characterAttribute.StringId);
+            ReflectUtils.ReflectMethodAndInvoke("SetAttributeValueInternal", hero, new object[] { characterAttribute , attr .AttributeValue});
+            //hero.SetArr(characterAttribute, attr.AttributeValue);
+            foreach (SkillObject skill in characterAttribute.Skills)
+            {
+                adminCharacterSkill = Skills.FirstOrDefault((obj) => obj.StringId.Equals(skill.StringId));
+                if (null != adminCharacterSkill)
+                {
+                    // hero.SetSkillValue(current, adminCharacterSkill.SkillValue);
+                    int xpRequiredForSkillLevel = Campaign.Current.Models.CharacterDevelopmentModel.GetXpRequiredForSkillLevel(adminCharacterSkill.SkillValue);
+                    hero.HeroDeveloper.SetPropertyValue(skill, (float)xpRequiredForSkillLevel);
+                    ReflectUtils.ReflectMethodAndInvoke("SetSkillValueInternal", hero, new object[] { skill, adminCharacterSkill.SkillValue });
+                    // hero.SetSkill(skill, adminCharacterSkill.SkillValue);
+                    ReflectUtils.ReflectMethodAndInvoke("SetFocus", hero.HeroDeveloper, new object[] { skill, adminCharacterSkill.SkillFocus });
+                    ///hero.HeroDeveloper.AddFocus(current, adminCharacterSkill.SkillFocus, false);
+                }
+            }
         }
 
         public void SetPerkValue(PerkObject perk, bool enable)
@@ -232,21 +251,22 @@ namespace CharacterReload.Data
             }
         }
 
-        public int GetAttributeValue(CharacterAttributesEnum attributesEnum)
+        public int GetAttributeValue(CharacterAttribute attributesEnum)
         {
-            HeroAdminCharacterAttribute result = Attributes.FirstOrDefault((obj) => obj.AttributeName.Equals(Enum.GetName(typeof(CharacterAttributesEnum), attributesEnum)));
-            if(null != result)
+            HeroAdminCharacterAttribute result = Attributes.FirstOrDefault((obj) => obj.AttributeName.Equals(attributesEnum.StringId));
+            if (null != result)
             {
                 return result.AttributeValue;
-            }else
+            }
+            else
             {
                 return 0;
             }
         }
 
-        public void SetAttributeValue(CharacterAttributesEnum attributesEnum, int newValue)
+        public void SetAttributeValue(CharacterAttribute attributesEnum, int newValue)
         {
-            HeroAdminCharacterAttribute result = Attributes.FirstOrDefault((obj) => obj.AttributeName.Equals(Enum.GetName(typeof(CharacterAttributesEnum), attributesEnum)));
+            HeroAdminCharacterAttribute result = Attributes.FirstOrDefault((obj) => obj.AttributeName.Equals(attributesEnum.StringId));
             if (null != result)
             {
                 result.AttributeValue = newValue;

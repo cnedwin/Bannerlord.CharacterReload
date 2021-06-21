@@ -254,7 +254,7 @@ namespace CharacterReload.VM
             }
 
 
-            foreach (SkillObject skillIT in DefaultSkills.GetAllSkills())
+            foreach (SkillObject skillIT in Skills.All)
             {
                 int sikillValue = (int)(InheritFather.GetSkillValue(skillIT) * fatherInheritDivider + InheritMother.GetSkillValue(skillIT) * motherInheritDivider);
                 hero.HeroDeveloper.ChangeSkillLevel(skillIT, (int)(sikillValue * skillTimes), false);
@@ -262,11 +262,11 @@ namespace CharacterReload.VM
             }
 
             hero.ClearTraits();
-            hero.SetTraitLevel(DefaultTraits.Honor, InheritMother.GetTraitLevel(DefaultTraits.Honor));
-            hero.SetTraitLevel(DefaultTraits.Valor, InheritMother.GetTraitLevel(DefaultTraits.Valor));
-            hero.SetTraitLevel(DefaultTraits.Mercy, InheritMother.GetTraitLevel(DefaultTraits.Mercy));
-            hero.SetTraitLevel(DefaultTraits.Generosity, InheritMother.GetTraitLevel(DefaultTraits.Generosity));
-            hero.SetTraitLevel(DefaultTraits.Calculating, InheritMother.GetTraitLevel(DefaultTraits.Calculating));
+            hero.SetTraitLevelInternal(DefaultTraits.Honor, InheritMother.GetTraitLevel(DefaultTraits.Honor));
+            hero.SetTraitLevelInternal(DefaultTraits.Valor, InheritMother.GetTraitLevel(DefaultTraits.Valor));
+            hero.SetTraitLevelInternal(DefaultTraits.Mercy, InheritMother.GetTraitLevel(DefaultTraits.Mercy));
+            hero.SetTraitLevelInternal(DefaultTraits.Generosity, InheritMother.GetTraitLevel(DefaultTraits.Generosity));
+            hero.SetTraitLevelInternal(DefaultTraits.Calculating, InheritMother.GetTraitLevel(DefaultTraits.Calculating));
 
             hero.Level = 0;
             hero.HeroDeveloper.UnspentFocusPoints = 20;
@@ -293,8 +293,7 @@ namespace CharacterReload.VM
             if (!string.IsNullOrEmpty(heroName))
             {
                 var newName = new TextObject(heroName);
-                selectedHero.Name = newName;
-                selectedHero.FirstName = newName;
+                selectedHero.SetName(newName);
                 if (selectedHero.IsPartyLeader)
                     ReflectUtils.ReflectMethodAndInvoke("Name", selectedHero.PartyBelongedTo, new object[] { selectedHero.CharacterObject.GetName() });
 
