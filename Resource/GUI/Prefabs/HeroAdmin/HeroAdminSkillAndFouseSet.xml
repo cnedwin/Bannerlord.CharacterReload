@@ -21,16 +21,16 @@
                       Filler="Filler" Handle="SliderHandle" MaxValueInt="300" MinValueInt="0" ValueInt="@Level" DoNotUpdateHandleSize="true">
                   <Children>
                     <Widget SuggestedWidth="362" SuggestedHeight="38" VerticalAlignment="Center" HorizontalAlignment="Center"
-                            Sprite="SPOptions\standart_slider_canvas" IsEnabled="false" />
+                            Sprite="SPGeneral\SPOptions\standart_slider_canvas" IsEnabled="false" />
                     <Widget Id="Filler" SuggestedWidth="345" SuggestedHeight="35" VerticalAlignment="Center" HorizontalAlignment="Center"
-                            Sprite="SPOptions\standart_slider_fill" ClipContents="true" >
+                            Sprite="SPGeneral\SPOptions\standart_slider_fill" ClipContents="true" >
                       <Children>
                         <Widget SuggestedWidth="345" SuggestedHeight="35" VerticalAlignment="Center" HorizontalAlignment="Left"
-                                Sprite="SPOptions\standart_slider_fill"/>
+                                Sprite="SPGeneral\SPOptions\standart_slider_fill"/>
                       </Children>
                     </Widget>
                     <Widget SuggestedWidth="400" SuggestedHeight="65" VerticalAlignment="Center" HorizontalAlignment="Center"
-                            IsEnabled="false" Sprite="SPOptions\standart_slider_frame" />
+                            IsEnabled="false" Sprite="SPGeneral\SPOptions\standart_slider_frame" />
 					  <BrushWidget Id="SliderHandle" SuggestedWidth="14" SuggestedHeight="38" VerticalAlignment="Center" HorizontalAlignment="Left"
                              Brush="SPOptions.Slider.Handle" DoNotAcceptEvents="true" />
                   </Children>
@@ -53,16 +53,16 @@
                       Filler="Filler" Handle="SliderHandle" MaxValueInt="5" MinValueInt="0" ValueInt="@CurrentFocusLevel" DoNotUpdateHandleSize="true">
                   <Children>
                     <Widget SuggestedWidth="362" SuggestedHeight="38" VerticalAlignment="Center" HorizontalAlignment="Center"
-                            Sprite="SPOptions\standart_slider_canvas" IsEnabled="false" />
+                            Sprite="SPGeneral\SPOptions\standart_slider_canvas" IsEnabled="false" />
                     <Widget Id="Filler" SuggestedWidth="345" SuggestedHeight="35" VerticalAlignment="Center" HorizontalAlignment="Center"
-                            Sprite="SPOptions\standart_slider_fill" ClipContents="true" >
+                            Sprite="SPGeneral\SPOptions\standart_slider_fill" ClipContents="true" >
                       <Children>
                         <Widget SuggestedWidth="345" SuggestedHeight="35" VerticalAlignment="Center" HorizontalAlignment="Left"
-                                Sprite="SPOptions\standart_slider_fill"/>
+                                Sprite="SPGeneral\SPOptions\standart_slider_fill"/>
                       </Children>
                     </Widget>
                     <Widget SuggestedWidth="400" SuggestedHeight="65" VerticalAlignment="Center" HorizontalAlignment="Center"
-                            IsEnabled="false" Sprite="SPOptions\standart_slider_frame" />
+                            IsEnabled="false" Sprite="SPGeneral\SPOptions\standart_slider_frame" />
 					  <BrushWidget Id="SliderHandle" SuggestedWidth="14" SuggestedHeight="38" VerticalAlignment="Center" HorizontalAlignment="Left"
                              Brush="SPOptions.Slider.Handle" DoNotAcceptEvents="true" />
                   </Children>

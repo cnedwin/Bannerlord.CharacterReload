@@ -17,17 +17,17 @@
                   Filler="Filler" Handle="SliderHandle" MaxValueInt="@MaxValue" MinValueInt="@MinValue" ValueInt="@TraitValue" DoNotUpdateHandleSize="true">
               <Children>
                 <Widget HeightSizePolicy="StretchToParent"  MarginLeft="-12"  MarginRight="-12"   WidthSizePolicy="StretchToParent"  MarginTop="8" MarginBottom="8"  VerticalAlignment="Center" HorizontalAlignment="Center"
-                        Sprite="SPOptions\standart_slider_canvas" IsEnabled="false" />
+                        Sprite="SPGeneral\SPOptions\standart_slider_canvas" IsEnabled="false" />
                 
                 <Widget Id="Filler" HeightSizePolicy="StretchToParent"  MarginLeft="-4"  MarginRight="-4" WidthSizePolicy="StretchToParent"  MarginTop="8" MarginBottom="8" VerticalAlignment="Center" HorizontalAlignment="Center"
-                        Sprite="SPOptions\standart_slider_fill" ClipContents="true" >
+                        Sprite="SPGeneral\SPOptions\standart_slider_fill" ClipContents="true" >
                   <Children>
                     <Widget HeightSizePolicy="StretchToParent" WidthSizePolicy="StretchToParent" VerticalAlignment="Center" HorizontalAlignment="Left"
-                            Sprite="SPOptions\standart_slider_fill"/>
+                            Sprite="SPGeneral\SPOptions\standart_slider_fill"/>
                   </Children>
                 </Widget>
                 <Widget WidthSizePolicy="StretchToParent" MarginLeft="-31"  MarginRight="-31" SuggestedHeight="65" VerticalAlignment="Center" HorizontalAlignment="Center"
-                        IsEnabled="false" Sprite="SPOptions\standart_slider_frame" />
+                        IsEnabled="false" Sprite="SPGeneral\SPOptions\standart_slider_frame" />
                 <BrushWidget Id="SliderHandle" SuggestedWidth="14" SuggestedHeight="38" VerticalAlignment="Center" HorizontalAlignment="Left"
                          Brush="SPOptions.Slider.Handle" DoNotAcceptEvents="true" />
               </Children>

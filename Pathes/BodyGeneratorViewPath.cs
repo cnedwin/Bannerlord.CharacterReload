@@ -29,6 +29,7 @@ namespace CharacterReload.Patch
      typeof( BasicCharacterObject ),
      typeof( bool ),
      typeof( IFaceGeneratorCustomFilter ),
+     typeof( Equipment ),
      typeof( ControlCharacterCreationStageReturnInt ),
      typeof( ControlCharacterCreationStageReturnInt  ),
      typeof(  ControlCharacterCreationStageReturnInt  ),
